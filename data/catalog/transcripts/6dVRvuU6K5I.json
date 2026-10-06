@@ -1,6 +1,6 @@
 {
  "id": "6dVRvuU6K5I",
- "model": "gemini-3.8-flash",
+ "model": "gemini-3.8-flash, gemini-3.5-flash",
  "created_at": "2026-10-06T05:42:10.690909Z",
  "duration": 3382.1,
  "chunks": 5,
