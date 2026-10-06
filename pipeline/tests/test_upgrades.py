@@ -267,3 +267,20 @@ def test_upgrade_rejected_when_much_shorter(fake_audio) -> None:
     old = _existing(["good", "good"], words=100)
     assert transcribe.transcribe_video(gem, _meta(), existing=old) is None
     assert len(gem.calls) == 2
+
+
+@pytest.mark.parametrize(
+    ("now_utc", "reset_utc"),
+    [
+        # 01:59 EDT (05:59 UTC) → midnight Pacific is 07:00 UTC the same day.
+        (datetime(2026, 10, 6, 5, 59, tzinfo=UTC), datetime(2026, 10, 6, 7, 0, tzinfo=UTC)),
+        # 10:00 EDT → next midnight Pacific, 07:00 UTC tomorrow.
+        (datetime(2026, 10, 6, 14, 0, tzinfo=UTC), datetime(2026, 10, 7, 7, 0, tzinfo=UTC)),
+        # Winter (PST, UTC-8).
+        (datetime(2026, 12, 1, 12, 0, tzinfo=UTC), datetime(2026, 12, 2, 8, 0, tzinfo=UTC)),
+    ],
+)
+def test_next_quota_reset_is_midnight_pacific(now_utc, reset_utc) -> None:
+    from catalog.gemini import next_quota_reset
+
+    assert next_quota_reset(now_utc.timestamp()) == reset_utc.timestamp()

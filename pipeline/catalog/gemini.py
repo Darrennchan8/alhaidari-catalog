@@ -5,10 +5,12 @@ from __future__ import annotations
 import json
 import logging
 import os
-import re
 import threading
 import time
+from datetime import datetime, timedelta
+from datetime import time as dt_time
 from typing import TypeVar
+from zoneinfo import ZoneInfo
 
 from google import genai
 from google.genai import errors, types
@@ -144,8 +146,7 @@ class Gemini:
         return min(available, key=lambda m: (overloaded.get(m, 0) // 2, available.index(m)))
 
     def _mark_exhausted(self, model: str, err: errors.ClientError) -> None:
-        retry = re.search(r"retryDelay'?:\s*'(\d+)s", str(err))
-        until = time.time() + (int(retry.group(1)) if retry else 6 * 3600)
+        until = next_quota_reset(time.time())
         with self._lock:
             self._exhausted[model] = until
             _save_quota(self._exhausted)
@@ -166,6 +167,15 @@ class Gemini:
 
 
 QUOTA_FILE = config.RAW / "quota.json"
+QUOTA_TZ = ZoneInfo("America/Los_Angeles")
+
+
+def next_quota_reset(now: float) -> float:
+    """Daily request quotas reset at midnight Pacific time. (The 429's retryDelay is not
+    reliable for this: observed values pointed at midnight UTC, ~17 hours too late.)"""
+    local = datetime.fromtimestamp(now, QUOTA_TZ)
+    midnight = datetime.combine(local.date() + timedelta(days=1), dt_time(), tzinfo=QUOTA_TZ)
+    return midnight.timestamp()
 
 
 def _is_daily_quota(err: errors.ClientError) -> bool:
