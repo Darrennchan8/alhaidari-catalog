@@ -1,0 +1,26 @@
+{
+ "id": "eW7KGHGjhgA",
+ "model": "gemini-3-flash-preview",
+ "created_at": "2026-10-06T06:53:06.930034Z",
+ "source": "metadata",
+ "title_en": "Most Narrations in Tafsir al-Qummi are not from the Imams of the Ahl al-Bayt (peace be upon them)",
+ "description_en": "",
+ "summary": "A critical discussion regarding the authenticity and attribution of narrations found in the classical exegesis Tafsir al-Qummi.",
+ "key_points": [],
+ "topics": [
+  "Ahl al-Bayt",
+  "Tafsir al-Qummi",
+  "hadith",
+  "science of narrators"
+ ],
+ "series_en": "Other Lectures",
+ "episode": null,
+ "format": "lecture",
+ "references": {
+  "quran": [],
+  "people": [],
+  "works": [
+   "Tafsir al-Qummi"
+  ]
+ }
+}

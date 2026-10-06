@@ -1,0 +1,2756 @@
+{
+ "id": "6dVRvuU6K5I",
+ "model": "gemini-3.8-flash",
+ "created_at": "2026-10-06T05:42:10.690909Z",
+ "duration": 3382.1,
+ "chunks": 5,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 25.0,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Welcome, dear viewers of Al-Iraqiya TV, to today's episode, which is the fifth episode in the series of episodes that I have recorded and continue to record with His Eminence, the religious authority (marja') Sayyid Kamal al-Haydari, continuing on the topic of the dialogue between religion and secularism (al-'almaniyya). I renew my welcome to you, Sayyid, in this series of episodes and in today's episode. May God protect you, welcome.",
+   "terms": [
+    "المرجع الديني",
+    "العلمانية"
+   ]
+  },
+  {
+   "start": 25.0,
+   "end": 48.0,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "As a reminder, in the previous episode, we concluded the discussion regarding the theories that grant legitimacy to the ruler: either legitimacy from above, as you phrased it, or legitimacy from the Muslim community (umma), the citizens, or the community according to different doctrinal foundations (mabani).",
+   "terms": [
+    "شرعية",
+    "الأمة",
+    "المباني"
+   ]
+  },
+  {
+   "start": 48.0,
+   "end": 77.0,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Remaining on this topic—which, of course, after our elaboration on the definition of secularism, slipped through our hands because we wanted to delve into more important topics—and since, as you know, we are discussing the Iraqi reality: In the Iraqi reality, there is a problem. And critics often mock this, saying, \"By God, you are, to use the Iraqi expression, living in luxury (fayikh).\" There is killing; there is killing among those who differ.",
+   "terms": [
+    "العراق"
+   ]
+  },
+  {
+   "start": 77.0,
+   "end": 102.0,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "\"You call for dialogue, yet people are killing one another! Come dialoguing, and then you bring us centrist, moderate figures.\" So it seems as though the subject of dialogue—not the program, but the subject of dialogue—is on one side, including all interlocutors, whether authorities (maraji'), clerics, secularists, or whatever, while reality is on another side, running parallel to it. So today, I want to discuss the issue of excommunication (takfir) and killing.",
+   "terms": [
+    "الحوار",
+    "التكفير",
+    "القتل"
+   ]
+  },
+  {
+   "start": 102.0,
+   "end": 120.0,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Does this have foundational bases, principles, and rules within Shi'i jurisprudence (fiqh), not to mention Sunni jurisprudence—since the Iraqi reality encompasses both Sunna and Shi'a? Or not? Is this an anomaly or not an anomaly? And how can it be addressed?",
+   "terms": [
+    "الفقه",
+    "السنة",
+    "الشيعة"
+   ]
+  },
+  {
+   "start": 120.0,
+   "end": 136.0,
+   "speaker": "al-Haydari",
+   "kind": "dua",
+   "text": "I seek refuge in God, the All-Hearing, the All-Knowing, from the accursed Satan. In the name of God, the Most Compassionate, the Most Merciful, and in Him we seek aid. Blessings and peace be upon Muhammad and his pure, immaculate household. O God, bless Muhammad and the family of Muhammad and hasten their relief.",
+   "terms": [
+    "أهل البيت",
+    "محمد"
+   ]
+  },
+  {
+   "start": 136.0,
+   "end": 160.0,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "In fact, this issue—the issue of takfir on the one hand, and then killing the one you declare an unbeliever on the other—is not new in the history of the religion of Islam. Both schools. Yes.",
+   "terms": [
+    "التكفير",
+    "القتل",
+    "الإسلام"
+   ]
+  },
+  {
+   "start": 160.0,
+   "end": 199.0,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "In fact, it even exists in previous dispensations, or according to the popular term—as they say, \"A widespread mistake is better than an obscure correct usage\"—as in previous religions. When you look back at the wars, the mutual fighting, and the takfir that occurred between Catholics and Protestants in the sixteenth century, where hundreds of thousands fell victim, those were also wars whose origin was what? Religion. In other words, their origin was a religious reading.",
+   "terms": [
+    "الشرائع السابقة",
+    "التكفير"
+   ]
+  },
+  {
+   "start": 199.0,
+   "end": 221.0,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Likewise, when we come to Islam, we also find a history full of takfir, full of bloodshed, and grounded in religious foundations as well. Fine.",
+   "terms": [
+    "الإسلام",
+    "التكفير",
+    "الدماء"
+   ]
+  },
+  {
+   "start": 221.0,
+   "end": 243.0,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Al-Shahrastani, in Al-Milal wa-l-Nihal—I want to pause at a single phrase. Al-Shahrastani says in Al-Milal wa-l-Nihal: \"No sword was ever drawn in Islam as it was drawn over the Imamate.\" Over disagreement regarding the Imamate. Over disagreement. Now we are speaking, if you permit me, about within Islam, among those who differ within Islam.",
+   "terms": [
+    "الشهرستاني",
+    "الملل والنحل",
+    "الإمامة"
+   ]
+  },
+  {
+   "start": 243.0,
+   "end": 280.0,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Within Islam! Those whose doctrine is one, their divine unity (tawhid) is one, their doctrinal foundations are one, their Book is one, their qibla is one, their prayer is one, their fasting is one—aside from some jurisprudential differences. Yet despite that, no sword was ever drawn in Islam more than what was drawn—where? Over disagreement regarding the Imamate. Over disagreement regarding the issue of the Imamate. In the introduction to Al-Milal wa-l-Nihal, al-Shahrastani points out this reality and explains why such disagreement occurred.",
+   "terms": [
+    "التوحيد",
+    "الإمامة",
+    "القبلة"
+   ]
+  },
+  {
+   "start": 280.0,
+   "end": 307.0,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Therefore, I want to proceed from the Sunni and Shi'i concepts of the Imamate. Or, as we noted in the previous episode, political authority (al-wilaya al-siyasiyya). Yes, political authority according to the Sunna, and political authority according to the Shi'a and the school of the Ahl al-Bayt. Briefly, since we touched upon it. Briefly, yes, yes. No, now I do not want to go into that detailed discussion; I just want to say this will be the central axis of the discussion.",
+   "terms": [
+    "الإمامة",
+    "الولاية السياسية",
+    "أهل البيت"
+   ]
+  },
+  {
+   "start": 307.0,
+   "end": 350.0,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "The Sunni school, or the Ahl al-Sunna, believed that when the caliphate was established for the first caliph at the Saqifa of Bani Sa'ida, and established for the second caliph in the manner we know, and established for the third caliph—let me qualify: for the caliph, and especially the first and second caliphs—this was tantamount to an essential matter (amr daruri) in the Islamic Sacred Law (Shari'a). We are speaking about the Ahl al-Sunna, meaning according to their doctrinal foundations. Yes.",
+   "terms": [
+    "أهل السنة",
+    "الخلافة",
+    "السقيفة",
+    "ضروري"
+   ]
+  },
+  {
+   "start": 350.0,
+   "end": 375.0,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "And there is a jurisprudential maxim that states: \"Whoever denies a necessity among the necessities of the Shari'a and religion is an unbeliever (kafir).\" Unbeliever. And since the Shi'a deny the legitimacy of the caliphate of the first and second caliphs, they have denied a necessity among the necessities of religion. Therefore, what are they? Unbelievers.",
+   "terms": [
+    "ضرورة دينية",
+    "كافر",
+    "الخلافة"
+   ]
+  },
+  {
+   "start": 375.0,
+   "end": 396.0,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "I will suffice with a single source, since you kindly asked to shorten the path for us, Mr. Sa'dun. This is the book Al-Mufhim lima Ashkala min Talkhis Kitab Muslim by Imam al-Qurtubi—this is someone other than al-Qurtubi the author of the Quranic commentary (tafsir). There, in volume six, page 249...",
+   "terms": [
+    "المفهم",
+    "القرطبي",
+    "صحيح مسلم"
+   ]
+  },
+  {
+   "start": 396.0,
+   "end": 440.0,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "He says: \"Rather, it indicates—do you not see? The upshot is that these hadiths are not such-and-such, but they are strong outward proofs (dhawahir) which, when supplemented by an inductive survey of what is in the Shari'a pointing to that meaning—which meaning? The succession of the first and second caliphs—make his entitlement to the caliphate and its establishment for him a legal necessity (darura shar'iyya). And whoever impugns his caliphate is definitively mistaken and marked by depravity (fisq); this is beyond dispute.\" Definitively. Definitively! There is no debate on this.",
+   "terms": [
+    "ضرورة شرعية",
+    "الخلافة",
+    "تفسيق"
+   ]
+  },
+  {
+   "start": 440.0,
+   "end": 466.0,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "\"For this reason, a Sunni does not pray behind what?\" A Shi'i. \"Behind a Shi'i! Why? Because he is certain of his...\" Depravity. \"Depravity! Up to this point.\" Aha. \"As for whether he is declared an unbeliever or not?\" Now depravity is one step, my master. Takfir: \"He says: There is disagreement regarding it, and the more evident view (al-adhhar) is declaring him an unbeliever (takfir).\" That settles it. All right.",
+   "terms": [
+    "فسق",
+    "تكفير",
+    "صلاة الجماعة"
+   ]
+  },
+  {
+   "start": 466.0,
+   "end": 492.0,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "What is the ruling on an unbeliever? Do they pat him on the head, or do they rid the earth of him? It is the ruling on an unbeliever, after all. Now, secondary titles might enter here and there... I want to say this is not in the capacity of issuing a formal legal ruling (ifta'); this is not a fatwa now. No, this is in the capacity of a fatwa! Let it be known to you, this is in the capacity of a fatwa; this is the theoretical foundation.",
+   "terms": [
+    "كافر",
+    "إفتاء",
+    "فتوى"
+   ]
+  },
+  {
+   "start": 492.0,
+   "end": 527.0,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "And for this reason, those who are in a position of issuing fatwas—now, in recent times—yes, he says this... This research is currently an explanation of a narration. But when he is in the position of issuing a fatwa, what does he decree? He decrees that this person is a Muslim or an unbeliever? An unbeliever. Rather, a polytheist (mushrik)! That is why you find the Salafi school today ruling that all Shi'a are polytheists—rather, ruling that many Muslims are polytheists! And that is why you find extremist movements today, like Daesh, al-Nusra, and others, not only killing Shi'a, but killing non-Shi'a as well. Why? Because they believe they are polytheists.",
+   "terms": [
+    "مشرك",
+    "السلفية",
+    "داعش"
+   ]
+  },
+  {
+   "start": 527.0,
+   "end": 552.0,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Fine. This is which school? The Sunni school. We must also examine the Shi'i school. Now, now, the Shi'i school. Now come to what? The Shi'i school. The Shi'i school believed from day one that the Imamate is considered a fundamental origin (asl) and pillar among the most important pillars of religious doctrine, on par with divine unity (tawhid), prophethood (nubuwwa), and the Resurrection (ma'ad). On the same level.",
+   "terms": [
+    "التوحيد",
+    "النبوة",
+    "المعاد",
+    "الإمامة"
+   ]
+  },
+  {
+   "start": 552.0,
+   "end": 582.0,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "And it also necessitates... A question: Now, whoever denies prophethood, what is he: a Muslim or an unbeliever? What is he? I ask you, based on Islamic culture: whoever denies the prophethood of the Noble Prophet, what is he? A Muslim or an unbeliever? An unbeliever, without question. Because by what means does one enter Islam? By what means does one enter? By testifying to the prophethood of the Messenger. That is why you find Shi'i scholars from first to last, from the dawn of Islam until today—now I will also refer to some sources.",
+   "terms": [
+    "النبوة",
+    "كافر",
+    "الشهادة"
+   ]
+  },
+  {
+   "start": 582.0,
+   "end": 613.0,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "This is Muntaha al-Matlab by al-'Allama al-Hilli—pay close attention—volume eight, page 360: \"Our position is that the Imamate is among the pillars and fundamental roots (usul) of religion.\" Here it is an asl. An asl! More important than legal necessity, because the other said the Imamate or the succession and legitimacy of the first caliph is a jurisprudential necessity, whereas this one believes it is what? An asl. An asl among the roots of religion and pillars of belief! \"And its establishment by the Prophet is known by necessity.\"",
+   "terms": [
+    "منتهى المطلب",
+    "العلامة الحلي",
+    "أصول الدين"
+   ]
+  },
+  {
+   "start": 613.0,
+   "end": 643.0,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "\"Thus, he also believed that the Imamate is among the necessary fundamental roots, not among theoretical roots. So the one who rejects it is an unbeliever!\" Is that clear? All right. This is al-Shaykh al-Mufid.",
+   "terms": [
+    "الجاحد",
+    "كافر",
+    "الشيخ المفيد"
+   ]
+  },
+  {
+   "start": 643.0,
+   "end": 675.0,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "That was al-'Allama in the eighth century. This is al-Shaykh al-Mufid in the fourth and fifth centuries. Awa'il al-Maqalat, page 44: \"The Imamiyya are unanimously agreed that whoever denies the Imamate of one of the Imams and rejects what God has obligated regarding obedience to them is an unbeliever, astray, deserving of eternal damnation in the Fire.\"",
+   "terms": [
+    "أوائل المقالات",
+    "الإمامية",
+    "الخلود في النار"
+   ]
+  },
+  {
+   "start": 675.0,
+   "end": 694.0,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Now, do all Muslims deny the Imamate of the Imams or do they not deny it? Yes. They deny it! So that means... So what are they? That means all... Unbelievers, astray, and not only that—what else? Deserving of eternal damnation in the Fire.",
+   "terms": [
+    "كفار",
+    "ضالون",
+    "النار"
+   ]
+  },
+  {
+   "start": 694.0,
+   "end": 720.82,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Now, it is as if, Sayyid, my enthusiasm for dialogue has dropped a bit. The doors are closed! Because the Sunnis declare all Shi'a unbelievers, and the Shi'a declare all Sunnis unbelievers, and these say those will abide eternally in Hellfire, and those say... I say here, here... Now you are telling me, \"Why are we afflicted with this?\" No, the problem is right here! I have only presented this... I am asking: what is the origin of this...",
+   "terms": [
+    "الحوار",
+    "التكفير",
+    "جهنم"
+   ]
+  },
+  {
+   "start": 720.82,
+   "end": 734.82,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "The stance... The issue with this stance is that we are talking here about principles, meaning foundational premises to which they return. Yes, yes. To which each party returns against the other. These are not theoretical issues where independent juristic reasoning (ijtihad) can take place, or a juristic opinion (fatwa). Yes, exactly!",
+   "terms": [
+    "أصول",
+    "الاجتهاد",
+    "فتوى"
+   ]
+  },
+  {
+   "start": 734.82,
+   "end": 749.82,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "The answer to this... indeed, if you permit me to read one or two more instances so that it becomes clear that this is the dominant view. This is the author of Bihar al-Anwar. The author of Bihar al-Anwar, in volume eight,",
+   "terms": [
+    "بحار الأنوار"
+   ]
+  },
+  {
+   "start": 749.82,
+   "end": 763.82,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "says: \"And it appears from some narrations (hadiths), indeed from many of them, that in this world they are under the ruling of unbelievers (kuffar).\" Who? The Muslims. The opponents. The opponents.",
+   "terms": [
+    "الأخبار",
+    "الكفار",
+    "المخالفين"
+   ]
+  },
+  {
+   "start": 763.82,
+   "end": 776.82,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "And in addition to that, he says: \"So when he appears\"—meaning the Twelfth Imam—\"he will apply to them the ruling of the rest of the unbelievers in all matters, and in the Hereafter they will enter the Fire, abiding therein forever with the unbelievers.\"",
+   "terms": [
+    "الكفار",
+    "الآخرة",
+    "النار"
+   ]
+  },
+  {
+   "start": 776.82,
+   "end": 799.82,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Now, you might ask: what is the source of their unbelief (kufr)? In volume 23, clearly and explicitly, he says: \"Know that the term polytheism (shirk) and unbelief apply to whoever does not believe in the Imamate of the Commander of the Faithful and the Imams from his progeny.\" He applied to them not only the term unbelief, but also what? Polytheism as well.",
+   "terms": [
+    "الشرك",
+    "الكفر",
+    "الإمامة",
+    "الأئمة"
+   ]
+  },
+  {
+   "start": 799.82,
+   "end": 819.82,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "I did not understand why he considered them polytheists (mushrikin). Ah. Who? I mean, we understood \"unbelievers\" because unbelief (kufr) is the covering up of the truth. Yes. But polytheism here... he does not say \"I am a polytheist,\" he denies the Imamate but he does not worship anyone other than God. Who? Why did he rule that he is guilty of polytheism?",
+   "terms": [
+    "مشركين",
+    "كفار",
+    "الإمامة",
+    "الشرك"
+   ]
+  },
+  {
+   "start": 819.82,
+   "end": 839.82,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Because these people believe... This is the author of al-Hada'iq al-Nadirah. Okay. In volume five, page...",
+   "terms": [
+    "الحدائق"
+   ]
+  },
+  {
+   "start": 839.82,
+   "end": 861.82,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "page 176, he says: \"It is well known that the two testimonies of faith (shahadatan) on their own are not sufficient except with commitment to what the Prophet brought.\" He says: \"The divine unity (tawhid) that does not have Imamate with it is not tawhid, but rather it is polytheism.\"",
+   "terms": [
+    "الشهادتين",
+    "التوحيد",
+    "إمامة",
+    "شرك"
+   ]
+  },
+  {
+   "start": 861.82,
+   "end": 881.82,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "How can this be? I mean... I say, these are the premises. I am establishing the... Yes, yes, I am establishing them, otherwise we would enter into the premise itself, and I can enter it with you. But he says: \"Any tawhid... what is true tawhid? It is that which comes by way of belief in the Imamate. So whoever does not believe in the Imamate, is he a monotheist or a polytheist?\"",
+   "terms": [
+    "المباني",
+    "التوحيد",
+    "الإمام",
+    "مشرك"
+   ]
+  },
+  {
+   "start": 881.82,
+   "end": 890.82,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "This is... who is this? This is the author of al-Hada'iq, an Akhbari scholar. Okay, let us continue. Let us continue. Now it has become clear up to this point. Yes.",
+   "terms": [
+    "الحدائق",
+    "أخباري"
+   ]
+  },
+  {
+   "start": 890.82,
+   "end": 914.82,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "I fear that someone might say, \"Our Sayyid, why do you go to the early scholars? The later scholars do not hold this view, do they?\" If you say this now to some, they will say, \"No, this was an old view, now it is not like this.\" This is Ayatollah al-Khoei. Ayatollah al-Khoei. Ayatollah al-Khoei, and the students of Ayatollah al-Khoei. Refer to their books, their websites, and so on.",
+   "terms": [
+    "المتقدمين",
+    "المتأخرين",
+    "السيد الخوئي"
+   ]
+  },
+  {
+   "start": 914.82,
+   "end": 933.82,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "In volume three, page 87, he says: \"The correct view is to rule that all those who differ with the Shi'a are ritually pure (taharah).\" He says, in terms of the ruling of purity and impurity—which I express as the jurisprudential ruling, not the doctrinal ruling, and not the theological ruling—",
+   "terms": [
+    "طهارة",
+    "المخالفين",
+    "نجاسة",
+    "الفقهي"
+   ]
+  },
+  {
+   "start": 933.82,
+   "end": 950.82,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "\"the ruling of their purity and their Islam\"—pay attention, now read all the practical treatises of jurisprudence, they write: \"and their Islam outwardly (zahiran).\" They always qualify the Islam of the opponent with which qualification? Outwardly.",
+   "terms": [
+    "طهارتهم",
+    "إسلامهم",
+    "ظاهراً",
+    "المخالف"
+   ]
+  },
+  {
+   "start": 950.82,
+   "end": 973.82,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Meaning... meaning inwardly they are not Muslim? \"Without any difference in that between the people of dispute and others.\" Now, let it be in your knowledge, everyone explicitly states this. Well, when I say \"opponents,\" it does not only mean those who deny the Imams. The Zaydis are also what? Also opponents. Yes, yes, because they do not believe in the twelve Imams. And the Isma'ilis are also opponents.",
+   "terms": [
+    "باطناً",
+    "المخالفين",
+    "الزيدية",
+    "الإسماعيلية"
+   ]
+  },
+  {
+   "start": 973.82,
+   "end": 995.82,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "This is the author of... who? al-Hada'iq. I do not speak from myself, my dear. This is the author of al-Hada'iq, my dear. He says: \"It should be known that everyone who went out of the Twelver sect from among the Shi'a, such as the Zaydiyya, the Waqifiyya, and the Fatahiyya, their apparent ruling is the ruling of the Nawasib (those who harbor hatred for the Ahl al-Bayt).\"",
+   "terms": [
+    "الحدائق",
+    "الزيدية",
+    "الواقفية",
+    "النواصب"
+   ]
+  },
+  {
+   "start": 995.82,
+   "end": 1025.82,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Okay. Pay attention, no, let me read the passage. He says: \"And even if all of them are in reality\"—Ayatollah al-Khoei says, all the opponents—\"unbelievers, and they are those whom we have named as 'Muslims of this world and unbelievers of the Hereafter.'\" This is a technical term that Ayatollah al-Khoei introduces. He says: \"When you place your hand on any Muslim, he is what? He is a Muslim in this world, and what? And an unbeliever in the Hereafter.\" That is what he means. Yes.",
+   "terms": [
+    "كافرين",
+    "المخالفين",
+    "مسلم الدنيا",
+    "كافر الآخرة"
+   ]
+  },
+  {
+   "start": 1025.82,
+   "end": 1043.82,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "So, you, Sayyid, have brought out the sources that I... which are described as extremist, I want to see them among the Sunnis and the Shi'a. And you have elaborated regarding the Shi'a. Yes. But is there the same thing regarding the Sunnis? More, even more extensive.",
+   "terms": [
+    "المصادر",
+    "السنة",
+    "الشيعة"
+   ]
+  },
+  {
+   "start": 1043.82,
+   "end": 1055.82,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Now I want the other side, which... which does not rule with unbelief, meaning from the very beginning, from the principles to the branches. Who is the trend that does not rule with unbelief, whose discourse is a bit more moderate?",
+   "terms": [
+    "الكفر",
+    "الأصول",
+    "الفروع"
+   ]
+  },
+  {
+   "start": 1055.82,
+   "end": 1091.82,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "The answer... the answer: if you permit me, before I explain the opposing trend, I think we must explain the roots of these juristic opinions (fatwas) and the roots of these theories. Meaning, why did the Sunni trend go toward declaring those who do not believe in its principles and the legitimacy of the Caliphate, or what it believes to be legitimate, as unbelievers? And why did the Shi'i trend also go toward declaring those who do not believe in the legitimacy of what it believes in as unbelievers? Why? What is the basis? Where is the root?",
+   "terms": [
+    "الفتاوى",
+    "الخلافة",
+    "التكفير"
+   ]
+  },
+  {
+   "start": 1091.82,
+   "end": 1104.82,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "My dear ones, there is an epistemological root and a textual root.",
+   "terms": [
+    "جذر معرفي",
+    "جذر نصي"
+   ]
+  },
+  {
+   "start": 1104.82,
+   "end": 1120.82,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "As for the epistemological root: the epistemological root is that each one of these prominent scholars believed that when he reaches a reading of the religious text, it is the absolute truth.",
+   "terms": [
+    "جذر معرفي",
+    "النص الديني",
+    "الحق"
+   ]
+  },
+  {
+   "start": 1120.82,
+   "end": 1145.82,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "And this is what, if you remember, in the previous episodes, we said that in dialogue, you should not assume that the truth is in your small or large pocket, my dear. Otherwise, if you believe this, your entire dialogue with the other will be about how to convince him to come to you, not how to be convinced that the truth might be present with him, or to reach a common ground. Never! All your concern, your debate, your disputation, your dialogue, your call, and your preaching, all of it is about how to drag him to what?",
+   "terms": [
+    "الحوار",
+    "الحقيقة",
+    "أرض مشتركة"
+   ]
+  },
+  {
+   "start": 1145.82,
+   "end": 1167.82,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "To the truth. To that which—exactly—the truth that you are upon. To the saved sect. This is the epistemological root. So, in any dialogue that you want between any two parties, if this epistemological root is not resolved, is dialogue possible or impossible? It is impossible. It closes the door of dialogue. It is completely closed, as it is now completely closed. And if there are dialogues in salons, sessions, coming and going, conferences, and so on, they do not produce any value, not even the value of the paper they are written on.",
+   "terms": [
+    "الحق",
+    "الفرقة الناجية",
+    "الحوار"
+   ]
+  },
+  {
+   "start": 1167.82,
+   "end": 1213.82,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Has it produced any result now in the 17 years in Iraq, my dear? How many conferences for reconciliation have taken place between Islamic schools of thought, and between political movements and others? Has it produced anything or has it not? On the ground, the problem is still present. Why? Why? Meaning, are all of these people agents? No, by God. Are all of these people biased? No, by God. Are all of these people sick? No, by God. But they have what kind of reference? A religious reference that says... Now, this is the epistemological one. What about the textual one?",
+   "terms": [
+    "المذاهب الإسلامية",
+    "مرجعية دينية"
+   ]
+  },
+  {
+   "start": 1213.82,
+   "end": 1232.82,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "As for the narrations (hadiths). As for the hadiths, we have proven—in the book \"The Narrated Heritage between Origin and Influence\"—that the source of excommunication (takfir) is the textual narration, not the Qur'anic text.",
+   "terms": [
+    "الروايات",
+    "التكفير",
+    "النص الروائي",
+    "النص القرآني"
+   ]
+  },
+  {
+   "start": 1232.82,
+   "end": 1253.82,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Meaning, you do not find in the Qur'an a single verse indicating that whoever does not believe in your belief must be declared an unbeliever and killed, my dear. It does not exist. Rather, the Qur'an spoke in the language of the community (umma), not in the language of the sect.",
+   "terms": [
+    "القرآن",
+    "آية",
+    "الأمة",
+    "المذهب"
+   ]
+  },
+  {
+   "start": 1253.82,
+   "end": 1267.82,
+   "speaker": "al-Haydari",
+   "kind": "quran",
+   "text": "It said: \"Verily, this brotherhood of yours is a single brotherhood\" [al-Anbiya 21:92]. Is that clear? It did not say: \"Verily, this...\"",
+   "terms": [
+    "أمتكم",
+    "أمة واحدة"
+   ]
+  },
+  {
+   "start": 1267.82,
+   "end": 1285.82,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Now, we must realize the concept of the umma. But we are not... The Shi'a do not say \"we are the umma,\" they say \"we are the true sect.\" And the Sunnis also do not say \"we are the umma,\" they say \"we are the saved sect.\"",
+   "terms": [
+    "الأمة",
+    "المذهب الحق",
+    "الفرقة الناجية"
+   ]
+  },
+  {
+   "start": 1285.82,
+   "end": 1297.82,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Returning to the Qur'anic text. Yes, the Qur'anic text perhaps—I am not sure, but you know better about this subject—perhaps it did not call for the killing of the one who differs. Yes. But it called for the killing of the unbeliever (kafir).",
+   "terms": [
+    "النص القرآني",
+    "المختلف",
+    "الكافر"
+   ]
+  },
+  {
+   "start": 1297.82,
+   "end": 1327.82,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "The answer... and here it gave a general rule. The answer, the answer: we must... So, my dear, this is a separate topic. Meaning, what do you do with hundreds of verses—supporting your words—with hundreds of verses that called to what? \"Fight those of the disbelievers who are near to you.\"",
+   "terms": [
+    "آيات",
+    "قاتلوا"
+   ]
+  },
+  {
+   "start": 1327.82,
+   "end": 1349.82,
+   "speaker": "al-Haydari",
+   "kind": "quran",
+   "text": "This is among the clearest of the clear verses: \"Fight those of the disbelievers who are near to you\" [al-Tawbah 9:123]. My dear, I am not talking now about the unbelievers. I am talking about what? About the Muslims among themselves. That is another discussion. The non-Muslim, what is the responsibility toward him? I am talking now... you are saying we have dialogue within... Let us stay with the dialogue.",
+   "terms": [
+    "قاتلوا",
+    "الكفار",
+    "المسلمين",
+    "الحوار"
+   ]
+  },
+  {
+   "start": 1349.82,
+   "end": 1360.82,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Exactly! I am talking now within the Islamic framework and the Islamic epistemological system. I am talking within what? Within the Islamic umma.",
+   "terms": [
+    "المنظومة الإسلامية",
+    "الأمة الإسلامية"
+   ]
+  },
+  {
+   "start": 1360.82,
+   "end": 1375.82,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "In the course of the discussion, Sayyid, I was thinking in the next episode to discuss the transformations that occurred with Sayyid al-Haydari. Very good, very good. No objection, no objection, and I will say them to you. Okay. So if we discuss them, we might also pass by this... We will pass by this, exactly, which is basically why I ended up with this result, which I will answer your question about. So, the original root of takfir among Muslims, if we talk about the epistemological dimension, it is the belief that each party possesses what?",
+   "terms": [
+    "التحولات",
+    "السيد الحيدري",
+    "التكفير"
+   ]
+  },
+  {
+   "start": 1375.82,
+   "end": 1393.82,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "The truth. And the right. This is the epistemological root. And the textual root, or the textual evidence, is the hadith-based root, or the hadith-based texts.",
+   "terms": [
+    "الحقيقة",
+    "الحق",
+    "الجذر المعرفي",
+    "الجذر الروائي"
+   ]
+  },
+  {
+   "start": 1393.82,
+   "end": 1404.82,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Among the transformations... among... yes, please, Sayyid, continue.",
+   "terms": [
+    "التحولات"
+   ]
+  },
+  {
+   "start": 1404.82,
+   "end": 1439.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "And this... there are, especially in the school of the Ahl al-Bayt, there are hundreds of narrations, if not thousands of narrations, declaring the non-Twelver Shi'i as an unbeliever. Now, now, I want to take your opinion later regarding the transformations, that regarding this subject, what is your opinion, and does it fall within the transformations or not? But before that, I asked about the parallel line among the Sunnis and the Shi'a. We have brought out the narrations and the principles. Yes.",
+   "terms": [
+    "أهل البيت",
+    "الروايات",
+    "التحولات",
+    "الأصول"
+   ]
+  },
+  {
+   "start": 1439.66,
+   "end": 1447.66,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "that excommunicates (takfir) the other, yes, from within the Muslim community (umma)?",
+   "terms": [
+    "تكفر",
+    "الأمة"
+   ]
+  },
+  {
+   "start": 1447.66,
+   "end": 1449.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "From within the umma, and from among the major scholars of the umma.",
+   "terms": [
+    "الأمة",
+    "علماء"
+   ]
+  },
+  {
+   "start": 1449.66,
+   "end": 1452.66,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Fine. What about the other side? The other side that does not excommunicate, but calls to...",
+   "terms": [
+    "تكفر"
+   ]
+  },
+  {
+   "start": 1452.66,
+   "end": 1466.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "The answer: In reality, I have not closely followed Sunni thought. I do not know if there exists among them anyone who has not truly excommunicated other Muslims. It is not just that they judge them to be outwardly our brothers, as we say. We also do not excommunicate; we say they are our brothers, what? Outwardly.",
+   "terms": [
+    "الفكر",
+    "السني",
+    "يكفر",
+    "ظاهراً"
+   ]
+  },
+  {
+   "start": 1466.66,
+   "end": 1476.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Outwardly. He might say to us that the Shi'a are our brothers outwardly, but in reality, what is it? In the foundational principles (ta'sil)...",
+   "terms": [
+    "الشيعة",
+    "ظاهراً",
+    "التأصيل"
+   ]
+  },
+  {
+   "start": 1476.66,
+   "end": 1488.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "In the foundational principles, he believes in their unbelief (kufr). I have not followed... I do not know of anyone among them who says: \"We judge and believe...",
+   "terms": [
+    "التأصيل",
+    "كفر",
+    "نعتقد"
+   ]
+  },
+  {
+   "start": 1488.66,
+   "end": 1501.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "...not only in their outward Islam, but in their actual faith (iman), and that they will be saved in the Hereafter, and that this is their reading, and that this is their independent juristic reasoning (ijtihad).\" I have not found this. Yes, please, Sayyid.",
+   "terms": [
+    "إسلامهم",
+    "إيمانهم",
+    "الآخرة",
+    "اجتهادهم"
+   ]
+  },
+  {
+   "start": 1501.66,
+   "end": 1509.66,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "This library that forms the background of the studio, I have seen it. All of it consists of Sunni sources.",
+   "terms": [
+    "المكتبة",
+    "مصادر",
+    "سنية"
+   ]
+  },
+  {
+   "start": 1509.66,
+   "end": 1517.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Yes, all of them. So you are a follower of it. Yes, I follow it. This means your opinion is that if there were a famous opinion, or even a rare one, you would have mentioned it.",
+   "terms": [
+    "متابع"
+   ]
+  },
+  {
+   "start": 1517.66,
+   "end": 1526.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Not just a famous one; if there were even a rare individual, I would have told you. This means your statement is based on non-existence. Yes, yes. I did not find any. That is why I say, to be academically precise, I have not found anyone among them who said it.",
+   "terms": [
+    "مشهور",
+    "نادر",
+    "علمياً"
+   ]
+  },
+  {
+   "start": 1526.66,
+   "end": 1537.66,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Regarding the Shi'i school? The answer, the answer: I say this, to use the technical seminary (hawza) expression, with absolute certainty.",
+   "terms": [
+    "المدرسة",
+    "الشيعية",
+    "الحوزوي"
+   ]
+  },
+  {
+   "start": 1537.66,
+   "end": 1556.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Meaning, I am absolutely certain of what I say. There is no... there is no Twelver Shi'i scholar except that he rules that all other Muslims are inwardly unbelievers.",
+   "terms": [
+    "عالم",
+    "شيعي",
+    "المسلمين",
+    "باطناً"
+   ]
+  },
+  {
+   "start": 1556.66,
+   "end": 1576.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Yes, they differ regarding their outward status: do they have the status of unbelievers or the status of Muslims? Some of them say: \"Even outwardly, they have the status of unbelievers,\" such as the author of al-Hada'iq. He says: \"They are judged to have worldly unbelief and worldly impurity (najasa), so they have the status of dogs and pigs.\"",
+   "terms": [
+    "الكفار",
+    "المسلمين",
+    "الحدائق",
+    "النجاسة"
+   ]
+  },
+  {
+   "start": 1576.66,
+   "end": 1598.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "This is the author of al-Hada'iq, and he states it explicitly. And some of them? And the others, which is the famous opinion now, like Ayatollah al-Khoei and other prominent scholars—indeed, almost all of our jurists—say: \"We judge them to be outwardly Muslim, but as for the inward reality, the resurrection in the Hereafter, and the theological dimension, the scholars of the Shi'a are in consensus on their unbelief.\"",
+   "terms": [
+    "الخوئي",
+    "فقهائنا",
+    "باطناً",
+    "الشيعة"
+   ]
+  },
+  {
+   "start": 1598.66,
+   "end": 1609.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "And I say this based on thorough investigation. And whoever says otherwise... Now, let Sayyid al-Haydari convince me that this is not a necessary implication of the religious system.",
+   "terms": [
+    "تتبع",
+    "الحيدري",
+    "المنظومة",
+    "الدينية"
+   ]
+  },
+  {
+   "start": 1609.66,
+   "end": 1620.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "This is not from the system; this is from the implications of the reading they adopted for the Imamate. This is what I will explain. But they do not differ on this. My master, it is impossible that they do not differ; otherwise, they would have differed on this.",
+   "terms": [
+    "المنظومة",
+    "القراءة",
+    "الإمامة"
+   ]
+  },
+  {
+   "start": 1620.66,
+   "end": 1634.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "They did not differ. They did not differ. This means the system imposes it on them. No, I am telling you, do not say \"the system.\" Say \"the reading they adopted\" forced this result upon them. Did they all adopt this reading? In this reading, they agreed. In this reading, they agreed.",
+   "terms": [
+    "المنظومة",
+    "القراءة",
+    "النتيجة"
+   ]
+  },
+  {
+   "start": 1634.66,
+   "end": 1642.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "In this reading, they agreed. Why? The answer, the answer: Why? The hadith-based texts.",
+   "terms": [
+    "القراءة",
+    "النصوص",
+    "الروائية"
+   ]
+  },
+  {
+   "start": 1642.66,
+   "end": 1650.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "What about them? They lead them to this agreement. Fine, where do you stand? As for me, I do not believe in this.",
+   "terms": [
+    "الاتفاق",
+    "أعتقد"
+   ]
+  },
+  {
+   "start": 1650.66,
+   "end": 1667.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "On an epistemological level, because I do not believe that anyone possesses the absolute truth. This is my principle, and we have stated this in previous episodes. So, if you ask me about transformations, I say one of the most important transformations for me is that I do not believe in the existence of absolute truth with anyone.",
+   "terms": [
+    "المعرفي",
+    "الحقيقة",
+    "المطلقة",
+    "التحولات"
+   ]
+  },
+  {
+   "start": 1667.66,
+   "end": 1681.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Rather, it is an ijtihad that may be correct or incorrect. This is the epistemological root. As for the textual evidence, I believe that in the hadith-based texts, there is fabrication, lying, and forgery beyond imagination.",
+   "terms": [
+    "اجتهاد",
+    "المعرفي",
+    "الروائي",
+    "الوضع"
+   ]
+  },
+  {
+   "start": 1681.66,
+   "end": 1709.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Therefore, what did I do? I said: then this hadith-based system must be evaluated against the Qur'anic text and the centrality of the Qur'an. This is what I want to say. I want to say that the foundational principles—although we are dragging the episode and the viewers into specialized issues—saving the religious system from this problem requires a strong foundational framework.",
+   "terms": [
+    "الروائية",
+    "القرآني",
+    "المنظومة",
+    "التأصيل"
+   ]
+  },
+  {
+   "start": 1709.66,
+   "end": 1731.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Yes, yes, I have no problem. I am speaking to whoever wants to sit and discuss. My friend, I do not claim that all truth is in my hands. I am saying that what you are saying, these are its results. What you are saying, these are the results of your epistemological system and that official reading of the Imamate.",
+   "terms": [
+    "الحقيقة",
+    "المنظومة",
+    "المعرفية",
+    "الإمامة"
+   ]
+  },
+  {
+   "start": 1731.66,
+   "end": 1753.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "For the Shi'i Imamate and the Sunni Imamate. You have arrived at these results, and history is full of this, from the era of al-Mutawakkil until today. Go to history... Now, if you allow me, Sayyid, when I asked the question, I was aiming to solve the problem of this leading to killing. Now, this...",
+   "terms": [
+    "الإمامة",
+    "الشيعية",
+    "السنية",
+    "التاريخ"
+   ]
+  },
+  {
+   "start": 1753.66,
+   "end": 1773.66,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Yes, this leads to killing. But if the killer just searches a little, he will find justifications. After that, how do we treat the issue? We must treat it, we must revise the reading.",
+   "terms": [
+    "القتل",
+    "مبررات",
+    "القراءة"
+   ]
+  },
+  {
+   "start": 1773.66,
+   "end": 1796.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "May God reward you! This is what I claim. This is what you are asking me, my master. So I say to you: no one represents the religion; rather, it is a reading and ijtihad, no matter how far it reaches, even if there is consensus, agreement, or necessity. All of it remains a religious reading and not the religion itself. Therefore, I have the right to disagree with that reading.",
+   "terms": [
+    "الدين",
+    "قراءة",
+    "اجتهاد",
+    "إجماع"
+   ]
+  },
+  {
+   "start": 1796.66,
+   "end": 1816.66,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "I don't know if I managed to convey the idea. So, let me move to another topic, within the same theme. Yes. Which is: perhaps it will show us a way out for a solution. Of course, I do not believe in the unbelief of others, neither outwardly nor inwardly. Where are the boundaries of unbelief for you?",
+   "terms": [
+    "المحور",
+    "كفر",
+    "ظاهراً",
+    "باطناً"
+   ]
+  },
+  {
+   "start": 1816.66,
+   "end": 1833.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Yes? Where are the boundaries of unbelief? The answer: whoever does not believe, only. Pay close attention. Whoever does not believe. Of course, for me, if I establish his unbelief, I do not establish the permissibility of shedding his blood, let it be known to you.",
+   "terms": [
+    "كفر",
+    "يعتقد",
+    "دمه"
+   ]
+  },
+  {
+   "start": 1833.66,
+   "end": 1846.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Because the jurists, when they establish someone's unbelief, they say: \"If he is in the Domain of Islam (dar al-islam), his blood is not permissible to shed. But if he is in the Domain of War (dar al-harb)...\"",
+   "terms": [
+    "الفقهاء",
+    "كفره",
+    "دار الإسلام",
+    "دار الحرب"
+   ]
+  },
+  {
+   "start": 1846.66,
+   "end": 1867.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "In the Domain of Islam, because he is under protection, under the custody... Yes, excellent, meaning under Islamic governance, meaning he is from the People of the Covenant (ahl al-dhimma), or any other status. Therefore, Ibn Baz says that the Shi'a who live in Saudi Arabia are treated as the People of the Book, the People of the Covenant.",
+   "terms": [
+    "دار الإسلام",
+    "الحاكمية",
+    "الذمة",
+    "الشيعة"
+   ]
+  },
+  {
+   "start": 1867.66,
+   "end": 1879.66,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "This is somewhat of a way out. Yes, yes, so that they do not kill them. Otherwise, he says that of course, if they declare their polytheism (shirk), they must be killed. There is another topic... No, let me finish, let me finish.",
+   "terms": [
+    "يقتلهم",
+    "شركهم",
+    "قتلوهم"
+   ]
+  },
+  {
+   "start": 1879.66,
+   "end": 1907.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "So if you ask me, what are the boundaries of unbelief for you? The answer: whoever does not believe... whoever does not believe that this person, who is Muhammad ibn Abdillah (peace be upon him and his family), the Messenger of God, is a messenger from God, then he is outside of Islam. So he is no longer called a Muslim, but he is called what? An unbeliever, a non-Muslim. It doesn't matter, whatever title. He is not called a Muslim; he is called a non-Muslim. But there is no correlation between not being a Muslim and the permissibility of shedding his blood.",
+   "terms": [
+    "كفر",
+    "رسول الله",
+    "الإسلام",
+    "مسلم"
+   ]
+  },
+  {
+   "start": 1907.66,
+   "end": 1929.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "And I do not accept the theory of the Domain of Islam and the Domain of War, my master. This, for me, was related to those temporal circumstances, and now it is the Domain of Peace (dar al-salam), not the Domain of War, my master.",
+   "terms": [
+    "دار الإسلام",
+    "دار الحرب",
+    "دار السلام"
+   ]
+  },
+  {
+   "start": 1929.66,
+   "end": 1943.66,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "So, wherever he is, his blood is protected. He needs another title... Under other titles, which is if we assume he committed such-and-such, or did... that is another discussion. But under the title that he is an unbeliever, so his blood is permissible to shed? This is closed for me. Let alone if he is a Muslim.",
+   "terms": [
+    "كافر",
+    "دمه",
+    "مسلم"
+   ]
+  },
+  {
+   "start": 1943.66,
+   "end": 1958.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "I am saying the non-Muslim, indeed even the atheist! You might say to me: \"My master, what if it is established that he is an apostate (murtadd)? And the apostate must be killed.\" The answer: this has not been established for me.",
+   "terms": [
+    "مسلم",
+    "الملحد",
+    "مرتد",
+    "قتله"
+   ]
+  },
+  {
+   "start": 1958.66,
+   "end": 1978.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "So, it is a completely different jurisprudential system that I have, other than this recognized and official system. You might ask: \"Does anyone agree with you?\" I say, as far as I know, no. I do not know of anyone who agrees with me. Not even your teachers? Yes? Your teachers? My teachers? I do not know of anyone.",
+   "terms": [
+    "المنظومة",
+    "الفقهية",
+    "أساتذتك"
+   ]
+  },
+  {
+   "start": 1978.66,
+   "end": 1991.66,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "I will not go into detail about the names. No, I say no one. I do not know of anyone who agrees. Fine. There is a topic related to this issue. We know that the religious decree (fatwa) is like a concept that needs to be applied to instances (masadiq). May God reward you! Yes, yes. When the jurist decrees, \"Kill the unbeliever...\"",
+   "terms": [
+    "الفتوى",
+    "المفهوم",
+    "المصاديق",
+    "الفقيه"
+   ]
+  },
+  {
+   "start": 1991.66,
+   "end": 2006.66,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Must the jurist himself say \"this is an unbeliever\" or not? Because leaving the matter to the laypeople—and the layperson does not possess the tools of discernment—they will say to you: \"Is there not a double mistake here?\" The second mistake is that...",
+   "terms": [
+    "الفقيه",
+    "كافر",
+    "المكلف",
+    "التمييز"
+   ]
+  },
+  {
+   "start": 2006.66,
+   "end": 2013.66,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "How can you let the layperson apply it?",
+   "terms": [
+    "المكلف"
+   ]
+  },
+  {
+   "start": 2013.66,
+   "end": 2028.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "The answer: a very, as they say, technical and academic question. One of the most important pillars upon which the religious institution, and especially the Shi'i institutions and seminaries, relied, is that they said: \"The jurist is not responsible for identifying the instances.\"",
+   "terms": [
+    "المؤسسة",
+    "الدينية",
+    "الفقيه",
+    "الموضوعات"
+   ]
+  },
+  {
+   "start": 2028.66,
+   "end": 2035.66,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Who is responsible for it? The layperson is responsible. The layperson distinguishes... That is what I am telling you, they say it is not his responsibility.",
+   "terms": [
+    "المكلف"
+   ]
+  },
+  {
+   "start": 2035.66,
+   "end": 2051.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "In other words, they say: \"Wine is forbidden.\" Is drinking wine permissible or forbidden? Forbidden. \"Is this wine or not?\" He says: \"This is your job, what does it have to do with me?\" Let me clarify for the viewer, let me clarify for the viewer, if you please. No, your question is very correct.",
+   "terms": [
+    "الخمر",
+    "حرام",
+    "شرب"
+   ]
+  },
+  {
+   "start": 2051.66,
+   "end": 2072.66,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Yes, yes, let me clarify for the viewer so he knows where the problem lies. Discernment... courts are established for discernment. It brings a judge, a lawyer, and an audience watching, to see if this person is a criminal or not. There is evidence saying he is a criminal. They see if this person is an unbeliever or not. They see if this person, for example, spoke such-and-such or did not speak, is he an atheist or not? Why? Because the matter requires clues and witnesses. It is not enough for someone to come and say to me, \"This is an atheist,\" and I shoot him with a pistol, right?",
+   "terms": [
+    "التمييز",
+    "المحاكم",
+    "كافر",
+    "ملحد"
+   ]
+  },
+  {
+   "start": 2072.66,
+   "end": 2079.66,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "So how can what belongs to the courts be left to individuals?",
+   "terms": [
+    "المحاكم",
+    "الأفراد"
+   ]
+  },
+  {
+   "start": 2079.66,
+   "end": 2099.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "The answer: because the jurist in the seminaries says: \"Is the judiciary in my hands or not?\" It is not in his hands. \"So I cannot interfere and say this and that. I give the criteria, and the layperson can apply them. And if he applies them incorrectly, he is responsible, not me.\"",
+   "terms": [
+    "الفقيه",
+    "القضاء",
+    "المكلف"
+   ]
+  },
+  {
+   "start": 2099.66,
+   "end": 2118.66,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Incidents of killing occurred. Yes, I am telling you, I am answering you. They say: \"If the judiciary were in my hands, I would say: no one has the right to accuse someone of being an unbeliever or an atheist unless he comes to me in court.\" But is the judiciary in my hands now in the official system or in the modern state, or is it not?",
+   "terms": [
+    "القتل",
+    "القضاء",
+    "كافر",
+    "ملحد"
+   ]
+  },
+  {
+   "start": 2118.66,
+   "end": 2132.66,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "But this could turn against him. I... and that is correct, and it did turn. And they killed some scholars, my master. Some Usulis issued decrees to kill some Akhbari scholars. Sheikh Muhammad al-Akhbari, my master, they killed him and cut him to pieces in al-Kadhimiya, my master. What else?",
+   "terms": [
+    "العلماء",
+    "الأصوليين",
+    "الأخباريين",
+    "الأخباري"
+   ]
+  },
+  {
+   "start": 2132.66,
+   "end": 2143.66,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Nothing else. I do not want to go into history, my master. Look at the battles that occurred between the Usulis and the Akhbaris, and the massacres that took place between them. That's it.",
+   "terms": [
+    "التاريخ",
+    "الأصولية",
+    "الأخبارية",
+    "المذابح"
+   ]
+  },
+  {
+   "start": 2143.66,
+   "end": 2156.66,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "I mean, I assume that... I don't know, is this a logical necessity, a necessity of...",
+   "terms": [
+    "لازمة",
+    "عقلية"
+   ]
+  },
+  {
+   "start": 2156.66,
+   "end": 2157.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "I agree with you. They also say, they also say: \"Yes, you do not have the right to say this is an apostate, this is an atheist, this is an unbeliever.\" Who must say it?",
+   "terms": [
+    "مرتد",
+    "ملحد",
+    "كافر"
+   ]
+  },
+  {
+   "start": 2157.36,
+   "end": 2162.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "I am saying, as the specialist, I am saying this. But now, is that in my hands or not?",
+   "terms": [
+    "متخصص"
+   ]
+  },
+  {
+   "start": 2162.36,
+   "end": 2163.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "So do not issue a fatwa.",
+   "terms": [
+    "تفتي"
+   ]
+  },
+  {
+   "start": 2163.36,
+   "end": 2173.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "He does not issue a fatwa! He says to the legally responsible person (mukallaf): \"Do not apply it yourself,\" or \"Apply it as you see fit, but I am not legally responsible for that.\"",
+   "terms": [
+    "المكلف",
+    "تفتي"
+   ]
+  },
+  {
+   "start": 2173.36,
+   "end": 2175.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "May I bring up a topic?",
+   "terms": []
+  },
+  {
+   "start": 2175.36,
+   "end": 2179.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Yes, please go ahead.",
+   "terms": []
+  },
+  {
+   "start": 2179.36,
+   "end": 2185.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "This is specific to the Shi'i system. Some of them do not issue a fatwa for jihad except in the presence of the Infallible (ma'sum).",
+   "terms": [
+    "المنظومة الشيعية",
+    "الجهاد",
+    "المعصوم"
+   ]
+  },
+  {
+   "start": 2185.36,
+   "end": 2188.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Some of them. Why?",
+   "terms": []
+  },
+  {
+   "start": 2188.36,
+   "end": 2191.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Because they say people might be killed unjustly, so the Infallible must be present. So why here...",
+   "terms": [
+    "المعصوم"
+   ]
+  },
+  {
+   "start": 2191.36,
+   "end": 2196.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "The answer is: some of them. In fact, you should know that recently, even Sayyid al-Khoei permitted offensive jihad (al-jihad al-ibtida'i).",
+   "terms": [
+    "السيد الخوئي",
+    "الجهاد الابتدائي"
+   ]
+  },
+  {
+   "start": 2196.36,
+   "end": 2198.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Offensive jihad?",
+   "terms": [
+    "الجهاد الابتدائي"
+   ]
+  },
+  {
+   "start": 2198.36,
+   "end": 2209.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Yes, yes. He said it is undertaken by the jurist who meets all the necessary conditions. In the latter parts of Minhaj al-Salihin, in its supplements, he permitted that under the principle of public interest (hisba).",
+   "terms": [
+    "الفقيه الجامع للشرائط",
+    "منهاج الصالحين",
+    "الحسبة"
+   ]
+  },
+  {
+   "start": 2209.36,
+   "end": 2217.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "I want... now we have entered into the details of the Islamic system, whether it is open to dialogue or not. We reached killing, excommunication (takfir), and so on.",
+   "terms": [
+    "المنظومة الإسلامية",
+    "التكفير"
+   ]
+  },
+  {
+   "start": 2217.36,
+   "end": 2232.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "There is a topic related to this issue. I have found that Sayyid al-Haydari, like many other religious and Islamic thinkers, jurists, and scholars, tries to find a way to whitewash the face of religion,",
+   "terms": [
+    "السيد الحيدري",
+    "الفقهاء",
+    "المفكرين"
+   ]
+  },
+  {
+   "start": 2232.36,
+   "end": 2244.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "or the face of Islam, which the secularist sees not as white, but perhaps gray. How? He says: \"These are multiple readings.\"",
+   "terms": [
+    "العلماني",
+    "قراءات متعددة"
+   ]
+  },
+  {
+   "start": 2244.36,
+   "end": 2252.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "This is not the religion. Every time you bring up something and say, \"Look, it decrees disbelief or decrees killing,\" he says, \"That is a reading.\" \"Look, it does this,\" he says, \"That is a reading.\"",
+   "terms": [
+    "قراءة",
+    "الكفر"
+   ]
+  },
+  {
+   "start": 2252.36,
+   "end": 2261.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Fine, I will not tell you whether you have the right or not to say \"readings.\" But I say: multiple readings, the multiplicity of readings, means as if God did not speak.",
+   "terms": [
+    "قراءة",
+    "تعدد القراءات"
+   ]
+  },
+  {
+   "start": 2261.36,
+   "end": 2271.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Since we have a thousand readings, God's reading is lost, the divine discourse is lost, which means God did not say anything.",
+   "terms": [
+    "قراءة",
+    "الخطاب الإلهي"
+   ]
+  },
+  {
+   "start": 2271.36,
+   "end": 2284.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Yes. I do not know why you view this multiplicity of readings that you speak of in such a negative light.",
+   "terms": [
+    "تعدد القراءات"
+   ]
+  },
+  {
+   "start": 2284.36,
+   "end": 2296.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "That is, you make the multiplicity of readings a negative thing, as if the reading must be... what? One.",
+   "terms": [
+    "تعدد القراءة",
+    "القراءة"
+   ]
+  },
+  {
+   "start": 2296.36,
+   "end": 2298.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Shall I answer, or...",
+   "terms": []
+  },
+  {
+   "start": 2298.36,
+   "end": 2300.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Yes, please answer. Yes, answer.",
+   "terms": []
+  },
+  {
+   "start": 2300.36,
+   "end": 2307.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Because—meaning the premise of the question, and this is not my personal question—it says that we are dealing with a transcendent discourse. The purpose of this discourse is to achieve a goal.",
+   "terms": [
+    "خطاب ماورائي"
+   ]
+  },
+  {
+   "start": 2307.36,
+   "end": 2315.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "If this goal is not achieved due to the multiplicity of readings, it means as if it did nothing. And since it is absolute, and since it is transcendent, it is supposed to have planned—it is smarter than us.",
+   "terms": [
+    "تعدد القراءات"
+   ]
+  },
+  {
+   "start": 2315.36,
+   "end": 2323.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Especially since there are previous experiences, like the Jewish experience and the Christian experience. And I once gave an example: if a merchant wanted to send money to the poor,",
+   "terms": []
+  },
+  {
+   "start": 2323.36,
+   "end": 2334.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "and along the way, the connection was cut—meaning the money did not arrive—he would try another, more precise way. And if it still did not arrive, by the third time, he would either stop or it would be incorrect for him to send the money in an unreliable way. So here, the multiplicity of readings means the goal was not achieved.",
+   "terms": [
+    "تعدد القراءات"
+   ]
+  },
+  {
+   "start": 2334.36,
+   "end": 2344.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "The answer: the multiplicity of readings, my dear, the multiplicity of readings, if it leads to people killing one another,",
+   "terms": [
+    "تعدد القراءة"
+   ]
+  },
+  {
+   "start": 2344.36,
+   "end": 2355.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "and excluding one another, and some people dominating and tyrannizing over others,",
+   "terms": []
+  },
+  {
+   "start": 2355.36,
+   "end": 2380.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "rest assured that this reading, or this multiplicity of readings, is it positive or negative? It is negative, clearly. Is that not so? However, when we come to the Holy Qur'an—and you are speaking from within the system, you are objecting to the multiplicity of readings within the religious and cognitive system—",
+   "terms": [
+    "تعدد القراءة",
+    "القرآن الكريم"
+   ]
+  },
+  {
+   "start": 2380.36,
+   "end": 2392.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Yes, I am speaking from within.",
+   "terms": []
+  },
+  {
+   "start": 2392.36,
+   "end": 2412.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "But if you return to the inside of the system, it says: \"I created you for difference, not for agreement.\" And this is what we pointed out in previous episodes, that difference is the principle of integration, not the principle of mutual conflict.",
+   "terms": [
+    "الاختلاف"
+   ]
+  },
+  {
+   "start": 2412.36,
+   "end": 2434.36,
+   "speaker": "al-Haydari",
+   "kind": "quran",
+   "text": "Then He says in another verse: \"O mankind, indeed We have created you from male and female\" for what? \"and made you peoples and tribes that you may know one another\" [al-Hujurat 49:13], not to fight one another. Not for some of you to kill others, not for some of you to bring down others, not for some of you to exclude others, is that not so?",
+   "terms": [
+    "لتعارفوا"
+   ]
+  },
+  {
+   "start": 2434.36,
+   "end": 2447.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "So if we find, pay close attention, if we find that the multiplicity of readings leads to mutual recognition and dialogue, then is this multiplicity positive or negative? It is positive. And if it leads to conflict...",
+   "terms": [
+    "تعدد القراءة",
+    "التعارف",
+    "الحوار"
+   ]
+  },
+  {
+   "start": 2447.36,
+   "end": 2475.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "This is the point. Excellent. This is the logic... I am speaking of the Qur'anic logic. Do not... sometimes I am imposing on the Qur'anic text what it does not say. You have the right to say: \"You want to whitewash the cognitive system. You want to find a way out to save the cognitive system from its negatives.\" And there are studies in this direction. They say: \"Wherever we object, they tell us: 'This is a reading.'\" The answer: I have a standard. I have a human intellect. I have human experience. That whenever the multiplicity of readings leads to what?",
+   "terms": [
+    "المنظومة المعرفية",
+    "النص القرآني",
+    "قراءة"
+   ]
+  },
+  {
+   "start": 2475.36,
+   "end": 2502.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "To difference...",
+   "terms": [
+    "الاختلاف"
+   ]
+  },
+  {
+   "start": 2502.36,
+   "end": 2510.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "No, not to difference. It leads to conflict, to bloodshed, to exclusion, to me claiming that I possess the absolute truth. Then know that the premises are correct or false?",
+   "terms": [
+    "التقاتل",
+    "الحقيقة المطلقة"
+   ]
+  },
+  {
+   "start": 2510.36,
+   "end": 2524.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "There is a theory in epistemology, and Sayyid al-Sadr often emphasized it in the principles of jurisprudence (usul al-fiqh)—Sayyid Muhammad Baqir al-Sadr. He says: \"If you believed in a theory, but when you came to apply it, you found it gave you contradictory results, know that the theory has a... what?\"",
+   "terms": [
+    "نظرية المعرفة",
+    "السيد الصدر",
+    "أصول الفقه"
+   ]
+  },
+  {
+   "start": 2524.36,
+   "end": 2527.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "A problem.",
+   "terms": [
+    "مشكلة"
+   ]
+  },
+  {
+   "start": 2527.36,
+   "end": 2535.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "A problem. And this is what the scientific mind operates upon. When it judges a theory by its results. Yes, I want to apply this cognitive theory...",
+   "terms": [
+    "العقل العلمي",
+    "النظرية المعرفية"
+   ]
+  },
+  {
+   "start": 2535.36,
+   "end": 2540.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "From outside the system, from outside...",
+   "terms": []
+  },
+  {
+   "start": 2540.36,
+   "end": 2547.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Yes, yes, it is my right! Because I believe that the human sciences—because I am a human being, and these are human sciences, and they are correct as well.",
+   "terms": [
+    "العلوم الإنسانية"
+   ]
+  },
+  {
+   "start": 2547.36,
+   "end": 2550.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Fine, these are among the transformations that you say we will point to in your thought.",
+   "terms": []
+  },
+  {
+   "start": 2550.36,
+   "end": 2557.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "If we discuss the issue of readings from outside the system. Yes, a secularist, perhaps a non-religious person, comes and says to you: \"Do you not say...",
+   "terms": [
+    "علماني",
+    "المنظومة"
+   ]
+  },
+  {
+   "start": 2557.36,
+   "end": 2562.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "...that God has goals, and He sent the message to achieve those goals?\"",
+   "terms": [
+    "الرسالة"
+   ]
+  },
+  {
+   "start": 2562.36,
+   "end": 2564.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Yes.",
+   "terms": []
+  },
+  {
+   "start": 2564.36,
+   "end": 2571.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "\"Well, this message, its goal of achieving those objectives was disrupted by the multiplicity of readings.\"",
+   "terms": [
+    "تعدد القراءات"
+   ]
+  },
+  {
+   "start": 2571.36,
+   "end": 2582.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "No, I do not say it was disrupted. I say it was integrated. It integrated so they may know one another. If you took it towards \"they fought one another,\" then did you achieve the goal of the Qur'an or did you violate the goal of the Qur'an? You violated it.",
+   "terms": [
+    "تكامل",
+    "لتعارفوا"
+   ]
+  },
+  {
+   "start": 2582.36,
+   "end": 2587.36,
+   "speaker": "al-Haydari",
+   "kind": "quran",
+   "text": "\"Invite to the way of your Lord with wisdom and good instruction, and argue with them in a way that is best\" [an-Nahl 16:125]. This is the logic of the Qur'an.",
+   "terms": [
+    "الحكمة",
+    "الموعظة الحسنة"
+   ]
+  },
+  {
+   "start": 2587.36,
+   "end": 2589.36,
+   "speaker": "al-Haydari",
+   "kind": "quran",
+   "text": "\"Repel [evil] by that [deed] which is better\" [Fussilat 41:34]. This is the logic of the Qur'an.",
+   "terms": []
+  },
+  {
+   "start": 2589.36,
+   "end": 2600.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "He would concede to you, he would concede to you, if the sole goal was difference. But there are—as they express it, they do not say \"goals,\" they do not say \"the goals of Islam,\" what do they say? I forgot.",
+   "terms": [
+    "الاختلاف",
+    "غايات الإسلام"
+   ]
+  },
+  {
+   "start": 2600.36,
+   "end": 2611.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Anyway, there are for the Absolute, for the Lawgiver, for the Shari'a—no, not for the Shari'a, for the Legislator of the Shari'a, the Absolute, God, He has goals.",
+   "terms": [
+    "الشارع",
+    "الشريعة",
+    "المشرع"
+   ]
+  },
+  {
+   "start": 2611.36,
+   "end": 2614.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Yes, these are His goals. It is not just difference, not just difference.",
+   "terms": [
+    "الاختلاف"
+   ]
+  },
+  {
+   "start": 2614.36,
+   "end": 2619.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "No, difference is for integration, for mutual recognition.",
+   "terms": [
+    "الاختلاف",
+    "التكامل",
+    "التعارف"
+   ]
+  },
+  {
+   "start": 2619.36,
+   "end": 2625.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "For mutual recognition. Fine, then the original goal is what? That they... in fact, man was created to integrate.",
+   "terms": [
+    "التعارف",
+    "التكامل"
+   ]
+  },
+  {
+   "start": 2625.36,
+   "end": 2632.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Is there not among the goals of God that He... not... reducing conflict, reducing killing?",
+   "terms": [
+    "القتل"
+   ]
+  },
+  {
+   "start": 2632.36,
+   "end": 2671.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Absolutely. No, killing—He did not call for killing at all, unless you say... those are other readings. I am saying that basically, He called for difference. You say: \"Why does He call for difference?\" Basically, He created us different. Why did He create us? And difference, you see, has ten elements: geographical difference, temporal difference, difference... No, I want to say that differences cannot be removed from man because they are existential.",
+   "terms": [
+    "القتل",
+    "الاختلاف"
+   ]
+  },
+  {
+   "start": 2671.36,
+   "end": 2673.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "This is agreed upon.",
+   "terms": []
+  },
+  {
+   "start": 2673.36,
+   "end": 2686.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "And He wanted difference so that it leads you to what? To your integration, not to your mutual conflict.",
+   "terms": [
+    "الاختلاف",
+    "تكاملكم",
+    "تقاتلكم"
+   ]
+  },
+  {
+   "start": 2686.36,
+   "end": 2688.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "This is also disputed.",
+   "terms": []
+  },
+  {
+   "start": 2688.36,
+   "end": 2690.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Disputed on what?",
+   "terms": []
+  },
+  {
+   "start": 2690.36,
+   "end": 2701.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "On what? Religion came into an environment that was in conflict with itself. One differs with another, and tribes, and so on. So it is supposed to lighten this burden on humanity.",
+   "terms": [
+    "الدين"
+   ]
+  },
+  {
+   "start": 2701.36,
+   "end": 2708.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "So when the multiplicity of readings entrenches it, as we have seen...",
+   "terms": [
+    "تعدد القراءات"
+   ]
+  },
+  {
+   "start": 2708.36,
+   "end": 2721.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "It does not entrench it! This is from what? This is from the fabricated narrations (riwayat) and the false cognitive theory.",
+   "terms": [
+    "الروايات",
+    "المنظومة المعرفية"
+   ]
+  },
+  {
+   "start": 2721.36,
+   "end": 2727.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Fine, my master. Is God restricted? Why does He make people...",
+   "terms": []
+  },
+  {
+   "start": 2727.36,
+   "end": 2732.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "What do you mean \"God is restricted\"? What do you mean \"God made the narrations\"?",
+   "terms": [
+    "الروايات"
+   ]
+  },
+  {
+   "start": 2732.36,
+   "end": 2744.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "The requirement of divine grace (al-lutf al-ilahi)...",
+   "terms": [
+    "اللطف الإلهي"
+   ]
+  },
+  {
+   "start": 2744.36,
+   "end": 2749.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "No, if you object... Excuse me, no, no, no, let me speak. Divine grace has nothing to do with such matters. Absolutely not. Divine grace does not intervene in these issues.",
+   "terms": [
+    "اللطف الإلهي"
+   ]
+  },
+  {
+   "start": 2749.36,
+   "end": 2754.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "But it intervened in the necessity of sending the Prophet. Evidence, evidence for sending the Prophet is divine grace.",
+   "terms": [
+    "إرسال النبي",
+    "اللطف الإلهي"
+   ]
+  },
+  {
+   "start": 2754.36,
+   "end": 2768.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "The answer: now we must know whether the evidence for sending the prophecy is grace or something else. There is no evidence that it is grace, my dear. You want to assume established principles that are not correct.",
+   "terms": [
+    "إرسال النبوة",
+    "اللطف"
+   ]
+  },
+  {
+   "start": 2768.36,
+   "end": 2773.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Yes, excellent. We are discussing the principles.",
+   "terms": [
+    "الأصول"
+   ]
+  },
+  {
+   "start": 2773.36,
+   "end": 2777.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Yes, excellent. The answer: this is the official theology (kalam), and it has no authority or consideration.",
+   "terms": [
+    "علم الكلام"
+   ]
+  },
+  {
+   "start": 2777.36,
+   "end": 2780.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "This is it. If this is your opinion. But I return...",
+   "terms": []
+  },
+  {
+   "start": 2780.36,
+   "end": 2788.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "I return and say—pay attention to me—so, if the narrations were made by God, meaning authored by God,",
+   "terms": [
+    "الروايات"
+   ]
+  },
+  {
+   "start": 2788.36,
+   "end": 2791.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "and issued by the Prophet and the Imams, I am with you.",
+   "terms": [
+    "النبي",
+    "الأئمة"
+   ]
+  },
+  {
+   "start": 2791.36,
+   "end": 2797.36,
+   "speaker": "al-Haydari",
+   "kind": "quran",
+   "text": "But God says: \"Indeed, it is We who sent down the message [i.e., the Qur'an] and indeed, We will be its guardian\" [al-Hijr 15:9]. I am responsible only for this.",
+   "terms": [
+    "الذكر",
+    "حافظون"
+   ]
+  },
+  {
+   "start": 2797.36,
+   "end": 2800.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "But I said: this bad difference,",
+   "terms": [
+    "الاختلاف"
+   ]
+  },
+  {
+   "start": 2800.36,
+   "end": 2804.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "the bad multiplicity of readings, did it happen in Christianity or not?",
+   "terms": [
+    "تعدد القراءات",
+    "المسيحية"
+   ]
+  },
+  {
+   "start": 2804.36,
+   "end": 2806.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Yes, and it happened in Judaism.",
+   "terms": [
+    "اليهودية"
+   ]
+  },
+  {
+   "start": 2806.36,
+   "end": 2808.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "It is the nature of human beings.",
+   "terms": [
+    "طبيعة البشر"
+   ]
+  },
+  {
+   "start": 2808.36,
+   "end": 2811.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "The nature of human beings!",
+   "terms": [
+    "طبيعة البشر"
+   ]
+  },
+  {
+   "start": 2811.36,
+   "end": 2816.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Fine, we agree. The Lord, God,",
+   "terms": []
+  },
+  {
+   "start": 2816.36,
+   "end": 2822.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "when He wanted to deliver a benefit, and it was disrupted by the multiplicity of readings,",
+   "terms": [
+    "تعدد القراءات"
+   ]
+  },
+  {
+   "start": 2822.36,
+   "end": 2827.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "another time He wanted to deliver it through Christianity, and it was disrupted by the multiplicity of readings. Does He repeat it a third time in Islam without a remedy?",
+   "terms": [
+    "تعدد القراءات",
+    "المسيحية",
+    "الإسلام"
+   ]
+  },
+  {
+   "start": 2827.36,
+   "end": 2830.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Without a remedy?",
+   "terms": []
+  },
+  {
+   "start": 2830.36,
+   "end": 2833.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "No, not without a remedy, because there is no other way.",
+   "terms": []
+  },
+  {
+   "start": 2833.36,
+   "end": 2835.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Why is there no other way?",
+   "terms": []
+  },
+  {
+   "start": 2835.36,
+   "end": 2840.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "There is no other way. That is, if He sends a prophet to you, what will he do?",
+   "terms": [
+    "نبي"
+   ]
+  },
+  {
+   "start": 2840.36,
+   "end": 2846.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "What? Give me the alternative way. He gives you the intellect. \"God has two proofs: an outward one and",
+   "terms": [
+    "العقل",
+    "حجتين"
+   ]
+  },
+  {
+   "start": 2846.36,
+   "end": 2848.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "an inward one.\" The outward proof is what?",
+   "terms": [
+    "الحجة الظاهرة"
+   ]
+  },
+  {
+   "start": 2848.36,
+   "end": 2852.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Revelation. And the inward proof is the intellect.",
+   "terms": [
+    "الوحي",
+    "الحجة الباطنة",
+    "العقل"
+   ]
+  },
+  {
+   "start": 2852.36,
+   "end": 2854.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Now I will tell you. Difference occurs",
+   "terms": [
+    "الاختلاف"
+   ]
+  },
+  {
+   "start": 2854.36,
+   "end": 2858.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "in the interpretation of constitutional texts.",
+   "terms": [
+    "النصوص الدستورية"
+   ]
+  },
+  {
+   "start": 2858.36,
+   "end": 2860.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Yes.",
+   "terms": []
+  },
+  {
+   "start": 2860.36,
+   "end": 2866.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "When the drafter of the constitutional text wants to, he writes",
+   "terms": [
+    "النص الدستوري"
+   ]
+  },
+  {
+   "start": 2866.36,
+   "end": 2871.36,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "a text that does not accept difference—so you do not tell me difference is necessary.",
+   "terms": [
+    "الاختلاف"
+   ]
+  },
+  {
+   "start": 2871.36,
+   "end": 2875.36,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "No, this is present before you, this is before you in Iraq!",
+   "terms": [
+    "العراق"
+   ]
+  },
+  {
+   "start": 2875.36,
+   "end": 2877.69,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Listen to me, listen to me. He writes a text",
+   "terms": []
+  },
+  {
+   "start": 2877.69,
+   "end": 2877.69,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "that does not accept any form of...",
+   "terms": []
+  },
+  {
+   "start": 2877.69,
+   "end": 2877.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Never! There is no constitutional text, nor any constitutional court, that does not differ. This is before you, this is before you in Iran.",
+   "terms": [
+    "نص دستوري",
+    "محكمة دستورية",
+    "إيران"
+   ]
+  },
+  {
+   "start": 2877.69,
+   "end": 2877.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Between me and God, there is... sorry, the Guardian Council (Shura-ye Negahban).",
+   "terms": [
+    "شوراي نگهبان"
+   ]
+  },
+  {
+   "start": 2877.69,
+   "end": 2877.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "The Guardian Council, or the body for guarding...",
+   "terms": []
+  },
+  {
+   "start": 2877.69,
+   "end": 2877.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "...guarding the constitution and guarding the laws or their conformity to such and such.",
+   "terms": [
+    "الدستور",
+    "القوانين"
+   ]
+  },
+  {
+   "start": 2877.69,
+   "end": 2877.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Look, when they issue laws and rulings, how many",
+   "terms": [
+    "القوانين",
+    "الأحكام"
+   ]
+  },
+  {
+   "start": 2877.69,
+   "end": 2877.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "objections and criticisms are directed at them?",
+   "terms": []
+  },
+  {
+   "start": 2877.69,
+   "end": 2877.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "And even, if you want to talk about Iraq, in Iraq now, look at the constitutional differences.",
+   "terms": [
+    "العراق",
+    "الاختلافات الدستورية"
+   ]
+  },
+  {
+   "start": 2877.69,
+   "end": 2877.69,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "I am not saying no.",
+   "terms": []
+  },
+  {
+   "start": 2877.69,
+   "end": 2877.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "That's it, then.",
+   "terms": []
+  },
+  {
+   "start": 2877.69,
+   "end": 2877.69,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "I am not saying no. I am saying the legislator, the judge...",
+   "terms": [
+    "المشرع",
+    "القاضي"
+   ]
+  },
+  {
+   "start": 2877.69,
+   "end": 2877.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "The answer: it is not possible.",
+   "terms": []
+  },
+  {
+   "start": 2877.69,
+   "end": 2877.69,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Why is it not possible?",
+   "terms": []
+  },
+  {
+   "start": 2877.69,
+   "end": 2877.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "It is not possible. The door is closed.",
+   "terms": []
+  },
+  {
+   "start": 2877.69,
+   "end": 2877.69,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "It is not possible for God?",
+   "terms": []
+  },
+  {
+   "start": 2877.69,
+   "end": 2877.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "No, no!",
+   "terms": []
+  },
+  {
+   "start": 2877.69,
+   "end": 2882.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "It is not possible with the existing tools. Because He wants to use words for you. How...",
+   "terms": []
+  },
+  {
+   "start": 2882.69,
+   "end": 2890.69,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "This leads me to... yes, yes, indeed. How does He convey to you what He wants? Through the Book He sends down. Does He have another way? This is a very good point. This could lead me to a question, even if the program doesn't cover it. This is an interesting discussion.",
+   "terms": []
+  },
+  {
+   "start": 2890.69,
+   "end": 2896.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Go ahead, please. Go ahead.",
+   "terms": []
+  },
+  {
+   "start": 2896.69,
+   "end": 2902.69,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Is the Qur'an the word of God absolutely, or is it the word of God restricted by the Arabic language?",
+   "terms": []
+  },
+  {
+   "start": 2902.69,
+   "end": 2922.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "The answer: not only is this Qur'an the word of God restricted by the Arabic language, but it is also restricted by the reading of the readers who read this Arabic language.",
+   "terms": []
+  },
+  {
+   "start": 2922.69,
+   "end": 2942.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "And restricted by those who dotted these words, because dotting occurred around 50 to 60 years after the passing of the Greatest Messenger (peace be upon him and his family). And not only is it restricted by this, but it is also restricted by the rules of grammar (nahw) and morphology (sarf) established by Sibawayh and al-Farahidi.",
+   "terms": [
+    "نحو",
+    "صرف"
+   ]
+  },
+  {
+   "start": 2942.69,
+   "end": 2945.69,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "And by the multiple readings of the Companions (sahaba)?",
+   "terms": [
+    "الصحابة"
+   ]
+  },
+  {
+   "start": 2945.69,
+   "end": 2960.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "And so on and so forth. This is what it has reached. You say to me, \"Does He have another way? What should He do? What does He do?\" Tell me, what should He do? He gives you reason ('aql). Well, He gave you reason, what does He do? Does He send a prophet with every single person?",
+   "terms": [
+    "العقل"
+   ]
+  },
+  {
+   "start": 2960.69,
+   "end": 2962.69,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "What is the benefit of infallibility ('isma) then?",
+   "terms": [
+    "العصمة"
+   ]
+  },
+  {
+   "start": 2962.69,
+   "end": 2973.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "The answer: if you want to investigate, this is actually a separate episode. I will investigate it for you. Because this which is in our hands...",
+   "terms": []
+  },
+  {
+   "start": 2973.69,
+   "end": 2986.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Is this the word of God as it was revealed to the heart of the Seal of Prophets, or is it not? Because the Messenger of God was the first to read the Qur'an, right? He is the Messenger of God, meaning he is the one who brought down the Book \"to make clear to mankind what has been sent down to them\" [an-Nahl 16:44].",
+   "terms": []
+  },
+  {
+   "start": 2986.69,
+   "end": 3005.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Some say \"to make clear to mankind\" means to explain. No, my dear. We sent down the Book to you, meaning the Trustworthy Spirit descended with it upon your heart that you may be of the warners, is that not so? Then he is supposed to make clear what was revealed to his heart. To whom does he make it clear? To the people. So he read it. The question is: how did he read it?",
+   "terms": []
+  },
+  {
+   "start": 3005.69,
+   "end": 3015.69,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "In the Arabic language, right?",
+   "terms": []
+  },
+  {
+   "start": 3015.69,
+   "end": 3032.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "He read it in the Arabic language. But did he read \"Maliki yawmi-d-deen\" (Owner of the Day of Judgment) or \"Maliki yawmi-d-deen\" (King of the Day of Judgment)? This Companion says he read it \"Malik\", and this Companion says what? And he might have read it with both readings, and he might have read it with a third reading, neither this nor that!",
+   "terms": []
+  },
+  {
+   "start": 3032.69,
+   "end": 3047.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "You say, \"Then what do we do?\" I say, this is what we have. \"God does not burden a soul beyond what He has given it\" [at-Talaq 65:7]. But this, and you are the expert on the issue of knowledge and epistemology, and how it must be constructed with precision according to foundations that connect to one another...",
+   "terms": []
+  },
+  {
+   "start": 3047.69,
+   "end": 3059.69,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Excellent. Here, if I discuss with you—and we have deviated from the religious-secular dialogue...",
+   "terms": []
+  },
+  {
+   "start": 3059.69,
+   "end": 3067.69,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Yes, we have deviated. No harm, it is interesting. If we reach the collection of the Qur'an...",
+   "terms": []
+  },
+  {
+   "start": 3067.69,
+   "end": 3081.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "The moment of collecting the Qur'an, and what can make you know what that was! Yes, yes, it is like this. That is why now, many prominent scholars, both Shi'a and Sunni, believe that this collection in our hands is the collection carried out by the third Caliph, 'Uthman.",
+   "terms": []
+  },
+  {
+   "start": 3081.69,
+   "end": 3090.69,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Is it not so? Meaning there are those who believe...",
+   "terms": []
+  },
+  {
+   "start": 3090.69,
+   "end": 3103.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Yes, yes. Muhammad 'Izzat Darwaza believes this is completely invalid in his exegesis (tafsir). Who is the majority with? There is no majority, because there are wide-ranging differences regarding the collection of the Qur'an. Because we have a collection during the time of Abu Bakr, we have one during the time of 'Umar, and we have a collection during the time of 'Uthman.",
+   "terms": [
+    "التفسير"
+   ]
+  },
+  {
+   "start": 3103.69,
+   "end": 3112.69,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "The burning incident occurred during the era of 'Uthman. Only. Which is the burning of all other codices (masahif). Which are certainly different codices.",
+   "terms": []
+  },
+  {
+   "start": 3112.69,
+   "end": 3127.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "Of course, yes, yes. I will give you just one example. Mahmud Abu Rayya—you know the author of the famous book about Abu Hurayra and so on—Mahmud Abu Rayya says...",
+   "terms": []
+  },
+  {
+   "start": 3127.69,
+   "end": 3157.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "\"How can I rely on the narrations (riwayat) when the Prophet (peace be upon him and his family), day and night, used to recite the tashahhud in prayer five times? Is that not so? The morning prayer, noon, afternoon, sunset, and night prayers—five times. He recited the tashahhud, and behind him were who? His Companions. And daily, how many times? Five times. And for ten years. After that, should difference occur or not?\" It should not. Why? Five times! Not just once. Five times. I am not talking about ablution (wudu'), which he might perform at home so his companions do not see him. But his tashahhud, the companions hear it, do they not?",
+   "terms": [
+    "الرواية"
+   ]
+  },
+  {
+   "start": 3157.69,
+   "end": 3180.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "And we now have, in Sunni texts alone—let it be known to you, not in Shi'i texts—nine versions of the tashahhud.",
+   "terms": []
+  },
+  {
+   "start": 3180.69,
+   "end": 3201.69,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "For example? Two different tashahhuds? I will not mention them now. Ibn Mas'ud mentions to us that he used to recite tashahhud like this. Ibn 'Abbas used to recite tashahhud like this. 'Umar ibn al-Khattab used to say he recited tashahhud like this. 'Abdullah ibn 'Umar ibn al-Khattab... Nine of the Companions who say, \"We heard him reciting like this.\"",
+   "terms": []
+  },
+  {
+   "start": 3201.69,
+   "end": 3221.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "You are between two options: either you say the matter was broad, and the Messenger of God daily recited... No, I want to tell you—listen to me, my dear—I want to tell you, in a matter that is heard, known, and clear, even so, difference occurred in it.",
+   "terms": []
+  },
+  {
+   "start": 3221.69,
+   "end": 3248.69,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "This is what made Sayyid Kamal al-Haydari say that absolute truth cannot be... May God reward you with good. I am speaking from within the system. I say, O you who say, \"No, the Messenger of God said, 'Pray as you have seen me praying.'\" How did he pray? His close Companions, each one says he used to pray like this.",
+   "terms": []
+  },
+  {
+   "start": 3248.69,
+   "end": 3274.69,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "So I am between two options... And I am speaking with a man of religion who works in philosophy and focuses heavily on epistemology. Very much so. And his teacher also focused on epistemology, the author of The Logical Foundations of Induction. He sees this system that we talked about and deconstructed many of its foundations as capable of producing—we won't say the truth—but capable of producing endless juristic reasonings (ijtihadat).",
+   "terms": [
+    "الاجتهاد"
+   ]
+  },
+  {
+   "start": 3274.69,
+   "end": 3293.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "These endless ijtihadat, yes, but on their terms and conditions. I will continue. Yes, of course, on its terms. One might judge—now I demand a judgment from Sayyid al-Haydari on the system according to this discussion—this results in acts of killing. How do we describe this system?",
+   "terms": []
+  },
+  {
+   "start": 3293.69,
+   "end": 3309.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "The answer: if, as I told you, if a reading leads to negative results, then miserable is that reading. That's it. But this has nothing to do with religion.",
+   "terms": []
+  },
+  {
+   "start": 3309.69,
+   "end": 3316.69,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "It has nothing to do with the system? Not at all, because the system is not in anyone's hands.",
+   "terms": []
+  },
+  {
+   "start": 3316.69,
+   "end": 3327.69,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "The system is responsible for correcting its course. Yes. Yes. It entrusted that to the human intellect. Of course, you know, Sayyid, this discussion does not end. It does not, nor is the decision for it to end.",
+   "terms": []
+  },
+  {
+   "start": 3327.69,
+   "end": 3343.69,
+   "speaker": "al-Haydari",
+   "kind": "speech",
+   "text": "And that is why I believe this research will not end until the appearance of the Proof (al-Hujja). Yes, I do not believe that... Every now and then you open a new area for me. Yes, some imagine that when we reach the era of al-Hujja, it will be like heaven. No, it is not so. The proof is that they say in the narrations that he will be killed. This means evil exists or not? It exists.",
+   "terms": []
+  },
+  {
+   "start": 3343.69,
+   "end": 3382.1,
+   "speaker": "Host",
+   "kind": "speech",
+   "text": "Unfortunately, we have reached the end of this episode, which is the fifth episode, dear viewers. Other themes await us, which I hope to conclude in the sixth episode, due to objective circumstances. I might record, and there are still many files and themes, but travel circumstances, pandemic circumstances, and other circumstances... So, I conclude with you this fifth episode, and I invite you to honor us by following the upcoming episodes, regardless of which episode. Thank you very much. And thank you to you as well.",
+   "terms": []
+  }
+ ]
+}

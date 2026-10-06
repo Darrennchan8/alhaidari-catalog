@@ -1,0 +1,31 @@
+{
+ "id": "geVUqz5Ttb8",
+ "model": "gemini-3.5-flash-lite",
+ "created_at": "2026-10-06T07:44:54.416898Z",
+ "source": "metadata",
+ "title_en": "Exegesis of Surah al-Qadr - Episode 22: The Spirit belongs to the realm of the command",
+ "description_en": "",
+ "summary": "This lecture examines how the Spirit originates from the realm of the command ('alam al-amr) as indicated in Quranic exegesis.",
+ "key_points": [],
+ "topics": [
+  "Exegesis",
+  "Realm of the command",
+  "Surah al-Qadr",
+  "The Spirit"
+ ],
+ "series_en": "Exegesis of Surah al-Qadr",
+ "episode": 22,
+ "format": "lecture",
+ "references": {
+  "quran": [
+   {
+    "surah": 97,
+    "ayah_start": 4,
+    "ayah_end": 4,
+    "note": "Discussion of the descent of the Spirit"
+   }
+  ],
+  "people": [],
+  "works": []
+ }
+}

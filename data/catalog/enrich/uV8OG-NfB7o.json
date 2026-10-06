@@ -1,0 +1,31 @@
+{
+ "id": "uV8OG-NfB7o",
+ "model": "gemini-3.5-flash-lite",
+ "created_at": "2026-10-06T07:44:54.429555Z",
+ "source": "metadata",
+ "title_en": "Exegesis of Surah al-Qadr - Episode 15: Angels from the realm of malakut",
+ "description_en": "",
+ "summary": "An exploration of angels in relation to the spiritual realm of malakut as referenced in Surah al-Qadr.",
+ "key_points": [],
+ "topics": [
+  "Angels",
+  "Exegesis",
+  "Malakut",
+  "Surah al-Qadr"
+ ],
+ "series_en": "Exegesis of Surah al-Qadr",
+ "episode": 15,
+ "format": "lecture",
+ "references": {
+  "quran": [
+   {
+    "surah": 97,
+    "ayah_start": 4,
+    "ayah_end": 4,
+    "note": "Discussion of angels"
+   }
+  ],
+  "people": [],
+  "works": []
+ }
+}

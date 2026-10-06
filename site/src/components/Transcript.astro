@@ -1,0 +1,76 @@
+---
+import type { Segment } from "~/lib/types";
+import { timestamp } from "~/lib/format";
+
+interface Props {
+  segments: Segment[];
+  title: string;
+}
+const { segments, title } = Astro.props;
+const speakers = new Set(segments.map((s) => s.speaker).filter(Boolean));
+const multiSpeaker = speakers.size > 1;
+const kindLabel: Record<string, string> = { quran: "Qur'an", hadith: "Hadith", poetry: "Poetry", dua: "Supplication" };
+---
+<section id="transcript" aria-labelledby="transcript-h" class="rounded-xl border border-line bg-surface">
+  <div class="sticky top-14 z-10 flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-line bg-surface/95 backdrop-blur px-4 py-3 rounded-t-xl">
+    <h2 id="transcript-h" class="font-serif text-xl font-semibold mr-auto">English transcript</h2>
+    <label class="flex items-center gap-2 text-sm text-muted cursor-pointer">
+      <input type="checkbox" id="follow" class="accent-[var(--accent)]" checked /> Follow video
+    </label>
+    <label class="flex items-center gap-2 text-sm text-muted cursor-pointer">
+      <input type="checkbox" id="show-terms" class="accent-[var(--accent)]" /> Arabic terms
+    </label>
+    <button id="download-txt" class="text-sm text-accent hover:underline" data-title={title}>Download .txt</button>
+  </div>
+  <ol class="divide-y divide-line/60" id="segments" data-terms="off">
+    {segments.map((s, i) => {
+      const showSpeaker = multiSpeaker && s.speaker && s.speaker !== segments[i - 1]?.speaker;
+      return (
+        <li class="seg group grid grid-cols-[4.5rem_1fr] gap-3 px-4 py-3 scroll-mt-32" id={`t-${Math.floor(s.start)}`} data-start={s.start} data-end={s.end}>
+          <a href={`#t-${Math.floor(s.start)}`} class="seg-time pt-0.5 font-mono text-xs text-muted hover:text-accent tabular-nums" data-seek={s.start} aria-label={`Play from ${timestamp(s.start)}`}>{timestamp(s.start)}</a>
+          <div>
+            {showSpeaker && <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-gold">{s.speaker}</p>}
+            {s.kind !== "speech" && s.kind !== "other" ? (
+              <blockquote class="border-l-2 border-gold pl-3 italic leading-relaxed">
+                <span class="not-italic mr-1 rounded bg-surface-2 px-1.5 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-gold">{kindLabel[s.kind]}</span>
+                {s.text}
+              </blockquote>
+            ) : (
+              <p class:list={["leading-relaxed", s.kind === "other" && "text-muted italic"]}>{s.text}</p>
+            )}
+            {s.terms.length > 0 && (
+              <p class="seg-terms mt-1.5 hidden flex-wrap gap-1.5" lang="ar" dir="rtl">
+                {s.terms.map((t) => <span class="rounded bg-surface-2 px-2 text-sm text-muted">{t}</span>)}
+              </p>
+            )}
+          </div>
+        </li>
+      );
+    })}
+  </ol>
+</section>
+<style>
+  #segments[data-terms="on"] :global(.seg-terms) { display: flex; }
+</style>
+<script>
+  const list = document.getElementById("segments")!;
+  document.getElementById("show-terms")?.addEventListener("change", (e) => {
+    list.dataset.terms = (e.target as HTMLInputElement).checked ? "on" : "off";
+  });
+  document.getElementById("download-txt")?.addEventListener("click", (e) => {
+    const title = (e.currentTarget as HTMLElement).dataset.title ?? "transcript";
+    const lines = [...list.querySelectorAll<HTMLLIElement>(".seg")].map((li) => {
+      const t = li.querySelector(".seg-time")?.textContent ?? "";
+      const body = li.querySelector("p:not(.seg-terms):not(.text-xs), blockquote")?.textContent?.trim() ?? "";
+      const who = li.querySelector("p.text-xs")?.textContent;
+      return `${who ? `\n${who}\n` : ""}[${t}] ${body.replace(/\s+/g, " ")}`;
+    });
+    const blob = new Blob([`${title}\n${location.href}\n\n${lines.join("\n")}\n`], { type: "text/plain" });
+    const a = Object.assign(document.createElement("a"), {
+      href: URL.createObjectURL(blob),
+      download: `${title.replace(/[^\w\- ]+/g, "").slice(0, 80) || "transcript"}.txt`,
+    });
+    a.click();
+    URL.revokeObjectURL(a.href);
+  });
+</script>

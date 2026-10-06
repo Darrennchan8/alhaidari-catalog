@@ -1,0 +1,72 @@
+---
+import Base from "~/layouts/Base.astro";
+import PageHeader from "~/components/PageHeader.astro";
+import VideoGrid from "~/components/VideoGrid.astro";
+import { getCategories, getPlaylists, getVideos } from "~/lib/data";
+import { href } from "~/lib/format";
+
+const videos = getVideos();
+const categories = getCategories().filter((c) => c.count > 0);
+const playlists = getPlaylists().filter((p) => p.video_ids.length > 0).sort((a, b) => (a.title_en || a.title_ar).localeCompare(b.title_en || b.title_ar));
+const years = [...new Set(videos.map((v) => v.upload_date?.slice(0, 4)).filter(Boolean))].sort().reverse();
+const PAGE = 48;
+const sel = "w-full min-w-0 rounded-lg border border-line bg-surface px-3 py-2 text-sm outline-none focus:border-accent";
+---
+<Base title="All videos" description="Browse and filter every video on the al-Haydari channel, with English titles.">
+  <PageHeader title="All videos" eyebrow="Browse">
+    <p class="mt-3 text-muted"><span id="count">{videos.length.toLocaleString("en")}</span> videos</p>
+  </PageHeader>
+  <div class="mx-auto max-w-6xl px-4 mt-6" id="browser" data-index={href("/videos.json")} data-base={href("/")} data-page={PAGE}>
+    <form id="filters" class="grid gap-3 grid-cols-2 lg:grid-cols-[minmax(0,2fr)_repeat(4,minmax(0,1fr))] items-center" onsubmit="return false">
+      <label class="sr-only" for="f-q">Filter titles</label>
+      <input id="f-q" name="q" type="search" placeholder="Filter by title (English or Arabic)…" class:list={[sel, "col-span-2 lg:col-span-1"]} />
+      <label class="sr-only" for="f-topic">Topic</label>
+      <select id="f-topic" name="topic" class={sel}>
+        <option value="">All topics</option>
+        {categories.map((c) => (
+          <optgroup label={c.name}>
+            <option value={`${c.slug}/`}>All of {c.name}</option>
+            {c.subtopics.filter((s) => s.count > 0).map((s) => <option value={s.key}>{s.name}</option>)}
+          </optgroup>
+        ))}
+      </select>
+      <label class="sr-only" for="f-series">Series</label>
+      <select id="f-series" name="series" class={sel}>
+        <option value="">All series</option>
+        <option value="-">Not in a series</option>
+        {playlists.map((p) => <option value={p.slug}>{p.title_en || p.title_ar}</option>)}
+      </select>
+      <label class="sr-only" for="f-year">Year</label>
+      <select id="f-year" name="year" class={sel}>
+        <option value="">Any year</option>
+        {years.map((y) => <option value={y}>{y}</option>)}
+      </select>
+      <label class="sr-only" for="f-sort">Sort</label>
+      <select id="f-sort" name="sort" class={sel}>
+        <option value="newest">Newest</option>
+        <option value="oldest">Oldest</option>
+        <option value="views">Most viewed</option>
+        <option value="longest">Longest</option>
+        <option value="shortest">Shortest</option>
+        <option value="title">Title A–Z</option>
+      </select>
+      <div class="col-span-2 flex flex-wrap gap-4 text-sm lg:col-span-5">
+        <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" id="f-transcript" name="transcript" class="accent-[var(--accent)]" /> Only with full transcript</label>
+        <label class="flex items-center gap-2"><span class="text-muted">Length</span>
+          <select id="f-len" name="len" class="rounded border border-line bg-surface px-2 py-1">
+            <option value="">Any</option><option value="s">Under 20 min</option><option value="m">20–60 min</option><option value="l">Over 1 hour</option>
+          </select>
+        </label>
+        <button type="reset" id="f-reset" class="ml-auto text-accent hover:underline">Reset filters</button>
+      </div>
+    </form>
+    <div id="results" class="mt-6" aria-live="polite">
+      <VideoGrid videos={videos.slice(0, PAGE)} />
+    </div>
+    <nav id="pager" class="mt-8 flex items-center justify-center gap-3" aria-label="Pagination"></nav>
+  </div>
+</Base>
+<script>
+  import { initBrowser } from "~/scripts/browser";
+  initBrowser(document.getElementById("browser")!);
+</script>

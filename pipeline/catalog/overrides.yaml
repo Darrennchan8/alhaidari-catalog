@@ -1,0 +1,4 @@
+# Manual corrections applied on `catalog export` (they win over LLM output).
+# topics:
+#   VIDEO_ID: [category-slug/subtopic-slug, ...]
+topics: {}

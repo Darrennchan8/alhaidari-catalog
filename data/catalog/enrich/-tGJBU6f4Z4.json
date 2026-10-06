@@ -1,0 +1,30 @@
+{
+ "id": "-tGJBU6f4Z4",
+ "model": "gemini-3.5-flash-lite",
+ "created_at": "2026-10-06T07:44:54.440652Z",
+ "source": "metadata",
+ "title_en": "Exegesis of Surah al-Qadr - Episode 9: The night in the Quran",
+ "description_en": "",
+ "summary": "An exploration of the thematic significance and mentions of 'night' throughout the Quran, in relation to Surah al-Qadr.",
+ "key_points": [],
+ "topics": [
+  "Exegesis",
+  "Quranic themes",
+  "Surah al-Qadr"
+ ],
+ "series_en": "Exegesis of Surah al-Qadr",
+ "episode": 9,
+ "format": "lecture",
+ "references": {
+  "quran": [
+   {
+    "surah": 97,
+    "ayah_start": 1,
+    "ayah_end": 2,
+    "note": "Discussion of the night in Surah al-Qadr"
+   }
+  ],
+  "people": [],
+  "works": []
+ }
+}

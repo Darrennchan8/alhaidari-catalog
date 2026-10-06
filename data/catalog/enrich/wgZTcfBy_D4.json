@@ -1,0 +1,23 @@
+{
+ "id": "wgZTcfBy_D4",
+ "model": "gemini-3.5-flash-lite",
+ "created_at": "2026-10-06T07:43:41.300433Z",
+ "source": "metadata",
+ "title_en": "Rules for Dialogue with Ahl al-Sunna",
+ "description_en": "",
+ "summary": "A lecture by His Eminence, the religious authority (marja') Sayyid Kamal al-Haydari outlining methodological principles and rules for constructive dialogue with Sunni Muslims.",
+ "key_points": [],
+ "topics": [
+  "inter-school dialogue",
+  "methodology",
+  "unity"
+ ],
+ "series_en": "Tehran Lectures",
+ "episode": null,
+ "format": "lecture",
+ "references": {
+  "quran": [],
+  "people": [],
+  "works": []
+ }
+}

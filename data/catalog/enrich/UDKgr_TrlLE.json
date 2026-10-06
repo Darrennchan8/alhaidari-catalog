@@ -1,0 +1,28 @@
+{
+ "id": "UDKgr_TrlLE",
+ "model": "gemini-3.8-flash",
+ "created_at": "2026-10-06T05:56:50.400203Z",
+ "source": "metadata",
+ "title_en": "Dialogue on Religion and Secularism – Episode 3",
+ "description_en": "Program 'al-Muraja'a' on Al Iraqiya Satellite Channel – with Sa'dun Damad.",
+ "summary": "Episode 3 of the televised dialogue program 'al-Muraja'a' with Sa'dun Damad on Al Iraqiya Satellite Channel, featuring Sayyid Kamal al-Haydari on the themes of religion and secularism.",
+ "key_points": [],
+ "topics": [
+  "modern thought",
+  "political philosophy",
+  "religion and state",
+  "secularism"
+ ],
+ "series_en": "Dialogue on Religion and Secularism",
+ "episode": 3,
+ "format": "interview",
+ "references": {
+  "quran": [],
+  "people": [
+   "Sa'dun Damad"
+  ],
+  "works": [
+   "al-Muraja'a"
+  ]
+ }
+}

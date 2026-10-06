@@ -1,0 +1,31 @@
+{
+ "id": "eB-WsRtHmBw",
+ "model": "gemini-3.5-flash-lite",
+ "created_at": "2026-10-06T07:44:54.420520Z",
+ "source": "metadata",
+ "title_en": "Exegesis of Surah al-Qadr - Episode 20: The superiority of human beings over angels",
+ "description_en": "",
+ "summary": "This lecture discusses the theological and exegetical perspective on the superiority of human beings compared to angels.",
+ "key_points": [],
+ "topics": [
+  "Angels",
+  "Anthropology",
+  "Exegesis",
+  "Surah al-Qadr"
+ ],
+ "series_en": "Exegesis of Surah al-Qadr",
+ "episode": 20,
+ "format": "lecture",
+ "references": {
+  "quran": [
+   {
+    "surah": 97,
+    "ayah_start": 4,
+    "ayah_end": 4,
+    "note": "Discussion related to angels and beings in Surah al-Qadr"
+   }
+  ],
+  "people": [],
+  "works": []
+ }
+}

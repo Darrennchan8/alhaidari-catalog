@@ -1,0 +1,24 @@
+{
+  "name": "alhaidari-catalog-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && pagefind --site dist",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test": "playwright test"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.3.5",
+    "pagefind": "^1.5.2",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@playwright/test": "^1.63.0",
+    "typescript": "^5.9.3"
+  }
+}

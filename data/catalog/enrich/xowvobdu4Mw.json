@@ -1,0 +1,30 @@
+{
+ "id": "xowvobdu4Mw",
+ "model": "gemini-3.5-flash-lite",
+ "created_at": "2026-10-06T07:44:54.418669Z",
+ "source": "metadata",
+ "title_en": "Exegesis of Surah al-Qadr - Episode 21: Usages of the term 'Spirit' in the Quran",
+ "description_en": "",
+ "summary": "An examination of the different ways the term 'al-ruh' (the Spirit) is used and applied across various Quranic verses.",
+ "key_points": [],
+ "topics": [
+  "Exegesis",
+  "Surah al-Qadr",
+  "The Spirit"
+ ],
+ "series_en": "Exegesis of Surah al-Qadr",
+ "episode": 21,
+ "format": "lecture",
+ "references": {
+  "quran": [
+   {
+    "surah": 97,
+    "ayah_start": 4,
+    "ayah_end": 4,
+    "note": "Discussion of the term spirit"
+   }
+  ],
+  "people": [],
+  "works": []
+ }
+}

@@ -1,0 +1,35 @@
+[project]
+name = "catalog"
+version = "0.1.0"
+description = "Ingestion pipeline for the al-Haydari English lecture catalog"
+requires-python = ">=3.12"
+dependencies = [
+  "yt-dlp[default]>=2025.1.1",
+  "google-genai>=1.0",
+  "pydantic>=2.7",
+  "typer>=0.12",
+  "rich>=13",
+  "pyyaml>=6",
+  "python-dotenv>=1",
+  "tenacity>=8",
+]
+
+[project.scripts]
+catalog = "catalog.cli:app"
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+ignore = ["B008", "E501", "RUF001", "RUF002", "RUF003"]  # typer defaults; prompts are prose

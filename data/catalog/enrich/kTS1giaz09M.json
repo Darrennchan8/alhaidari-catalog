@@ -1,0 +1,30 @@
+{
+ "id": "kTS1giaz09M",
+ "model": "gemini-3.5-flash-lite",
+ "created_at": "2026-10-06T07:44:54.446074Z",
+ "source": "metadata",
+ "title_en": "Exegesis of Surah al-Qadr - Episode 6: Characteristics of the malakuti existence of the Quran",
+ "description_en": "",
+ "summary": "An examination of the spiritual and malakuti dimensions and existence of the Quran in connection with Surah al-Qadr.",
+ "key_points": [],
+ "topics": [
+  "Exegesis",
+  "Malakut",
+  "Surah al-Qadr"
+ ],
+ "series_en": "Exegesis of Surah al-Qadr",
+ "episode": 6,
+ "format": "lecture",
+ "references": {
+  "quran": [
+   {
+    "surah": 97,
+    "ayah_start": 1,
+    "ayah_end": 5,
+    "note": "General exegesis of Surah al-Qadr"
+   }
+  ],
+  "people": [],
+  "works": []
+ }
+}

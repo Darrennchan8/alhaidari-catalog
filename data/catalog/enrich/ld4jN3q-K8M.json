@@ -1,0 +1,29 @@
+{
+ "id": "ld4jN3q-K8M",
+ "model": "gemini-3.5-flash-lite",
+ "created_at": "2026-10-06T07:44:54.438713Z",
+ "source": "metadata",
+ "title_en": "Exegesis of Surah al-Qadr - Episode 10: The meaning of 'al-Qadr' in the verse",
+ "description_en": "",
+ "summary": "This lecture explores the linguistic and theological significance of the term 'al-Qadr' (Decree/Power) in Surah al-Qadr.",
+ "key_points": [],
+ "topics": [
+  "Exegesis",
+  "Surah al-Qadr"
+ ],
+ "series_en": "Exegesis of Surah al-Qadr",
+ "episode": 10,
+ "format": "lecture",
+ "references": {
+  "quran": [
+   {
+    "surah": 97,
+    "ayah_start": 1,
+    "ayah_end": 3,
+    "note": "Discussion of the term al-Qadr"
+   }
+  ],
+  "people": [],
+  "works": []
+ }
+}

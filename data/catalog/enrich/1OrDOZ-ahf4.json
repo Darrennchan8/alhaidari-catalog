@@ -1,0 +1,23 @@
+{
+ "id": "1OrDOZ-ahf4",
+ "model": "gemini-3-flash-preview",
+ "created_at": "2026-10-06T07:36:59.461717Z",
+ "source": "metadata",
+ "title_en": "Epistemology between Islamic and Western Thought, Episode 1",
+ "description_en": "",
+ "summary": "The introductory lecture in a series comparing Islamic and Western theories of knowledge.",
+ "key_points": [],
+ "topics": [
+  "Epistemology",
+  "Islamic Philosophy",
+  "Western Philosophy"
+ ],
+ "series_en": "Epistemology between Islamic and Western Thought",
+ "episode": 1,
+ "format": "lecture",
+ "references": {
+  "quran": [],
+  "people": [],
+  "works": []
+ }
+}

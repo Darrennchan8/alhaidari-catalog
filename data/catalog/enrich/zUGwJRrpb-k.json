@@ -1,0 +1,30 @@
+{
+ "id": "zUGwJRrpb-k",
+ "model": "gemini-3.5-flash-lite",
+ "created_at": "2026-10-06T07:44:54.447823Z",
+ "source": "metadata",
+ "title_en": "Exegesis of Surah al-Qadr - Episode 5: Modes of descent (of the Quran)",
+ "description_en": "",
+ "summary": "This lecture discusses the different modes and stages regarding the descent of the Quran as understood through Surah al-Qadr.",
+ "key_points": [],
+ "topics": [
+  "Exegesis",
+  "Revelation",
+  "Surah al-Qadr"
+ ],
+ "series_en": "Exegesis of Surah al-Qadr",
+ "episode": 5,
+ "format": "lecture",
+ "references": {
+  "quran": [
+   {
+    "surah": 97,
+    "ayah_start": 1,
+    "ayah_end": 4,
+    "note": "Discussion of the descent in Surah al-Qadr"
+   }
+  ],
+  "people": [],
+  "works": []
+ }
+}

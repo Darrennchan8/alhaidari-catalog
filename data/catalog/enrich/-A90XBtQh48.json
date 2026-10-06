@@ -1,0 +1,24 @@
+{
+ "id": "-A90XBtQh48",
+ "model": "gemini-3.5-flash-lite",
+ "created_at": "2026-10-06T07:41:34.698451Z",
+ "source": "metadata",
+ "title_en": "The Theory of the Perfect Human - Episode 56",
+ "description_en": "",
+ "summary": "Exploration of mystical philosophy concerning the perfect human as detailed in Fusus al-Hikam.",
+ "key_points": [],
+ "topics": [
+  "'irfan",
+  "transcendent philosophy"
+ ],
+ "series_en": "Sharh Fusus al-Hikam - Nazariyat al-Insan al-Kamil",
+ "episode": 56,
+ "format": "lesson",
+ "references": {
+  "quran": [],
+  "people": [],
+  "works": [
+   "Fusus al-Hikam"
+  ]
+ }
+}

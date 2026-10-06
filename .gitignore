@@ -1,0 +1,15 @@
+.env
+*.env
+!.env.example
+data/raw/
+data/state.sqlite*
+__pycache__/
+.venv/
+node_modules/
+site/dist/
+site/.astro/
+.pytest_cache/
+.ruff_cache/
+data/site/
+site/test-results/
+site/playwright-report/

@@ -1,0 +1,31 @@
+{
+ "id": "gf1Hq5T1BQ4",
+ "model": "gemini-3.5-flash-lite",
+ "created_at": "2026-10-06T07:42:17.803082Z",
+ "source": "metadata",
+ "title_en": "The Perfect Man Theory - Episode 17",
+ "description_en": "From the lessons on explaining Fusus al-Hikam. What is meant by His saying: (And submit in full submission)?",
+ "summary": "His Eminence, the religious authority (marja') Sayyid Kamal al-Haydari examines the mystical and exegetical significance of the Qur'anic verse commanding complete submission.",
+ "key_points": [],
+ "topics": [
+  "excretion (tafsir)",
+  "mystical gnosis ('irfan)"
+ ],
+ "series_en": "The Perfect Man Theory",
+ "episode": 17,
+ "format": "lesson",
+ "references": {
+  "quran": [
+   {
+    "surah": 4,
+    "ayah_start": 65,
+    "ayah_end": 65,
+    "note": "Reference to submission in the verse"
+   }
+  ],
+  "people": [],
+  "works": [
+   "Fusus al-Hikam"
+  ]
+ }
+}

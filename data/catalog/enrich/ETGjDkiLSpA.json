@@ -1,0 +1,30 @@
+{
+ "id": "ETGjDkiLSpA",
+ "model": "gemini-3-flash-preview",
+ "created_at": "2026-10-06T07:27:07.094931Z",
+ "source": "metadata",
+ "title_en": "The Greatness of the Female Compared to the Male in the Saying of the Almighty: 'And the Male is Not Like the Female'",
+ "description_en": "",
+ "summary": "A brief exegetical analysis of the Qur'anic verse (3:36) regarding the status and distinction of the female.",
+ "key_points": [],
+ "topics": [
+  "Exegesis (tafsir)",
+  "Qur'anic Studies",
+  "Women in Islam"
+ ],
+ "series_en": null,
+ "episode": null,
+ "format": "lecture",
+ "references": {
+  "quran": [
+   {
+    "surah": 3,
+    "ayah_start": 36,
+    "ayah_end": 36,
+    "note": "Mentioned in the title"
+   }
+  ],
+  "people": [],
+  "works": []
+ }
+}

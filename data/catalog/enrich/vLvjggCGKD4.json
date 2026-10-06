@@ -1,0 +1,25 @@
+{
+ "id": "vLvjggCGKD4",
+ "model": "gemini-3-flash-preview",
+ "created_at": "2026-10-06T07:40:07.452447Z",
+ "source": "metadata",
+ "title_en": "Sayyid al-Haydari's Stance on Recent Events in the Iraqi Arena",
+ "description_en": "",
+ "summary": "A short lecture or statement regarding the contemporary political and social situation in Iraq from the perspective of the religious authority.",
+ "key_points": [],
+ "topics": [
+  "Iraq",
+  "politics",
+  "social issues"
+ ],
+ "series_en": "Other Lectures",
+ "episode": null,
+ "format": "lecture",
+ "references": {
+  "quran": [],
+  "people": [
+   "Kamal al-Haydari"
+  ],
+  "works": []
+ }
+}

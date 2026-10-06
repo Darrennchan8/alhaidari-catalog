@@ -1,0 +1,28 @@
+{
+ "id": "VtDan-kCk4g",
+ "model": "gemini-3.5-flash-lite",
+ "created_at": "2026-10-06T07:47:38.189459Z",
+ "source": "metadata",
+ "title_en": "Allama al-Haydari's Stance on al-Kulayni's Book al-Kafi",
+ "description_en": "",
+ "summary": "This lecture details Sayyid Kamal al-Haydari's critical evaluation and methodological approach toward al-Kulayni's seminal hadith collection, al-Kafi.",
+ "key_points": [],
+ "topics": [
+  "al-Kafi",
+  "hadith",
+  "methodology"
+ ],
+ "series_en": "Other Lectures",
+ "episode": null,
+ "format": "lecture",
+ "references": {
+  "quran": [],
+  "people": [
+   "al-Kulayni",
+   "Sayyid Kamal al-Haydari"
+  ],
+  "works": [
+   "al-Kafi"
+  ]
+ }
+}

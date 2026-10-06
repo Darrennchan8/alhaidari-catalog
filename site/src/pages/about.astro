@@ -1,0 +1,62 @@
+---
+import Base from "~/layouts/Base.astro";
+import PageHeader from "~/components/PageHeader.astro";
+import { getStats } from "~/lib/data";
+import { date } from "~/lib/format";
+
+const s = getStats();
+const pct = (a: number, b: number) => `${Math.round((100 * a) / Math.max(b, 1))}%`;
+---
+<Base title="About this catalog" description="What this catalog is, how translations are produced, and their limitations.">
+  <PageHeader title="About this catalog" eyebrow="Project &amp; method" />
+  <div class="mx-auto max-w-3xl px-4 mt-10 space-y-10 leading-relaxed prose-catalog">
+    <section>
+      <h2 class="font-serif text-2xl font-semibold mb-3">What this is</h2>
+      <p>
+        Sayyid Kamal al-Haydari is an Iraqi Shi'i scholar and religious authority (marja') whose lectures span Islamic philosophy and
+        mystical gnosis ('irfan), theology, jurisprudence and its principles, Qur'anic exegesis, the critique of hadith literature, and
+        calls for the renewal of religious thought. Nearly all of it is in Arabic. This site is an independent English catalog of
+        the <a class="text-accent underline" href={s.channel_url} rel="noopener">official YouTube channel</a>, so that English speakers can
+        find, understand and study this body of work.
+      </p>
+      <p>Videos play from YouTube; this site holds only the catalog data and translations.</p>
+    </section>
+
+    <section>
+      <h2 class="font-serif text-2xl font-semibold mb-3">Coverage</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm border border-line rounded-lg overflow-hidden">
+          <tbody class="divide-y divide-line">
+            <tr><th class="text-left font-medium p-3 bg-surface-2/60">Videos catalogued</th><td class="p-3">{s.videos.toLocaleString("en")} ({s.hours.toLocaleString("en")} hours)</td></tr>
+            <tr><th class="text-left font-medium p-3 bg-surface-2/60">English titles &amp; summaries</th><td class="p-3">{s.translated.toLocaleString("en")} ({pct(s.translated, s.videos)})</td></tr>
+            <tr><th class="text-left font-medium p-3 bg-surface-2/60">Full English transcripts</th><td class="p-3">{s.transcribed.toLocaleString("en")} videos, {s.transcribed_hours.toLocaleString("en")} hours ({pct(s.transcribed_hours, s.hours)} of all audio)</td></tr>
+            <tr><th class="text-left font-medium p-3 bg-surface-2/60">Classified by topic</th><td class="p-3">{s.with_topics.toLocaleString("en")}</td></tr>
+            <tr><th class="text-left font-medium p-3 bg-surface-2/60">Last synced with YouTube</th><td class="p-3">{date(s.synced_at.slice(0, 10))}</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="font-serif text-2xl font-semibold mb-3">How translations are made</h2>
+      <ol class="list-decimal pl-5 space-y-2">
+        <li>The channel's videos, playlists and descriptions are collected with <a class="text-accent underline" href="https://github.com/yt-dlp/yt-dlp">yt-dlp</a>.</li>
+        <li>Each video's audio is split at natural pauses into segments of about twelve minutes. A multimodal AI model (Google Gemini) listens to the Arabic and writes a complete, faithful English translation. It doesn't summarise. The output has timestamps, speaker labels, Qur'an and hadith quotations marked, and the key Arabic terms noted.</li>
+        <li>A consistent glossary keeps technical vocabulary stable across the catalog, e.g. <em>ijtihad</em>, <em>wilayat al-faqih</em>, <em>asalat al-wujud</em>.</li>
+        <li>From the transcript, the model writes an English title, summary, key points and references, and proposes subject topics. These are then consolidated into a single browsable taxonomy.</li>
+        <li>Videos not yet transcribed are catalogued from their Arabic title and description only; their pages say so.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2 class="font-serif text-2xl font-semibold mb-3">Limitations</h2>
+      <p>
+        All translations are machine-generated and haven't been reviewed by a human translator. They can mishear names, misattribute
+        quotations, or flatten nuance in technical arguments. Timestamps are approximate. Qur'anic verse references are identified
+        automatically and should be checked. For citation or religious guidance, rely on the original Arabic and the scholar's
+        official publications at <a class="text-accent underline" href="https://alhaydari.com/en/" rel="noopener">alhaydari.com</a>.
+      </p>
+      <p>This project isn't affiliated with Sayyid al-Haydari or his office. All rights to the lectures belong to their owners.</p>
+    </section>
+  </div>
+</Base>

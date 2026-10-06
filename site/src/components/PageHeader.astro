@@ -1,0 +1,26 @@
+---
+interface Props {
+  title: string;
+  arabic?: string;
+  eyebrow?: string;
+  crumbs?: { label: string; href: string }[];
+  /** The title itself is Arabic (not yet translated). */
+  titleAr?: boolean;
+}
+const { title, arabic, eyebrow, crumbs = [], titleAr = false } = Astro.props;
+---
+<div class="border-b border-line bg-surface-2/60">
+  <div class="mx-auto max-w-6xl px-4 py-8 sm:py-10">
+    {crumbs.length > 0 && (
+      <nav aria-label="Breadcrumb" class="mb-3 text-sm text-muted">
+        <ol class="flex flex-wrap gap-1.5">
+          {crumbs.map((c) => <li class="after:content-['/'] after:ml-1.5 after:opacity-50"><a href={c.href} class="hover:text-accent">{c.label}</a></li>)}
+        </ol>
+      </nav>
+    )}
+    {eyebrow && <p class="text-xs font-semibold uppercase tracking-wider text-gold mb-2">{eyebrow}</p>}
+    <h1 class="font-serif text-3xl sm:text-4xl font-semibold leading-tight text-balance" lang={titleAr ? "ar" : undefined} dir={titleAr ? "rtl" : undefined}>{title}</h1>
+    {arabic && <p lang="ar" dir="rtl" class="mt-2 text-lg text-muted">{arabic}</p>}
+    <slot />
+  </div>
+</div>

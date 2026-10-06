@@ -1,0 +1,25 @@
+{
+ "id": "XERIGGKprbU",
+ "model": "gemini-3.5-flash-lite",
+ "created_at": "2026-10-06T07:43:13.188138Z",
+ "source": "metadata",
+ "title_en": "The Stance of Shaykh al-Albani Regarding the Second Caliph's Prohibition of Hajj al-Tamattu'",
+ "description_en": "",
+ "summary": "A short lecture examining the position of al-Albani on the second caliph's prohibition of temporary pilgrimage (hajj al-tamattu').",
+ "key_points": [],
+ "topics": [
+  "Sunna",
+  "Sunni-Shia relations",
+  "jurisprudence (fiqh)"
+ ],
+ "series_en": null,
+ "episode": null,
+ "format": "lecture",
+ "references": {
+  "quran": [],
+  "people": [
+   "Al-Albani"
+  ],
+  "works": []
+ }
+}

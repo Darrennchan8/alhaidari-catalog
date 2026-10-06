@@ -1,0 +1,25 @@
+{
+ "id": "a0Url9ceCBI",
+ "model": "gemini-3.5-flash-lite",
+ "created_at": "2026-10-06T07:42:31.915142Z",
+ "source": "metadata",
+ "title_en": "The Theory of the Perfect Human - Episode 4",
+ "description_en": "",
+ "summary": "This is the fourth episode in a series explaining Fusus al-Hikam, exploring the concept of the Perfect Human.",
+ "key_points": [],
+ "topics": [
+  "Transcendent Philosophy (al-hikma al-muta'aliya)",
+  "mystical gnosis ('irfan)",
+  "perfect human"
+ ],
+ "series_en": "The Theory of the Perfect Human",
+ "episode": 4,
+ "format": "lesson",
+ "references": {
+  "quran": [],
+  "people": [],
+  "works": [
+   "Fusus al-Hikam"
+  ]
+ }
+}

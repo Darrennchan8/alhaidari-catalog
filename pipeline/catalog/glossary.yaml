@@ -1,0 +1,52 @@
+# Preferred English renderings for recurring terms in al-Haydari's lectures.
+# Format: arabic: english rendering (transliteration in parentheses where useful)
+speaker:
+  name: Sayyid Kamal al-Haydari
+  titles: "سماحة المرجع الديني السيد → His Eminence, the religious authority (marja') Sayyid"
+terms:
+  المرجع الديني: religious authority (marja')
+  المرجعية: the religious authority (marja'iyya)
+  الحوزة العلمية: the seminary (hawza)
+  الاجتهاد: independent juristic reasoning (ijtihad)
+  التقليد: following a jurist (taqlid)
+  ولاية الفقيه: guardianship of the jurist (wilayat al-faqih)
+  الفقه: jurisprudence (fiqh)
+  أصول الفقه: principles of jurisprudence (usul al-fiqh)
+  علم الكلام: theology (kalam)
+  العرفان: mystical gnosis ('irfan)
+  الحكمة المتعالية: Transcendent Philosophy (al-hikma al-muta'aliya)
+  أصالة الوجود: the primacy of existence (asalat al-wujud)
+  الماهية: quiddity (mahiyya)
+  الوجود: existence (wujud)
+  التوحيد: divine unity (tawhid)
+  الإمامة: the Imamate
+  العصمة: infallibility ('isma)
+  الغيبة: the Occultation (ghayba)
+  المهدي: the Mahdi
+  أهل البيت: the Ahl al-Bayt (the Prophet's household)
+  الصحابة: the Companions (sahaba)
+  السنة: the Sunna
+  الحديث: hadith
+  الرواية: narration (riwaya)
+  السند: chain of transmission (sanad)
+  علم الرجال: the science of narrators ('ilm al-rijal)
+  التفسير: exegesis (tafsir)
+  التأويل: esoteric interpretation (ta'wil)
+  المحكم والمتشابه: the decisive and the ambiguous verses (muhkam and mutashabih)
+  الإسرائيليات: Isra'iliyyat (narratives of Judeo-Christian origin)
+  المنهج: methodology
+  التراث: the (religious) heritage
+  الشريعة: the Sacred Law (Shari'a)
+  الطائفية: sectarianism
+  العلمانية: secularism
+  الأمة: the Muslim community (umma)
+  النص: the scriptural text (nass)
+  العقل: reason ('aql)
+  النقل: transmitted sources (naql)
+  البدعة: illegitimate innovation (bid'a)
+  التكفير: excommunication (takfir)
+honorifics:
+  rule: >
+    Render honorifics briefly in brackets: صلى الله عليه وآله → (peace be upon him and his family),
+    عليه السلام → (peace be upon him), رضي الله عنه → (may God be pleased with him).
+    Translate الله as "God" (keep "Allah" only inside quoted formulas).

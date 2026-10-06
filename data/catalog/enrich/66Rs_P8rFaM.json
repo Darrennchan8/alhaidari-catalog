@@ -1,0 +1,28 @@
+{
+ "id": "66Rs_P8rFaM",
+ "model": "gemini-3-flash-preview",
+ "created_at": "2026-10-06T07:36:59.498619Z",
+ "source": "metadata",
+ "title_en": "The Influence of the Mu'tazila on the Exegesis of al-Tibyan by al-Shaykh al-Tusi",
+ "description_en": "",
+ "summary": "A lecture examining the intellectual influence of the Mu'tazilite school of theology on the famous Qur'anic exegesis al-Tibyan by the Shi'i scholar al-Shaykh al-Tusi.",
+ "key_points": [],
+ "topics": [
+  "Exegesis (tafsir)",
+  "Mu'tazila",
+  "Theology (kalam)",
+  "al-Shaykh al-Tusi"
+ ],
+ "series_en": "Other Lectures",
+ "episode": null,
+ "format": "lecture",
+ "references": {
+  "quran": [],
+  "people": [
+   "al-Shaykh al-Tusi"
+  ],
+  "works": [
+   "al-Tibyan fi Tafsir al-Qur'an"
+  ]
+ }
+}

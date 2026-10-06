@@ -1,0 +1,27 @@
+{
+ "id": "I8BVdxtPP-M",
+ "model": "gemini-3.5-flash-lite",
+ "created_at": "2026-10-06T07:51:02.035216Z",
+ "source": "metadata",
+ "title_en": "The Suspicion Regarding the Absence of Mahdi Hadiths in the Two Sahihs - Episode 1",
+ "description_en": "The Suspicion Regarding the Absence of Mahdi Hadiths in the Two Sahihs - Episode 1, an episode of the Al-Utruha al-Mahdiyya program by His Eminence, the religious authority (marja') Sayyid Kamal al-Haydari on Al-Kawthar TV.",
+ "summary": "An episode addressing the doubt or claim that hadiths concerning the Mahdi are absent from Sahih al-Bukhari and Sahih Muslim.",
+ "key_points": [],
+ "topics": [
+  "Sahih Muslim",
+  "Sahih al-Bukhari",
+  "hadith",
+  "the Mahdi"
+ ],
+ "series_en": "The Mahdist Thesis",
+ "episode": 1,
+ "format": "lecture",
+ "references": {
+  "quran": [],
+  "people": [],
+  "works": [
+   "Sahih al-Bukhari",
+   "Sahih Muslim"
+  ]
+ }
+}

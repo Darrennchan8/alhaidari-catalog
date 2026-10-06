@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: pipeline
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --locked
+      - run: uv run ruff check catalog tests
+      - run: uv run ruff format --check catalog
+      - run: uv run pytest -q
+
+  site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - name: Export catalog data
+        working-directory: pipeline
+        run: uv sync --locked && uv run catalog export
+      - working-directory: site
+        run: npm ci
+      - working-directory: site
+        run: npx astro check
+      - working-directory: site
+        run: npm run build
+      - working-directory: site
+        run: npx playwright install --with-deps chromium && npx playwright test --project=desktop

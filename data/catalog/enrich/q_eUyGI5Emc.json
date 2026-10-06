@@ -1,0 +1,30 @@
+{
+ "id": "q_eUyGI5Emc",
+ "model": "gemini-3.5-flash-lite",
+ "created_at": "2026-10-06T07:44:54.427714Z",
+ "source": "metadata",
+ "title_en": "Exegesis of Surah al-Qadr - Episode 16: The role of angels in the realm of contingency",
+ "description_en": "",
+ "summary": "This lecture discusses the functions and roles performed by angels within the contingent world ('alam al-imkan).",
+ "key_points": [],
+ "topics": [
+  "Angels",
+  "Exegesis",
+  "Surah al-Qadr"
+ ],
+ "series_en": "Exegesis of Surah al-Qadr",
+ "episode": 16,
+ "format": "lecture",
+ "references": {
+  "quran": [
+   {
+    "surah": 97,
+    "ayah_start": 4,
+    "ayah_end": 4,
+    "note": "Discussion of angels"
+   }
+  ],
+  "people": [],
+  "works": []
+ }
+}

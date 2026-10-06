@@ -1,0 +1,30 @@
+{
+ "id": "nVm91enfL-Y",
+ "model": "gemini-3.5-flash-lite",
+ "created_at": "2026-10-06T07:45:09.269517Z",
+ "source": "metadata",
+ "title_en": "Exegesis of Surah al-Qadr - Episode 3: The Quran Has Two Modes of Existence",
+ "description_en": "",
+ "summary": "His Eminence, the religious authority (marja') Sayyid Kamal al-Haydari explains the two modes of existence of the Quran during his exegesis of Surah al-Qadr.",
+ "key_points": [],
+ "topics": [
+  "Exegesis",
+  "Quranic existence",
+  "Surah al-Qadr"
+ ],
+ "series_en": "Exegesis of Surah al-Qadr",
+ "episode": 3,
+ "format": "lecture",
+ "references": {
+  "quran": [
+   {
+    "surah": 97,
+    "ayah_start": null,
+    "ayah_end": null,
+    "note": "Surah al-Qadr"
+   }
+  ],
+  "people": [],
+  "works": []
+ }
+}

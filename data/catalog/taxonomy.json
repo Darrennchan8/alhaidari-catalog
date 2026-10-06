@@ -1,0 +1,225 @@
+{
+ "model": "gemini-3.5-flash-lite",
+ "created_at": "2026-10-06T07:53:17.886339Z",
+ "categories": [
+  {
+   "slug": "jurisprudence-and-legal-theory",
+   "name": "Jurisprudence and Legal Theory",
+   "description": "The study of Islamic legal rulings, methodology, and the derivation of shari'a laws.",
+   "subtopics": [
+    {
+     "slug": "jurisprudence-fiqh",
+     "name": "Jurisprudence (Fiqh)",
+     "description": "The study of practical Islamic legal rulings and jurisprudence."
+    },
+    {
+     "slug": "principles-of-jurisprudence",
+     "name": "Principles of Jurisprudence (Usul al-Fiqh)",
+     "description": "The methodological foundations and principles used in legal derivation."
+    },
+    {
+     "slug": "juristic-deduction",
+     "name": "Juristic Deduction",
+     "description": "The processes of extracting legal rules from primary sources."
+    },
+    {
+     "slug": "family-and-ritual-law",
+     "name": "Family and Ritual Law",
+     "description": "Specific legal rulings regarding ritual purity, worship, and family matters."
+    },
+    {
+     "slug": "legal-methodology-and-conflict",
+     "name": "Legal Methodology and Conflict of Proofs",
+     "description": "Methods for resolving conflicting evidences and legal proofs in jurisprudence."
+    }
+   ]
+  },
+  {
+   "slug": "hadith-and-narration-studies",
+   "name": "Hadith and Narration Studies",
+   "description": "The authentication, criticism, and analysis of prophetic and imamic traditions.",
+   "subtopics": [
+    {
+     "slug": "hadith-literature-and-sources",
+     "name": "Hadith Literature and Sources",
+     "description": "The study and authentication of prophetic and imamic traditions."
+    },
+    {
+     "slug": "chain-of-transmission",
+     "name": "Chain of Transmission and Narrators",
+     "description": "The examination of chains of transmission and the biographical evaluation of narrators."
+    },
+    {
+     "slug": "hadith-criticism-and-analysis",
+     "name": "Hadith Criticism and Analysis",
+     "description": "Analytical methods and criteria used to critique and interpret hadith texts."
+    }
+   ]
+  },
+  {
+   "slug": "theology-and-creed",
+   "name": "Theology and Creed",
+   "description": "The systematic study of Islamic beliefs, divine attributes, and theological doctrines.",
+   "subtopics": [
+    {
+     "slug": "divine-unity-and-attributes",
+     "name": "Divine Unity and Attributes",
+     "description": "The theological study of God's oneness, attributes, and transcendent nature."
+    },
+    {
+     "slug": "prophethood-and-infallibility",
+     "name": "Prophethood and Infallibility",
+     "description": "The doctrines concerning prophets, revelation, and their divine infallibility."
+    },
+    {
+     "slug": "eschatology-and-afterlife",
+     "name": "Eschatology and the Afterlife",
+     "description": "The theological understanding of death, resurrection, judgment, paradise, and hell."
+    },
+    {
+     "slug": "comparative-theology-and-sects",
+     "name": "Comparative Theology and Sects",
+     "description": "The examination of diverse theological schools, historical sects, and doctrinal movements."
+    }
+   ]
+  },
+  {
+   "slug": "philosophy-and-mystical-gnosis",
+   "name": "Philosophy and Mystical Gnosis",
+   "description": "Metaphysical investigations into existence, transcendent philosophy, and mystical gnosis.",
+   "subtopics": [
+    {
+     "slug": "islamic-philosophy-and-existence",
+     "name": "Islamic Philosophy and Existence",
+     "description": "Metaphysical investigations into existence, reality, and transcendent philosophy."
+    },
+    {
+     "slug": "mystical-gnosis-irfan",
+     "name": "Mystical Gnosis (Irfan)",
+     "description": "The spiritual and esoteric dimensions of mystical philosophy and divine knowledge."
+    },
+    {
+     "slug": "epistemology-and-intellect",
+     "name": "Epistemology and Intellect",
+     "description": "The philosophical inquiry into human knowledge, reason, and rational argument."
+    }
+   ]
+  },
+  {
+   "slug": "qur-anic-studies-and-exegesis",
+   "name": "Qur'anic Studies and Exegesis",
+   "description": "The commentary, methodology, and esoteric interpretation of the Holy Qur'an.",
+   "subtopics": [
+    {
+     "slug": "quranic-exegesis-tafsir",
+     "name": "Qur'anic Exegesis (Tafsir)",
+     "description": "The commentary, interpretation, and methodological study of the Qur'an."
+    },
+    {
+     "slug": "esoteric-interpretation",
+     "name": "Esoteric Interpretation (Ta'wil)",
+     "description": "The deeper, symbolic, and inner interpretations of scriptural texts."
+    },
+    {
+     "slug": "quranic-sciences-and-integrity",
+     "name": "Qur'anic Sciences and Integrity",
+     "description": "Studies concerning the revelation, readings, linguistics, and textual integrity of the Qur'an."
+    }
+   ]
+  },
+  {
+   "slug": "history-and-islamic-heritage",
+   "name": "History and Islamic Heritage",
+   "description": "The historical analysis of Islamic civilization, early history, and prophetic biography.",
+   "subtopics": [
+    {
+     "slug": "early-islamic-history",
+     "name": "Early Islamic History",
+     "description": "The historical analysis of early Islamic society, the caliphate, and historical eras."
+    },
+    {
+     "slug": "prophetic-biography",
+     "name": "Prophetic Biography",
+     "description": "The life, character, and historical records of Prophet Muhammad."
+    },
+    {
+     "slug": "historical-narratives-and-critique",
+     "name": "Historical Narratives and Critique",
+     "description": "The critical examination of historical figures, events, and transmission of historical reports."
+    }
+   ]
+  },
+  {
+   "slug": "ahl-al-bayt-and-imamate",
+   "name": "Ahl al-Bayt and Imamate",
+   "description": "The doctrines and histories concerning the Imams, the Prophet's household, and Ashura.",
+   "subtopics": [
+    {
+     "slug": "the-imamate-and-occultation",
+     "name": "The Imamate and Occultation",
+     "description": "The doctrine of divine leadership through the Imams and the occultation of the Mahdi."
+    },
+    {
+     "slug": "virtues-and-lives-of-ahl-al-bayt",
+     "name": "Virtues and Lives of Ahl al-Bayt",
+     "description": "The biographies, teachings, and spiritual status of the Prophet's household."
+    },
+    {
+     "slug": "ashura-and-karbala",
+     "name": "Ashura and Karbala",
+     "description": "The historical uprising, rituals, and commemoration of Imam al-Husayn."
+    }
+   ]
+  },
+  {
+   "slug": "ethics-spirituality-and-society",
+   "name": "Ethics, Spirituality, and Society",
+   "description": "Studies on moral conduct, spirituality, women's rights, and community issues.",
+   "subtopics": [
+    {
+     "slug": "ethics-and-moral-philosophy",
+     "name": "Ethics and Moral Philosophy",
+     "description": "The study of moral conduct, spiritual growth, piety, and virtues."
+    },
+    {
+     "slug": "women-and-family-in-islam",
+     "name": "Women and Family in Islam",
+     "description": "Discussions on gender roles, women's rights, and family structures in Islamic society."
+    },
+    {
+     "slug": "society-and-community",
+     "name": "Society and Community",
+     "description": "The study of the Muslim community, social justice, and human relations."
+    }
+   ]
+  },
+  {
+   "slug": "contemporary-thought-and-reform",
+   "name": "Contemporary Thought and Reform",
+   "description": "Discussions on religious reform, modern philosophy, politics, and inter-religious dialogue.",
+   "subtopics": [
+    {
+     "slug": "religious-reform-and-renewal",
+     "name": "Religious Reform and Renewal",
+     "description": "Movements and discourse regarding the renewal of religious thought and modern challenges."
+    },
+    {
+     "slug": "politics-and-religious-authority",
+     "name": "Politics and Religious Authority",
+     "description": "The relationship between religion, state, politics, and the religious authority (marja'iyya)."
+    },
+    {
+     "slug": "inter-religious-and-sectarian-dialogue",
+     "name": "Inter-Religious and Sectarian Dialogue",
+     "description": "Discussions and relations between different Islamic schools of thought and other religions."
+    },
+    {
+     "slug": "modern-philosophy-and-science",
+     "name": "Modern Philosophy and Science",
+     "description": "Engagement with modern philosophy, science, secularism, and contemporary ideologies."
+    }
+   ]
+  }
+ ],
+ "mapping": {}
+}

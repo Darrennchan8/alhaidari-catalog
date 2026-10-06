@@ -1,0 +1,28 @@
+{
+ "id": "mb6sXllD4cY",
+ "model": "gemini-3.5-flash-lite",
+ "created_at": "2026-10-06T07:43:54.531990Z",
+ "source": "metadata",
+ "title_en": "Al-Albani's Acknowledgment of the Weakness of Some Narrations in the Two Sahihs",
+ "description_en": "",
+ "summary": "A short video clip featuring Sayyid Kamal al-Haydari discussing hadith evaluation and references to al-Albani's views on narrations in al-Bukhari and Muslim.",
+ "key_points": [],
+ "topics": [
+  "Sunni books",
+  "hadith",
+  "hadith criticism"
+ ],
+ "series_en": null,
+ "episode": null,
+ "format": "clip",
+ "references": {
+  "quran": [],
+  "people": [
+   "Nasir al-Din al-Albani"
+  ],
+  "works": [
+   "Sahih al-Bukhari",
+   "Sahih Muslim"
+  ]
+ }
+}

@@ -1,0 +1,30 @@
+{
+ "id": "CkxutdkIJEo",
+ "model": "gemini-3.5-flash-lite",
+ "created_at": "2026-10-06T07:45:09.273258Z",
+ "source": "metadata",
+ "title_en": "Exegesis of Surah al-Qadr - Episode 1: The Meaning of the Particle 'Inna'",
+ "description_en": "",
+ "summary": "His Eminence, the religious authority (marja') Sayyid Kamal al-Haydari examines the linguistic and exegetical significance of the particle 'Inna' in Surah al-Qadr.",
+ "key_points": [],
+ "topics": [
+  "Exegesis",
+  "Quranic linguistics",
+  "Surah al-Qadr"
+ ],
+ "series_en": "Exegesis of Surah al-Qadr",
+ "episode": 1,
+ "format": "lecture",
+ "references": {
+  "quran": [
+   {
+    "surah": 97,
+    "ayah_start": null,
+    "ayah_end": null,
+    "note": "Surah al-Qadr"
+   }
+  ],
+  "people": [],
+  "works": []
+ }
+}

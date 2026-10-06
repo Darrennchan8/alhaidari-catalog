@@ -1,0 +1,20 @@
+---
+import { topicInfo } from "~/lib/data";
+import { href } from "~/lib/format";
+
+interface Props {
+  topics: string[];
+}
+const items = Astro.props.topics.map((k) => ({ key: k, info: topicInfo(k) })).filter((t) => t.info);
+---
+{items.length > 0 && (
+  <ul class="flex flex-wrap gap-2" aria-label="Topics">
+    {items.map(({ key, info }) => (
+      <li>
+        <a href={href(`/topics/${key}/`)} class="inline-flex items-center gap-1 rounded-full bg-accent-soft px-3 py-1 text-sm text-accent hover:underline">
+          <span class="opacity-70">{info!.category.name} ›</span> {info!.name}
+        </a>
+      </li>
+    ))}
+  </ul>
+)}

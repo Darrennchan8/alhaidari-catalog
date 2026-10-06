@@ -1,0 +1,30 @@
+{
+ "id": "jgV_BWiCDlE",
+ "model": "gemini-3.5-flash-lite",
+ "created_at": "2026-10-06T07:44:54.444248Z",
+ "source": "metadata",
+ "title_en": "Exegesis of Surah al-Qadr - Episode 7: The method of accessing the esoteric meaning (batin) of the Quran",
+ "description_en": "",
+ "summary": "This lecture explores the methodologies used to uncover the esoteric (batin) dimensions of the Quran.",
+ "key_points": [],
+ "topics": [
+  "Esoteric interpretation (ta'wil)",
+  "Exegesis",
+  "Surah al-Qadr"
+ ],
+ "series_en": "Exegesis of Surah al-Qadr",
+ "episode": 7,
+ "format": "lecture",
+ "references": {
+  "quran": [
+   {
+    "surah": 97,
+    "ayah_start": 1,
+    "ayah_end": 5,
+    "note": "General exegesis of Surah al-Qadr"
+   }
+  ],
+  "people": [],
+  "works": []
+ }
+}

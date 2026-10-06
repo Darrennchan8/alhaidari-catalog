@@ -1,0 +1,25 @@
+{
+ "id": "N32f9HzcDTo",
+ "model": "gemini-3.5-flash-lite",
+ "created_at": "2026-10-06T07:47:38.185976Z",
+ "source": "metadata",
+ "title_en": "The Reformist Project of Allama al-Haydari",
+ "description_en": "Follow us on Facebook\nhttps://www.facebook.com/alhaydarii\n\nFollow us on Twitter\nhttps://twitter.com/alheydari",
+ "summary": "A comprehensive overview of the intellectual and religious reform project advanced by Sayyid Kamal al-Haydari.",
+ "key_points": [],
+ "topics": [
+  "methodology",
+  "reform project",
+  "religious renewal"
+ ],
+ "series_en": "Other Lectures",
+ "episode": null,
+ "format": "lecture",
+ "references": {
+  "quran": [],
+  "people": [
+   "Sayyid Kamal al-Haydari"
+  ],
+  "works": []
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "id": "wQWdFez9s-A",
+ "model": "gemini-3.5-flash-lite",
+ "created_at": "2026-10-06T07:48:56.372041Z",
+ "source": "metadata",
+ "title_en": "Ibn Taymiyya's Evaluation of the Umayyad Era",
+ "description_en": "Features of Umayyad Islam - 6",
+ "summary": "An analysis of Ibn Taymiyya's historical evaluation and perspective on the Umayyad era.",
+ "key_points": [],
+ "topics": [
+  "Ibn Taymiyya",
+  "Umayyad history"
+ ],
+ "series_en": "Mu'alim al-Islam al-Umawi",
+ "episode": 6,
+ "format": "lecture",
+ "references": {
+  "quran": [],
+  "people": [
+   "Ibn Taymiyya"
+  ],
+  "works": []
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "id": "jyzvWz-jvVE",
+ "model": "gemini-3.5-flash-lite",
+ "created_at": "2026-10-06T07:48:23.526076Z",
+ "source": "metadata",
+ "title_en": "Sayyid Kamal al-Haydari Challenges All Sunni Scholars",
+ "description_en": "His Eminence, the religious authority (marja') Sayyid Kamal al-Haydari (may his shadow endure) challenges all Sunni scholars regarding the fact that the Verse of Purification does not include the wives of the Prophet (peace be upon him and his family).",
+ "summary": "This clip features Sayyid Kamal al-Haydari challenging Sunni scholarly consensus regarding the scope of the Verse of Purification.",
+ "key_points": [],
+ "topics": [
+  "Sunni-Shi'i relations",
+  "Verse of Purification",
+  "exegesis"
+ ],
+ "series_en": null,
+ "episode": null,
+ "format": "clip",
+ "references": {
+  "quran": [
+   {
+    "surah": 33,
+    "ayah_start": 33,
+    "ayah_end": 33,
+    "note": "Verse of Purification"
+   }
+  ],
+  "people": [
+   "Sayyid Kamal al-Haydari"
+  ],
+  "works": []
+ }
+}

@@ -1,0 +1,28 @@
+---
+import type { VideoSummary } from "~/lib/types";
+import { date, duration, href, langAttrs, thumb, title } from "~/lib/format";
+
+interface Props {
+  video: VideoSummary;
+  showSummary?: boolean;
+  index?: number;
+}
+const { video: v, showSummary = false, index } = Astro.props;
+const t = title(v);
+---
+<article class="group relative flex flex-col rounded-xl bg-surface border border-line overflow-hidden hover:border-accent/60 hover:shadow-md transition">
+  <div class="relative aspect-video bg-surface-2">
+    <img src={thumb(v.id)} alt="" loading="lazy" decoding="async" width="320" height="180" class="size-full object-cover" />
+    {v.duration && <span class="absolute bottom-1.5 right-1.5 rounded bg-black/75 px-1.5 py-0.5 text-[11px] font-medium text-white">{duration(v.duration)}</span>}
+    {index != null && <span class="absolute top-1.5 left-1.5 rounded bg-black/75 px-1.5 py-0.5 text-[11px] font-medium text-white">#{index}</span>}
+    {v.has_transcript && <span class="absolute top-1.5 right-1.5 rounded bg-accent px-1.5 py-0.5 text-[11px] font-semibold text-accent-ink" title="Full English transcript available">Transcript</span>}
+  </div>
+  <div class="flex flex-col gap-1.5 p-3.5">
+    <h3 class="font-serif font-semibold leading-snug line-clamp-3">
+      <a href={href(`/v/${v.id}/`)} class="after:absolute after:inset-0 group-hover:text-accent" {...langAttrs(t.ar)}>{t.text}</a>
+    </h3>
+    {!t.ar && <p lang="ar" dir="rtl" class="text-sm text-muted line-clamp-1">{v.title_ar}</p>}
+    {showSummary && v.summary && <p class="text-sm text-muted line-clamp-3">{v.summary}</p>}
+    <p class="text-xs text-muted mt-auto pt-1">{date(v.upload_date)}</p>
+  </div>
+</article>
