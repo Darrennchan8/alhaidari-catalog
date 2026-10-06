@@ -4,6 +4,48 @@
  "created_at": "2026-10-06T05:42:10.690909Z",
  "duration": 3382.1,
  "chunks": 5,
+ "chunk_info": [
+  {
+   "start": 0.0,
+   "end": 720.8155,
+   "model": "gemini-3.8-flash",
+   "translated_at": "2026-10-06T05:42:10.690909Z",
+   "problem": null,
+   "segment_count": 26
+  },
+  {
+   "start": 720.8155,
+   "end": 1439.66,
+   "model": "gemini-3.5-flash",
+   "translated_at": "2026-10-06T05:42:10.690909Z",
+   "problem": null,
+   "segment_count": 36
+  },
+  {
+   "start": 1439.66,
+   "end": 2157.3599999999997,
+   "model": "gemini-3.5-flash",
+   "translated_at": "2026-10-06T05:42:10.690909Z",
+   "problem": null,
+   "segment_count": 50
+  },
+  {
+   "start": 2157.3599999999997,
+   "end": 2877.69,
+   "model": "gemini-3.5-flash",
+   "translated_at": "2026-10-06T05:42:10.690909Z",
+   "problem": "16 segments have no duration (timestamps ran past the end of the clip)",
+   "segment_count": 112
+  },
+  {
+   "start": 2877.69,
+   "end": 3382.1,
+   "model": "gemini-3.5-flash",
+   "translated_at": "2026-10-06T05:42:10.690909Z",
+   "problem": null,
+   "segment_count": 34
+  }
+ ],
  "segments": [
   {
    "start": 0.0,
