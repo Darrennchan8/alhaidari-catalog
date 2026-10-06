@@ -359,6 +359,46 @@ def run(
 
 
 @app.command()
+def review(
+    key: str = typer.Argument(None, help="chunk to decide on, as VIDEO@START (from the listing)"),
+    ok: bool = typer.Option(False, "--ok", help="checked: nothing to fix (hides the flag)"),
+    fix: bool = typer.Option(False, "--fix", help="checked: needs a manual correction"),
+    note: str = typer.Option("", help="note to store with the decision"),
+    show_all: bool = typer.Option(False, "--all", help="include chunks already decided"),
+) -> None:
+    """List transcript chunks that need a person's attention, or record a decision on one.
+    A decision lasts until the chunk is re-translated by another model."""
+    from . import review as rv
+
+    transcripts = _transcripts()
+    if key:
+        if ok == fix:
+            raise typer.BadParameter("pass exactly one of --ok / --fix")
+        vid = key.partition("@")[0]
+        t = transcripts.get(vid)
+        info = next(
+            (c for c in (t.chunk_info if t else []) if rv.chunk_key(vid, c.start) == key), None
+        )
+        if info is None:
+            raise typer.BadParameter(f"no transcript chunk {key!r}")
+        rv.save_decision(vid, info.start, info.model, "ok" if ok else "fix", note)
+        console.print(f"[green]{key}: marked {'ok' if ok else 'fix'}")
+        return
+
+    flags = rv.flags(transcripts, include_resolved=show_all)
+    if not flags:
+        console.print("[green]nothing to review")
+        return
+    table = Table(title=f"{len(flags)} chunk(s) to review")
+    for col in ("chunk", "model", "why", "listen", "decision"):
+        table.add_column(col, overflow="fold")
+    for f in flags:
+        decided = f"{f.decision.status}: {f.decision.note}" if f.decision else ""
+        table.add_row(f.key, f.info.model, "; ".join(f.reasons), f.url, decided)
+    console.print(table)
+
+
+@app.command()
 def status() -> None:
     """Show coverage, and how much of each result type each model produced (best first)."""
     from collections import Counter
@@ -423,6 +463,34 @@ def status() -> None:
             ],
         )
     console.print(q)
+
+    from . import attempts as att
+    from . import review as rv
+
+    log_entries = att.load()
+    if log_entries:
+        checks = ["coverage", "words", "timing", "overrun", "shorter"]
+        f = Table(title="Chunk translation attempts (each row: one model response)")
+        f.add_column("model")
+        f.add_column("responses", justify="right")
+        f.add_column("failed", justify="right")
+        for c in checks:
+            f.add_column(c, justify="right")
+        by_model: dict[str, list] = {}
+        for a in log_entries:
+            by_model.setdefault(a.model, []).append(a)
+        for m in sorted(by_model, key=lambda m: -quality.rank(m)):
+            rows = by_model[m]
+            failed = sum(a.check is not None for a in rows)
+            f.add_row(
+                m,
+                str(len(rows)),
+                f"{100 * failed / len(rows):.0f}%",
+                *[str(sum(a.check == c for a in rows) or "") for c in checks],
+            )
+        console.print(f)
+    open_flags = rv.flags(transcripts, history=log_entries)
+    console.print(f"chunks awaiting review: {len(open_flags)} (see `catalog review`)")
 
 
 if __name__ == "__main__":

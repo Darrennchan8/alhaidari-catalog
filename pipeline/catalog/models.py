@@ -175,6 +175,12 @@ class SiteVideoSummary(BaseModel):
     summary: str
 
 
+class Notice(BaseModel):
+    start: float
+    end: float
+    message: str
+
+
 class SiteVideo(SiteVideoSummary):
     description_ar: str
     description_en: str
@@ -183,6 +189,7 @@ class SiteVideo(SiteVideoSummary):
     chapters: list[Chapter]
     segments: list[Segment] = Field(default_factory=list)
     transcript_model: str | None = None
+    notices: list[Notice] = Field(default_factory=list)  # known problems in transcript sections
 
 
 class SitePlaylist(BaseModel):

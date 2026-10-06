@@ -46,6 +46,12 @@ export interface VideoSummary {
   summary: string;
 }
 
+export interface Notice {
+  start: number;
+  end: number;
+  message: string;
+}
+
 export interface Video extends VideoSummary {
   description_ar: string;
   description_en: string;
@@ -54,6 +60,7 @@ export interface Video extends VideoSummary {
   chapters: Chapter[];
   segments: Segment[];
   transcript_model: string | null;
+  notices: Notice[];
 }
 
 export interface Playlist {

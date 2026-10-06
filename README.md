@@ -91,6 +91,26 @@ Videos without a transcript are catalogued from their title and description, in 
 `--order playlist|views|newest|oldest|shortest` and `--limit` decide which videos get transcribed first;
 `transcribe --no-upgrade` only adds new transcripts.
 
+### Attempt log and review queue
+
+Every chunk translation attempt is appended to `data/catalog/attempts.jsonl`: model, outcome (retry, accepted,
+accepted with problem, rejected upgrade) and which check failed. `catalog status` turns it into failure rates per
+model and check.
+
+`catalog review` lists chunks that need a person, with a YouTube link at the right timestamp:
+
+- the best-ranked model's translation still fails a check (there is nothing left to upgrade to);
+- the chunk has failed checks with 2 or more models. This usually means an audio issue rather than a model issue:
+  recitation, music, silence, crosstalk, or non-Arabic speech. Such chunks get 1 attempt instead of 3 from then on,
+  so they don't keep using quota.
+- a better model's translation was rejected as much shorter. Sometimes the shorter one is right and the old one was
+  padded or hallucinated.
+
+Record a decision with `catalog review VIDEO@START --ok [--note …]` (checked, nothing to fix) or `--fix --note …`.
+Decisions are stored in `data/catalog/review.json` and apply until the chunk is re-translated by another model.
+On the site, transcript sections with a known problem show a short notice to readers ("Timestamps in this section
+may be inaccurate."); `--ok` removes it.
+
 ### Manual corrections
 
 `pipeline/catalog/overrides.yaml` assigns topics to specific videos; overrides beat the model's output. To fix a

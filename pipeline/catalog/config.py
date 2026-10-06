@@ -50,3 +50,5 @@ GEMINI_MIN_INTERVAL = float(os.getenv("CATALOG_GEMINI_MIN_INTERVAL", "4"))
 YTDLP_SLEEP = float(os.getenv("CATALOG_YTDLP_SLEEP", "1.5"))
 YTDLP_COOKIES = os.getenv("CATALOG_YTDLP_COOKIES", "")
 PLAYLISTS_EN_FILE = CATALOG / "playlists_en.json"
+ATTEMPTS_FILE = CATALOG / "attempts.jsonl"  # every chunk translation attempt and its outcome
+REVIEW_FILE = CATALOG / "review.json"  # manual review decisions

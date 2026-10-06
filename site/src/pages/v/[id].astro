@@ -96,7 +96,7 @@ const categoryNames = [...new Set(v.topics.map((t) => topicInfo(t)?.category.nam
         )}
 
         {v.segments.length > 0 ? (
-          <Transcript segments={v.segments} title={t.text} />
+          <Transcript segments={v.segments} title={t.text} notices={v.notices} />
         ) : (
           <section class="rounded-xl border border-dashed border-line bg-surface p-6 text-center" data-pagefind-ignore>
             <h2 class="font-serif text-xl font-semibold">Transcript in progress</h2>

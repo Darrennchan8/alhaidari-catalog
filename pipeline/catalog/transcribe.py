@@ -13,7 +13,7 @@ from typing import Literal
 from google.genai import types
 from pydantic import BaseModel, Field
 
-from . import audio, config, prompts, quality, store, ytdlp
+from . import attempts, audio, config, prompts, quality, review, store, ytdlp
 from .gemini import Gemini, QuotaExhausted
 from .models import ChunkInfo, Segment, Transcript, VideoMeta
 
@@ -161,9 +161,13 @@ def _translate_chunk(
     meta: VideoMeta,
     parts: int,
     before: list[Segment],
+    kind: Literal["new", "upgrade"] = "new",
+    tries: int = 3,
 ) -> tuple[list[Segment], str, str | None]:
-    """Translate one chunk with the best available model in `chain`. Returns
-    (segments, model used, problem or None). Raises QuotaExhausted if no model in chain is usable."""
+    """Translate one chunk with the best available model in `chain`, retrying up to `tries`
+    times while the result fails the checks. Returns (segments, model used, problem or None);
+    the caller records the final attempt's outcome. Raises QuotaExhausted if no model in
+    chain is usable."""
     context = ""
     if before:
         tail = " ".join(s.text for s in before[-3:])[-600:]
@@ -181,7 +185,7 @@ def _translate_chunk(
     segs: list[Segment] = []
     problem: str | None = "not attempted"
     model = chain[0]
-    for _ in range(3):
+    for attempt in range(1, tries + 1):
         out = gem.generate(chain, contents, _ChunkOut, system=system)
         model = gem.last_model or chain[0]
         segs = offset_segments(out, ch)
@@ -189,8 +193,9 @@ def _translate_chunk(
         overrun = timing_overrun(out, ch)
         if not problem and overrun > OVERRUN_TOLERANCE:
             problem = f"timestamps overran the clip by {100 * (overrun - 1):.0f}% (rescaled)"
-        if not problem:
+        if not problem or attempt == tries:
             break
+        attempts.record(meta.id, ch.index, ch.start, ch.end, model, kind, "retry", problem)
         log.warning("%s chunk %d (%s): %s; retrying", meta.id, ch.index, model, problem)
     return segs, model, problem
 
@@ -226,6 +231,7 @@ def transcribe_video(
     )
     chunks = audio.make_chunks(src, work, config.CHUNK_SECONDS, cuts)
     now = datetime.now(UTC)
+    history = attempts.load()
 
     segments: list[Segment] = []
     infos: list[ChunkInfo] = []
@@ -246,6 +252,8 @@ def transcribe_video(
         cache = work / f"{ch.index:03d}.json"
         cached = store.read_json(cache) if cache.exists() else None
         result: tuple[list[Segment], str, str | None] | None = None
+        kind: Literal["new", "upgrade"] = "new" if old_info is None else "upgrade"
+        fresh = False  # translated in this run (vs. reused from the chunk cache)
         if isinstance(cached, dict) and quality.rank(cached["model"]) > quality.rank(
             old_info.model if old_info else None
         ):
@@ -255,8 +263,15 @@ def transcribe_video(
                 cached.get("problem"),
             )
         elif chain and (existing is None or gem.available(chain)):
+            # A chunk that already failed with several models is likely an audio problem
+            # (recitation, music, silence...): don't spend extra requests retrying it.
+            failed = attempts.failed_models(attempts.for_chunk(history, meta.id, ch.start))
+            tries = 1 if len(failed) >= review.FAILING_MODELS_FOR_REVIEW else 3
             try:
-                result = _translate_chunk(gem, ch, chain, meta, len(chunks), segments)
+                result = _translate_chunk(
+                    gem, ch, chain, meta, len(chunks), segments, kind=kind, tries=tries
+                )
+                fresh = True
             except QuotaExhausted:
                 if existing is None:
                     raise
@@ -277,7 +292,30 @@ def transcribe_video(
                 log.warning(
                     "%s chunk %d: keeping %s: %s", meta.id, ch.index, old_info.model, reason
                 )
+                if fresh:
+                    shorter = "shorter" in reason
+                    attempts.record(
+                        meta.id,
+                        ch.index,
+                        ch.start,
+                        ch.end,
+                        result[1],
+                        kind,
+                        "rejected",
+                        reason if shorter else result[2],
+                    )
                 result = None
+        if result and fresh:
+            attempts.record(
+                meta.id,
+                ch.index,
+                ch.start,
+                ch.end,
+                result[1],
+                kind,
+                "accepted_with_problem" if result[2] else "accepted",
+                result[2],
+            )
 
         if result:
             segs, model, problem = result

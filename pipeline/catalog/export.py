@@ -13,6 +13,7 @@ from . import config, store
 from .models import (
     Channel,
     Enrichment,
+    Notice,
     References,
     SitePlaylist,
     SiteVideo,
@@ -21,6 +22,7 @@ from .models import (
     Transcript,
     VideoMeta,
 )
+from .review import Decision, chunk_key, load_decisions, reader_notice
 from .taxonomy import load_assignments, load_overrides
 
 _ARABIC_DIGITS = str.maketrans("٠١٢٣٤٥٦٧٨٩", "0123456789")
@@ -37,6 +39,15 @@ def episode_from_title(title_ar: str) -> int | None:
     return int(m.group(1)) if m and len(m.group(1)) <= 4 else None
 
 
+def _notices(tr: Transcript, decisions: dict[str, Decision]) -> list[Notice]:
+    out = []
+    for c in tr.chunk_info:
+        message = reader_notice(c, decisions.get(chunk_key(tr.id, c.start)))
+        if message:
+            out.append(Notice(start=c.start, end=c.end, message=message))
+    return out
+
+
 def export_site() -> dict[str, int]:
     ch = store.read_model(config.CHANNEL_FILE, Channel)
     pl_en: dict = (
@@ -49,6 +60,7 @@ def export_site() -> dict[str, int]:
         {f"{c.slug}/{s.slug}" for c in tax.categories for s in c.subtopics} if tax else set()
     )
 
+    decisions = load_decisions()
     out = config.SITE_DATA
     if out.exists():
         shutil.rmtree(out)
@@ -104,6 +116,7 @@ def export_site() -> dict[str, int]:
             chapters=meta.chapters if meta else [],
             segments=tr.segments if tr else [],
             transcript_model=tr.model if tr else None,
+            notices=_notices(tr, decisions) if tr else [],
         )
         store.write_json(out / "videos" / f"{stub.id}.json", video)
         summaries.append(SiteVideoSummary.model_validate(video.model_dump()))
