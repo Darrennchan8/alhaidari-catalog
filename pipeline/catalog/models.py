@@ -72,13 +72,38 @@ class Segment(BaseModel):
     terms: list[str] = []
 
 
+class ChunkInfo(BaseModel):
+    """One translated stretch of audio. Boundaries are kept so a chunk can be re-translated
+    (upgraded) by a better model and spliced back in place."""
+
+    start: float
+    end: float
+    model: str
+    translated_at: datetime
+    problem: str | None = None  # check failure accepted at the time (e.g. low coverage)
+    segment_count: int | None = None  # this chunk's segments, in order, within Transcript.segments
+
+
 class Transcript(BaseModel):
     id: str
-    model: str
-    created_at: datetime
+    model: str  # comma-separated models used, in chunk order (see chunk_info for detail)
+    created_at: datetime  # last time any chunk changed
     duration: float
     chunks: int
+    chunk_info: list[ChunkInfo] = []
     segments: list[Segment]
+
+    def segments_by_chunk(self) -> list[list[Segment]]:
+        """Split segments by chunk: by stored counts when available (robust to segments
+        collapsed onto a chunk boundary), otherwise by time range."""
+        infos = self.chunk_info
+        if infos and all(c.segment_count is not None for c in infos):
+            out, i = [], 0
+            for c in infos:
+                out.append(self.segments[i : i + c.segment_count])
+                i += c.segment_count  # type: ignore[operator]
+            return out
+        return [[s for s in self.segments if c.start <= s.start < c.end] for c in infos]
 
 
 class QuranRef(BaseModel):

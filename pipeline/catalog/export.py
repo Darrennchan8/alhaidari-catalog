@@ -21,7 +21,7 @@ from .models import (
     Transcript,
     VideoMeta,
 )
-from .taxonomy import load_overrides
+from .taxonomy import load_assignments, load_overrides
 
 _ARABIC_DIGITS = str.maketrans("٠١٢٣٤٥٦٧٨٩", "0123456789")
 _EPISODE = re.compile(r"(\d+)\D*$")
@@ -43,9 +43,7 @@ def export_site() -> dict[str, int]:
         store.read_json(config.PLAYLISTS_EN_FILE) if config.PLAYLISTS_EN_FILE.exists() else {}
     )
     tax = store.maybe_model(config.TAXONOMY_FILE, Taxonomy)
-    assigned: dict = (
-        store.read_json(config.ASSIGNMENTS_FILE) if config.ASSIGNMENTS_FILE.exists() else {}
-    )
+    assigned = {k: a.topics for k, a in load_assignments().items()}
     assigned.update(load_overrides())
     valid_topics = (
         {f"{c.slug}/{s.slug}" for c in tax.categories for s in c.subtopics} if tax else set()

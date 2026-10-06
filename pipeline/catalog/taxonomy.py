@@ -10,8 +10,8 @@ from datetime import UTC, datetime
 import yaml
 from pydantic import BaseModel
 
-from . import config, prompts, store
-from .gemini import Gemini
+from . import config, prompts, quality, store
+from .gemini import Gemini, QuotaExhausted
 from .models import Category, Enrichment, Taxonomy
 
 log = logging.getLogger(__name__)
@@ -61,11 +61,10 @@ def build_taxonomy(gem: Gemini, enrichments: list[Enrichment]) -> Taxonomy:
     counts = Counter(t.lower() for e in enrichments for t in e.topics)
     labels = "\n".join(f"{n}\t{t}" for t, n in counts.most_common(MAX_LABELS))
     out = gem.generate(
-        config.TAXONOMY_MODEL,
+        [config.TAXONOMY_MODEL, *config.MODEL_RANKING],
         [prompts.TAXONOMY_PROMPT.format(n=len(enrichments), labels=labels)],
         _TaxOut,
         thinking_level="high",
-        fallbacks=config.ENRICH_FALLBACK_MODELS,
     )
     tax = Taxonomy(
         model=gem.last_model or config.TAXONOMY_MODEL,
@@ -88,42 +87,91 @@ Videos:
 """
 
 
+class Assignment(BaseModel):
+    topics: list[str]
+    model: str
+    assigned_at: datetime
+
+
+def load_assignments() -> dict[str, Assignment]:
+    if not config.ASSIGNMENTS_FILE.exists():
+        return {}
+    raw: dict = store.read_json(config.ASSIGNMENTS_FILE)  # type: ignore[assignment]
+    return {k: Assignment.model_validate(v) for k, v in raw.items()}
+
+
+def _save_assignments(assigned: dict[str, Assignment]) -> None:
+    store.write_json(
+        config.ASSIGNMENTS_FILE,
+        {k: v.model_dump(mode="json") for k, v in sorted(assigned.items())},
+    )
+
+
+def plan_assignments(
+    enrichments: list[Enrichment], assigned: dict[str, Assignment]
+) -> list[tuple[Enrichment, list[str]]]:
+    """Videos needing topics, with the models allowed for each: missing first, then stale (the
+    enrichment changed since), then upgrades of assignments made by lower-ranked models."""
+    jobs: list[tuple[int, Enrichment, list[str]]] = []
+    for e in enrichments:
+        a = assigned.get(e.id)
+        if a is None:
+            jobs.append((0, e, list(config.MODEL_RANKING)))
+        elif e.created_at > a.assigned_at:
+            jobs.append((1, e, list(config.MODEL_RANKING)))
+        elif better := quality.better_models(a.model):
+            jobs.append((2 + quality.rank(a.model), e, better))
+    jobs.sort(key=lambda j: j[0])
+    return [(e, models) for _, e, models in jobs]
+
+
 def assign_topics(
     gem: Gemini, tax: Taxonomy, enrichments: list[Enrichment], rebuild: bool = False
-) -> dict[str, list[str]]:
+) -> dict[str, Assignment]:
     valid = set(topic_keys(tax))
-    existing: dict[str, list[str]] = (
-        {}
-        if rebuild or not config.ASSIGNMENTS_FILE.exists()
-        else store.read_json(config.ASSIGNMENTS_FILE)  # type: ignore[assignment]
-    )
-    # Drop assignments that point at keys no longer in the taxonomy.
-    existing = {k: [t for t in v if t in valid] for k, v in existing.items()}
-    existing = {k: v for k, v in existing.items() if v}
-    todo = [e for e in enrichments if e.id not in existing]
+    assigned = {} if rebuild else load_assignments()
+    # Drop topic keys that are no longer in the taxonomy; reassign videos left with none.
+    for k, a in list(assigned.items()):
+        a.topics = [t for t in a.topics if t in valid]
+        if not a.topics:
+            del assigned[k]
     keys_text = "\n".join(
         f"{c.slug}/{s.slug} — {c.name} › {s.name}" for c in tax.categories for s in c.subtopics
     )
-    for i in range(0, len(todo), ASSIGN_BATCH):
-        batch = todo[i : i + ASSIGN_BATCH]
-        videos = "\n".join(
-            f"- id={e.id} | {e.title_en} | topics: {', '.join(e.topics)} | {e.summary[:240]}"
-            for e in batch
-        )
-        out = gem.generate(
-            config.ENRICH_MODEL,
-            [ASSIGN_PROMPT.format(keys=keys_text, videos=videos)],
-            _AssignOut,
-            fallbacks=config.ENRICH_FALLBACK_MODELS,
-        )
-        ids = {e.id for e in batch}
-        for it in out.items:
-            picked = [t for t in dict.fromkeys(it.topics) if t in valid][:4]
-            if it.id in ids and picked:
-                existing[it.id] = picked
-        store.write_json(config.ASSIGNMENTS_FILE, existing)
-        log.info("assigned topics %d/%d", min(i + ASSIGN_BATCH, len(todo)), len(todo))
-    return existing
+    # Batch jobs that share the same allowed models.
+    groups: dict[tuple[str, ...], list[Enrichment]] = {}
+    for e, models in plan_assignments(enrichments, assigned):
+        groups.setdefault(tuple(models), []).append(e)
+    total = sum(len(v) for v in groups.values())
+    done = 0
+    for models, todo in groups.items():
+        for i in range(0, len(todo), ASSIGN_BATCH):
+            usable = gem.available(list(models))
+            if not usable:
+                log.info("no quota left for %d assignment(s) needing %s", len(todo) - i, models[0])
+                break
+            batch = todo[i : i + ASSIGN_BATCH]
+            videos = "\n".join(
+                f"- id={e.id} | {e.title_en} | topics: {', '.join(e.topics)} | {e.summary[:240]}"
+                for e in batch
+            )
+            try:
+                out = gem.generate(
+                    usable, [ASSIGN_PROMPT.format(keys=keys_text, videos=videos)], _AssignOut
+                )
+            except QuotaExhausted:
+                break
+            model = gem.last_model or usable[0]
+            now = datetime.now(UTC)
+            ids = {e.id for e in batch}
+            for it in out.items:
+                picked = [t for t in dict.fromkeys(it.topics) if t in valid][:4]
+                if it.id in ids and picked:
+                    assigned[it.id] = Assignment(topics=picked, model=model, assigned_at=now)
+            _save_assignments(assigned)
+            done += len(batch)
+            log.info("assigned topics %d/%d", done, total)
+    return assigned
 
 
 def load_overrides() -> dict[str, list[str]]:

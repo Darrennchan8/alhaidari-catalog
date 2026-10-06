@@ -46,15 +46,16 @@ class Gemini:
 
     def generate(
         self,
-        model: str,
+        models: list[str],
         contents: list,
         schema: type[M],
         system: str | None = None,
         temperature: float = 0.2,
         thinking_level: str | None = None,
         max_attempts: int = 8,
-        fallbacks: list[str] | None = None,
     ) -> M:
+        """Call the first usable model in `models` (best first), falling back along the list.
+        Raises QuotaExhausted when every model in the list is out of quota."""
         cfg = types.GenerateContentConfig(
             system_instruction=system,
             temperature=temperature,
@@ -66,11 +67,11 @@ class Gemini:
         level = thinking_level or os.getenv("CATALOG_THINKING_LEVEL", "low")
         if level != "default":
             cfg.thinking_config = types.ThinkingConfig(thinking_level=level)
-        # Fall back along the chain when a model is overloaded (503) or out of daily quota
+        # Fall back along the list when a model is overloaded (503) or out of daily quota
         # (free-tier quotas are per model).
-        chain = list(
-            dict.fromkeys([model, *(config.FALLBACK_MODELS if fallbacks is None else fallbacks)])
-        )
+        chain = list(dict.fromkeys(models))
+        if not chain:
+            raise ValueError("no models to call")
         overloaded: dict[str, int] = {}
         delay = 20.0
         for attempt in range(1, max_attempts + 1):
@@ -127,10 +128,14 @@ class Gemini:
         """The model that produced the most recent successful response in this thread."""
         return getattr(self._local, "model", None)
 
-    def _pick(self, chain: list[str], overloaded: dict[str, int]) -> str:
+    def available(self, models: list[str]) -> list[str]:
+        """The subset of `models` not known to be out of quota (or retired), in order."""
         now = time.time()
         with self._lock:
-            available = [m for m in chain if self._exhausted.get(m, 0) <= now]
+            return [m for m in models if self._exhausted.get(m, 0) <= now]
+
+    def _pick(self, chain: list[str], overloaded: dict[str, int]) -> str:
+        available = self.available(chain)
         if not available:
             raise QuotaExhausted(
                 "daily quota used up for every model in the chain: " + ", ".join(chain)

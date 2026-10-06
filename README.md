@@ -55,21 +55,48 @@ any command and run it again later. Transcription also caches each audio chunk's
 
 A one-hour lecture takes about 5 requests: ~95k input tokens and ~30k output tokens.
 
-### Gemini quota and models
+### Models, quota and upgrades
 
-- Models are set by environment variables (`CATALOG_TRANSCRIBE_MODEL`, etc.). When a model is overloaded (HTTP 503),
-  requests fall back along `CATALOG_FALLBACK_MODELS`.
-- On the free tier, the pipeline stops cleanly when the daily quota runs out (`QuotaExhausted`). Re-run the same
-  command the next day and it resumes. `--order playlist|views|newest|oldest|shortest` and `--limit` decide what
-  gets transcribed first.
-- Videos without a transcript are catalogued from their title and description, in batches of 20 per request. Once
-  transcribed they are re-enriched automatically.
+`CATALOG_MODEL_RANKING` lists the models from best to worst (default: `gemini-3.8-flash`, `gemini-3.5-flash`,
+`gemini-3-flash-preview`, `gemini-3.5-flash-lite`). Every result records the model that produced it: per chunk for
+transcripts, per video for summaries and topic assignments, per playlist for playlist titles.
+`catalog status` shows how much of each came from which model.
+
+Each stage works in priority order until no allowed model has quota:
+
+1. **Missing** results, using the best model that still has quota.
+2. **Stale** results: a summary written before its transcript existed or changed, or topics assigned before the
+   summary changed.
+3. **Upgrades**, from the lowest-ranked results up. Only models ranked strictly above the current result may
+   replace it. A transcript upgrade re-translates just the weaker chunks, at the original chunk boundaries, and
+   splices them in place.
+
+Free-tier quota is per model (about 20 requests a day on this project's key), so lower-ranked models fill gaps while
+higher-ranked ones upgrade. Exhausted models are remembered in `data/raw/quota.json` until the quota resets, and a
+model that is overloaded (HTTP 503) or retired (404) is skipped for the rest of the call.
+
+An upgrade is accepted only if it passes the same checks as a first translation:
+
+- **Coverage:** for chunks over 2 minutes, the segments must reach at least 85% of the chunk.
+- **Word count:** at least 0.6 words per second. Lectures run about 2.
+- **Timing:** fewer than 3 zero-length segments. When the model's timestamps systematically run past the clip, they
+  are rescaled to fit and the chunk is flagged.
+- **Length:** the new translation must be at least 75% as long as the one it replaces. A sharp drop usually means the
+  model summarised instead of translating.
+
+Otherwise the old result is kept. A first translation that still fails after 3 attempts is kept with its problem
+recorded in `chunk_info`, so any better model's clean result replaces it later.
+
+Videos without a transcript are catalogued from their title and description, in batches of 30 per request.
+`--order playlist|views|newest|oldest|shortest` and `--limit` decide which videos get transcribed first;
+`transcribe --no-upgrade` only adds new transcripts.
 
 ### Manual corrections
 
 `pipeline/catalog/overrides.yaml` assigns topics to specific videos; overrides beat the model's output. To fix a
 translation, edit the JSON under `data/catalog/` directly. The stages never overwrite existing outputs unless run with
-`--refresh` / `--rebuild`.
+`--refresh` / `--rebuild`, except that a result from a higher-ranked model replaces a lower-ranked one, so hand
+edits to a lower-ranked result can be overwritten by a later upgrade.
 
 ### Tests
 

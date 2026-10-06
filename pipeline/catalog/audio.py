@@ -65,10 +65,15 @@ def plan_cuts(
     return cuts
 
 
-def make_chunks(src: Path, out_dir: Path, target_seconds: int) -> list[Chunk]:
+def make_chunks(
+    src: Path, out_dir: Path, target_seconds: int, cuts: list[float] | None = None
+) -> list[Chunk]:
+    """Cut `src` into chunks. Pass `cuts` (boundaries incl. 0 and the end) to reproduce an
+    earlier chunking exactly, e.g. when re-translating chunks of an existing transcript."""
     out_dir.mkdir(parents=True, exist_ok=True)
-    duration = probe_duration(src)
-    cuts = plan_cuts(duration, detect_silences(src), float(target_seconds))
+    if cuts is None:
+        duration = probe_duration(src)
+        cuts = plan_cuts(duration, detect_silences(src), float(target_seconds))
     chunks: list[Chunk] = []
     for i, (a, b) in enumerate(itertools.pairwise(cuts)):
         dest = out_dir / f"{i:03d}.ogg"

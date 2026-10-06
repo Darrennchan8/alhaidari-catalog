@@ -121,7 +121,16 @@ def test_export_merges_all_sources(catalog_dir) -> None:
             ],
         ),
     )
-    store.write_json(config.ASSIGNMENTS_FILE, {"a": ["phil/being", "phil/removed"]})
+    store.write_json(
+        config.ASSIGNMENTS_FILE,
+        {
+            "a": {
+                "topics": ["phil/being", "phil/removed"],
+                "model": "m",
+                "assigned_at": NOW.isoformat(),
+            }
+        },
+    )
     config.OVERRIDES_FILE.write_text("topics:\n  b: [phil/being]\n")
 
     stats = export.export_site()

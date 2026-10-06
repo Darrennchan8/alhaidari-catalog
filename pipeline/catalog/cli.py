@@ -110,45 +110,79 @@ def meta(
     console.print(f"[green]fetched {done}/{len(todo)}")
 
 
+def _transcripts() -> dict[str, Transcript]:
+    if not config.TRANSCRIPT_DIR.exists():
+        return {}
+    return {
+        p.stem: store.read_model(p, Transcript)
+        for p in sorted(config.TRANSCRIPT_DIR.glob("*.json"))
+    }
+
+
 @app.command()
 def transcribe(
     ids: list[str] = typer.Argument(None, help="specific video ids (default: by --order)"),
     order: Order = typer.Option(Order.playlist),
-    limit: int = typer.Option(0, help="max videos to transcribe this run (0 = no limit)"),
+    limit: int = typer.Option(0, help="max videos to process this run (0 = no limit)"),
     workers: int = typer.Option(2, help="videos processed in parallel"),
     max_hours: float = typer.Option(0, help="skip videos longer than this (0 = no limit)"),
+    upgrade: bool = typer.Option(
+        True, help="after new videos, re-translate chunks done by lower-ranked models"
+    ),
     keep_audio: bool = typer.Option(False),
-    enrich_after: bool = typer.Option(True, help="re-run enrichment from the transcript"),
+    enrich_after: bool = typer.Option(True, help="re-run enrichment from the new transcript"),
 ) -> None:
-    """Download audio and translate it into a timestamped English transcript."""
-    from .enrich import enrich_video
+    """Translate audio into timestamped English transcripts: untranscribed videos first (in
+    --order), then upgrades of the lowest-ranked chunks, as far as model quota allows."""
+    from . import quality
+    from .enrich import enrich_video, plan_job
     from .gemini import Gemini, QuotaExhausted
     from .transcribe import transcribe_video
 
     ch = _channel()
     pl_titles = {p.id: p.title_ar for p in ch.playlists}
     stubs = {v.id: v for v in ch.videos}
-    queue = ids or _ordered_ids(ch, order)
-    queue = [i for i in queue if not (config.TRANSCRIPT_DIR / f"{i}.json").exists()]
+    existing = _transcripts()
+    ordered = ids or _ordered_ids(ch, order)
+    position = {vid: n for n, vid in enumerate(ordered)}
+    new = [i for i in ordered if i not in existing]
     if max_hours:
-        queue = [i for i in queue if (stubs[i].duration or 0) <= max_hours * 3600]
+        new = [i for i in new if (stubs[i].duration or 0) <= max_hours * 3600]
+    upgrades = (
+        sorted(
+            (i for i in ordered if i in existing and not quality.is_best(existing[i].model)),
+            key=lambda i: (quality.rank(existing[i].model), position[i]),
+        )
+        if upgrade
+        else []
+    )
+    queue = new + upgrades
     if limit:
         queue = queue[:limit]
-    console.print(f"{len(queue)} videos queued")
+    console.print(f"{len(new)} new and {len(upgrades)} upgradable transcripts; {len(queue)} queued")
     gem = Gemini()
-    stop = False
+    stop_new = False
 
     def one(vid: str) -> str:
-        if stop:
-            return f"{vid}: skipped"
+        old = existing.get(vid)
+        if old is None and stop_new:
+            return f"{vid}: skipped (no quota)"
         m = _meta(vid)
         if m is None:
             m = ytdlp.fetch_meta(vid)
             store.write_json(config.META_DIR / f"{vid}.json", m)
-        t = transcribe_video(gem, m, keep_audio=keep_audio)
+        t = transcribe_video(gem, m, existing=old, keep_audio=keep_audio)
+        if t is None:
+            return f"{vid}: unchanged"
         if enrich_after:
-            enrich_video(gem, m, [pl_titles[p.id] for p in stubs[vid].playlists], t)
-        return f"{vid}: {len(t.segments)} segments"
+            e = store.maybe_model(config.ENRICH_DIR / f"{vid}.json", Enrichment)
+            job = plan_job(m, [pl_titles[p.id] for p in stubs[vid].playlists], t, e)
+            if job and gem.available(job.models):
+                try:
+                    enrich_video(gem, job)
+                except QuotaExhausted:
+                    log.warning("%s: no quota to re-enrich; `catalog enrich` will catch up", vid)
+        return f"{vid}: {t.model} ({len(t.segments)} segments)"
 
     with ThreadPoolExecutor(workers) as pool:
         futs = {pool.submit(one, v): v for v in queue}
@@ -156,8 +190,8 @@ def transcribe(
             try:
                 log.info("done %s", f.result())
             except QuotaExhausted as e:
-                stop = True
-                log.error("daily quota exhausted; stopping (re-run later to resume): %s", e)
+                stop_new = True
+                log.error("no model has quota for new transcripts; continuing upgrades only: %s", e)
             except Exception:
                 log.exception("transcribe %s failed", futs[f])
     console.print(f"usage: {gem.usage}")
@@ -166,57 +200,90 @@ def transcribe(
 @app.command()
 def enrich(
     transcribed_only: bool = typer.Option(False, help="only (re)enrich transcribed videos"),
-    refresh: bool = typer.Option(False, help="redo videos that already have an enrichment"),
+    refresh: bool = typer.Option(False, help="redo every video, with the best available model"),
     workers: int = typer.Option(2),
-    limit: int = typer.Option(0),
+    limit: int = typer.Option(0, help="max videos to process (0 = until quota)"),
     batch_size: int = typer.Option(30, help="metadata-only videos per request"),
+    only: list[str] = typer.Option(
+        None, help="restrict to job kinds: missing, stale, upgrade (repeatable)"
+    ),
 ) -> None:
-    """English titles, summaries, topics and references for each video. Videos without a
-    transcript are catalogued from title/description only, and upgraded once transcribed."""
-    from .enrich import enrich_metadata_batch, enrich_video, translate_playlists
+    """English titles, summaries, topics and references. Works in priority order: missing,
+    then stale (transcript newer than the summary), then upgrades from the lowest-ranked model
+    up, stopping when no allowed model has quota."""
+    from .enrich import (
+        EnrichJob,
+        enrich_metadata_batch,
+        enrich_video,
+        plan_job,
+        translate_playlists,
+    )
     from .gemini import Gemini, QuotaExhausted
 
     ch = _channel()
     gem = Gemini()
-    translate_playlists(gem, ch)
+    try:
+        translate_playlists(gem, ch)
+    except QuotaExhausted:
+        log.warning("no quota to translate playlists")
     pl_titles = {p.id: p.title_ar for p in ch.playlists}
-    todo: list[tuple[VideoMeta, list[str], Transcript | None]] = []
+    jobs: list[EnrichJob] = []
     for v in ch.videos:
         m = _meta(v.id)
         if m is None:
             continue
         t = store.maybe_model(config.TRANSCRIPT_DIR / f"{v.id}.json", Transcript)
-        e = store.maybe_model(config.ENRICH_DIR / f"{v.id}.json", Enrichment)
         if transcribed_only and t is None:
             continue
-        stale = e is None or refresh or (t is not None and e.source != "transcript")
-        if stale:
-            todo.append((m, [pl_titles[p.id] for p in v.playlists], t))
+        e = None if refresh else store.maybe_model(config.ENRICH_DIR / f"{v.id}.json", Enrichment)
+        job = plan_job(m, [pl_titles[p.id] for p in v.playlists], t, e)
+        if job and (not only or job.reason in only):
+            if refresh:
+                job.current = store.maybe_model(config.ENRICH_DIR / f"{v.id}.json", Enrichment)
+            jobs.append(job)
+    jobs.sort(key=lambda j: j.priority)
     if limit:
-        todo = todo[:limit]
-    # Videos without transcripts are catalogued in batches from their metadata (cheap);
-    # transcribed videos get a dedicated call with the full transcript.
-    with_t = [a for a in todo if a[2] is not None]
-    without = [(m, pls) for m, pls, t in todo if t is None]
-    jobs: list = [(enrich_video, a) for a in with_t] + [
-        (enrich_metadata_batch, (without[i : i + batch_size],))
-        for i in range(0, len(without), batch_size)
-    ]
-    console.print(f"{len(with_t)} transcribed + {len(without)} metadata-only videos to enrich")
+        jobs = jobs[:limit]
+
+    # Transcribed videos get a call each; the rest go in batches of jobs sharing allowed models.
+    units: list[tuple[int, list[EnrichJob]]] = []
+    batches: dict[tuple[int, tuple[str, ...]], list[EnrichJob]] = {}
+    for job in jobs:
+        if job.transcript is not None and job.transcript.segments:
+            units.append((job.priority, [job]))
+        else:
+            batches.setdefault((job.priority, tuple(job.models)), []).append(job)
+    for (prio, _), group in batches.items():
+        units += [(prio, group[i : i + batch_size]) for i in range(0, len(group), batch_size)]
+    units.sort(key=lambda u: u[0])
+    reasons = {r: sum(j.reason == r for j in jobs) for r in ("missing", "stale", "upgrade")}
+    console.print(f"{len(jobs)} videos to enrich {reasons} in {len(units)} requests")
+
+    def run_unit(unit: list[EnrichJob]) -> int:
+        if not gem.available(unit[0].models):
+            return 0
+        try:
+            if len(unit) == 1 and unit[0].transcript is not None and unit[0].transcript.segments:
+                return int(enrich_video(gem, unit[0]) is not None)
+            return len(enrich_metadata_batch(gem, unit))
+        except QuotaExhausted:
+            return 0
+
+    done = 0
     with ThreadPoolExecutor(workers) as pool:
-        futs = {pool.submit(fn, gem, *args): n for n, (fn, args) in enumerate(jobs)}
+        futs = {pool.submit(run_unit, u): n for n, (_, u) in enumerate(units)}
         for n, f in enumerate(as_completed(futs), 1):
             try:
-                f.result()
-                if n % 10 == 0:
-                    log.info("enrich jobs %d/%d", n, len(jobs))
-            except QuotaExhausted as e:
-                log.error("daily quota exhausted: %s", e)
+                done += f.result()
+            except Exception as e:
+                log.error("enrich request %s failed: %s", futs[f], e)
+            if n % 10 == 0:
+                log.info("enrich requests %d/%d (%d videos updated)", n, len(units), done)
+            if not gem.available(config.MODEL_RANKING):
+                log.warning("every ranked model is out of quota; stopping")
                 pool.shutdown(cancel_futures=True)
                 break
-            except Exception as e:
-                log.error("enrich job %s failed: %s", futs[f], e)
-    console.print(f"usage: {gem.usage}")
+    console.print(f"[green]{done} videos updated; usage: {gem.usage}")
 
 
 @app.command()
@@ -254,60 +321,108 @@ def run(
     order: Order = typer.Option(Order.playlist),
     workers: int = typer.Option(2),
 ) -> None:
-    """Run every stage in order (suitable for a daily cron job); stops early on quota."""
-    from .gemini import QuotaExhausted
+    """Run every stage in order (suitable for a daily cron job). Each stage fills gaps first,
+    then upgrades lower-ranked results, until model quota runs out.
 
+    Transcription goes first: a transcript re-hydrates the video's summary (done right after
+    each transcript), so quota spent upgrading a summary from title/description would be wasted
+    once that video is transcribed. Enrichment then uses whatever quota is left."""
     if resync:
         sync()
     meta(workers=workers, refresh=False, limit=0)
-    try:
-        enrich(transcribed_only=False, refresh=False, workers=workers, limit=0, batch_size=30)
-        transcribe(
-            ids=None,
-            order=order,
-            limit=transcribe_limit,
-            workers=workers,
-            max_hours=0,
-            keep_audio=False,
-            enrich_after=True,
-        )
-        if config.TAXONOMY_FILE.exists() or len(list(config.ENRICH_DIR.glob("*.json"))) > 100:
-            taxonomy(rebuild=False)
-    except QuotaExhausted as e:
-        log.warning("stopping early: %s", e)
+    # New uploads get English titles first; it's cheap (one request per 30 videos).
+    enrich(
+        transcribed_only=False,
+        refresh=False,
+        workers=workers,
+        limit=0,
+        batch_size=30,
+        only=["missing"],
+    )
+    transcribe(
+        ids=None,
+        order=order,
+        limit=transcribe_limit,
+        workers=workers,
+        max_hours=0,
+        upgrade=True,
+        keep_audio=False,
+        enrich_after=True,
+    )
+    enrich(
+        transcribed_only=False, refresh=False, workers=workers, limit=0, batch_size=30, only=None
+    )
+    if config.TAXONOMY_FILE.exists() or len(list(config.ENRICH_DIR.glob("*.json"))) > 100:
+        taxonomy(rebuild=False)
     export()
     status()
 
 
 @app.command()
 def status() -> None:
-    """Show pipeline coverage."""
+    """Show coverage, and how much of each result type each model produced (best first)."""
+    from collections import Counter
+
+    from . import quality
+    from .taxonomy import load_assignments
+
     ch = _channel()
     n = len(ch.videos)
-    hours = sum(v.duration or 0 for v in ch.videos) / 3600
-
-    def count(d) -> int:
-        return len(list(d.glob("*.json"))) if d.exists() else 0
-
-    t_ids = (
-        {p.stem for p in config.TRANSCRIPT_DIR.glob("*.json")}
-        if config.TRANSCRIPT_DIR.exists()
-        else set()
+    durations = {v.id: v.duration or 0 for v in ch.videos}
+    hours = sum(durations.values()) / 3600
+    transcripts = _transcripts()
+    enrichments = (
+        [store.read_model(p, Enrichment) for p in sorted(config.ENRICH_DIR.glob("*.json"))]
+        if config.ENRICH_DIR.exists()
+        else []
     )
-    t_hours = sum(v.duration or 0 for v in ch.videos if v.id in t_ids) / 3600
+    assigned = load_assignments()
+
+    t_hours = sum(durations.get(i, 0) for i in transcripts) / 3600
     table = Table(title=f"{config.CHANNEL_URL} — {n} videos, {hours:.0f} h")
     table.add_column("stage")
     table.add_column("done", justify="right")
     table.add_column("%", justify="right")
+    meta_n = len(list(config.META_DIR.glob("*.json"))) if config.META_DIR.exists() else 0
     for name, done in [
-        ("metadata", count(config.META_DIR)),
-        ("enriched", count(config.ENRICH_DIR)),
-        ("transcribed", len(t_ids)),
+        ("metadata", meta_n),
+        ("enriched", len(enrichments)),
+        ("  from transcript", sum(e.source == "transcript" for e in enrichments)),
+        ("transcribed", len(transcripts)),
+        ("topics assigned", len(assigned)),
     ]:
         table.add_row(name, str(done), f"{100 * done / max(n, 1):.1f}")
     table.add_row("transcribed hours", f"{t_hours:.0f}", f"{100 * t_hours / max(hours, 1):.1f}")
-    table.add_row("playlists", str(len(ch.playlists)), "")
     console.print(table)
+
+    chunk_hours: Counter[str] = Counter()
+    for t in transcripts.values():
+        infos = t.chunk_info or []
+        if infos:
+            for c in infos:
+                chunk_hours[c.model] += (c.end - c.start) / 3600
+        else:
+            chunk_hours[t.model] += t.duration / 3600
+    columns = {
+        "summaries (videos)": Counter(e.model for e in enrichments),
+        "topics (videos)": Counter(a.model for a in assigned.values()),
+        "transcripts (hours)": chunk_hours,
+    }
+    models = sorted({m for c in columns.values() for m in c}, key=lambda m: -quality.rank(m))
+    q = Table(title="Results by model (ranked best → worst; unranked last)")
+    q.add_column("model")
+    for name in columns:
+        q.add_column(name, justify="right")
+    for m in models:
+        label = m if quality.rank(m) > quality.UNRANKED else f"{m} (unranked)"
+        q.add_row(
+            label,
+            *[
+                (f"{c[m]:.1f}" if name.endswith("(hours)") else f"{c[m]:.0f}") if c[m] else ""
+                for name, c in columns.items()
+            ],
+        )
+    console.print(q)
 
 
 if __name__ == "__main__":

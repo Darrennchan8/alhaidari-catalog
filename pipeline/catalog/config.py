@@ -29,32 +29,18 @@ AUDIO_DIR = RAW / "audio"
 CHUNK_DIR = RAW / "chunks"
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
-TRANSCRIBE_MODEL = os.getenv("CATALOG_TRANSCRIBE_MODEL", "gemini-3.8-flash")
-ENRICH_MODEL = os.getenv("CATALOG_ENRICH_MODEL", "gemini-3.8-flash")
-FALLBACK_MODELS = [
+# Models from best to worst. Every stage tries them in this order, records which one answered,
+# and later upgrades results from lower-ranked models when better ones have quota again.
+# Models not listed are never called; results from unlisted models rank below all listed ones.
+MODEL_RANKING = [
     m.strip()
     for m in os.getenv(
-        "CATALOG_FALLBACK_MODELS",
-        "gemini-3.7-flash,gemini-3.6-flash,gemini-3.5-flash,gemini-3-flash-preview",
+        "CATALOG_MODEL_RANKING",
+        "gemini-3.8-flash,gemini-3.5-flash,gemini-3-flash-preview,gemini-3.5-flash-lite",
     ).split(",")
     if m.strip()
 ]
-# Metadata-only cataloguing is simple; cheaper "lite" models are acceptable fallbacks there.
-ENRICH_FALLBACK_MODELS = [
-    m.strip()
-    for m in os.getenv(
-        "CATALOG_ENRICH_FALLBACK_MODELS",
-        ",".join(
-            [
-                *FALLBACK_MODELS,
-                "gemini-3.5-flash-lite",
-                "gemini-3.1-flash-lite",
-                "gemini-2.5-flash-lite",
-            ]
-        ),
-    ).split(",")
-    if m.strip()
-]
+# Preferred for the one-off taxonomy design call; falls back along MODEL_RANKING.
 TAXONOMY_MODEL = os.getenv("CATALOG_TAXONOMY_MODEL", "gemini-3.1-pro-preview")
 
 # Audio is cut into chunks of roughly this many seconds, at the nearest silence.
