@@ -11,7 +11,7 @@ import yaml
 from pydantic import BaseModel
 
 from . import config, prompts, quality, store
-from .gemini import Gemini, QuotaExhausted
+from .gemini import Gemini, Overloaded, QuotaExhausted
 from .models import Category, Enrichment, Taxonomy
 
 log = logging.getLogger(__name__)
@@ -159,7 +159,8 @@ def assign_topics(
                 out = gem.generate(
                     usable, [ASSIGN_PROMPT.format(keys=keys_text, videos=videos)], _AssignOut
                 )
-            except QuotaExhausted:
+            except (QuotaExhausted, Overloaded) as e:
+                log.warning("topic assignment paused: %s", e)
                 break
             model = gem.last_model or usable[0]
             now = datetime.now(UTC)

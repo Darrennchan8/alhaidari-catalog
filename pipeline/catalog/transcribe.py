@@ -186,7 +186,9 @@ def _translate_chunk(
     problem: str | None = "not attempted"
     model = chain[0]
     for attempt in range(1, tries + 1):
-        out = gem.generate(chain, contents, _ChunkOut, system=system)
+        # wait=False: if every allowed model is cooling down, raise Overloaded so the caller
+        # (a per-model driver) can hand the video back instead of blocking on it.
+        out = gem.generate(chain, contents, _ChunkOut, system=system, wait=False)
         model = gem.last_model or chain[0]
         segs = offset_segments(out, ch)
         problem = check_coverage(segs, ch)
@@ -200,27 +202,46 @@ def _translate_chunk(
     return segs, model, problem
 
 
-def upgradable_chunks(gem: Gemini, existing: Transcript) -> list[int]:
-    """Indexes of chunks that a better-ranked model with quota left could re-translate."""
+def _allowed(chain: list[str], models: list[str] | None) -> list[str]:
+    return chain if models is None else [m for m in chain if m in models]
+
+
+def upgradable_chunks(
+    gem: Gemini, existing: Transcript, models: list[str] | None = None
+) -> list[int]:
+    """Indexes of chunks that a better-ranked model with quota left (restricted to `models`
+    if given) could re-translate."""
     infos = existing.chunk_info or [
         ChunkInfo(
             start=0, end=existing.duration, model=existing.model, translated_at=existing.created_at
         )
     ]
-    return [i for i, c in enumerate(infos) if gem.available(quality.better_models(c.model))]
+    return [
+        i
+        for i, c in enumerate(infos)
+        if gem.available(_allowed(quality.better_models(c.model), models))
+    ]
 
 
 def transcribe_video(
-    gem: Gemini, meta: VideoMeta, existing: Transcript | None = None, keep_audio: bool = False
+    gem: Gemini,
+    meta: VideoMeta,
+    existing: Transcript | None = None,
+    keep_audio: bool = False,
+    models: list[str] | None = None,
 ) -> Transcript | None:
     """Create a transcript, or upgrade the chunks of `existing` that were translated by
     lower-ranked models. Returns the written transcript, or None if nothing changed.
 
     New transcripts raise QuotaExhausted when no model is left (chunk results are cached, so a
     later run resumes). Upgrades keep the old chunk whenever no better model is available or
-    the new translation fails the acceptance checks."""
-    if existing is not None and not upgradable_chunks(gem, existing):
+    the new translation fails the acceptance checks. `models` restricts which models may be
+    used (a per-model driver passes just its own). Raises Overloaded if they are all cooling
+    down; translated chunks stay cached, so whoever picks the video up next reuses them."""
+    if existing is not None and not upgradable_chunks(gem, existing, models):
         return None
+    if existing is None and not _allowed(config.MODEL_RANKING, models):
+        raise ValueError(f"none of {models} is in CATALOG_MODEL_RANKING")
     src = ytdlp.download_audio(meta.id, config.AUDIO_DIR)
     work = config.CHUNK_DIR / meta.id
     legacy = existing is not None and not existing.chunk_info
@@ -247,7 +268,7 @@ def transcribe_video(
         else:
             old_info = existing.chunk_info[ch.index]
             old_segs = existing.segments_by_chunk()[ch.index]
-        chain = quality.better_models(old_info.model if old_info else None)
+        chain = _allowed(quality.better_models(old_info.model if old_info else None), models)
 
         cache = work / f"{ch.index:03d}.json"
         cached = store.read_json(cache) if cache.exists() else None

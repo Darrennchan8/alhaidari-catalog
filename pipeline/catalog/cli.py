@@ -124,7 +124,9 @@ def transcribe(
     ids: list[str] = typer.Argument(None, help="specific video ids (default: by --order)"),
     order: Order = typer.Option(Order.playlist),
     limit: int = typer.Option(0, help="max videos to process this run (0 = no limit)"),
-    workers: int = typer.Option(2, help="videos processed in parallel"),
+    models: list[str] = typer.Option(
+        None, "--model", help="run drivers only for these models (default: the whole ranking)"
+    ),
     max_hours: float = typer.Option(0, help="skip videos longer than this (0 = no limit)"),
     upgrade: bool = typer.Option(
         True, help="after new videos, re-translate chunks done by lower-ranked models"
@@ -132,11 +134,14 @@ def transcribe(
     keep_audio: bool = typer.Option(False),
     enrich_after: bool = typer.Option(True, help="re-run enrichment from the new transcript"),
 ) -> None:
-    """Translate audio into timestamped English transcripts: untranscribed videos first (in
-    --order), then upgrades of the lowest-ranked chunks, as far as model quota allows."""
+    """Translate audio into timestamped English transcripts, with one driver per model pulling
+    from a shared queue: untranscribed videos first (in --order), then upgrades of the
+    lowest-ranked transcripts. Each driver takes only work its model would improve, backs off
+    while its model is overloaded, and stops when its model runs out of daily quota."""
     from . import quality
+    from .drivers import WorkItem, WorkQueue, run_drivers
     from .enrich import enrich_video, plan_job
-    from .gemini import Gemini, QuotaExhausted
+    from .gemini import Gemini, Overloaded, QuotaExhausted
     from .transcribe import transcribe_video
 
     ch = _channel()
@@ -144,57 +149,49 @@ def transcribe(
     stubs = {v.id: v for v in ch.videos}
     existing = _transcripts()
     ordered = ids or _ordered_ids(ch, order)
-    position = {vid: n for n, vid in enumerate(ordered)}
-    new = [i for i in ordered if i not in existing]
-    if max_hours:
-        new = [i for i in new if (stubs[i].duration or 0) <= max_hours * 3600]
-    upgrades = (
-        sorted(
-            (i for i in ordered if i in existing and not quality.is_best(existing[i].model)),
-            key=lambda i: (quality.rank(existing[i].model), position[i]),
-        )
-        if upgrade
-        else []
+    ranking = list(config.MODEL_RANKING)
+    drivers = [m for m in ranking if not models or m in models]
+    items: list[WorkItem] = []
+    for pos, vid in enumerate(ordered):
+        t = existing.get(vid)
+        if t is None:
+            if max_hours and (stubs[vid].duration or 0) > max_hours * 3600:
+                continue
+            items.append(WorkItem((0, pos), vid, lambda m: m in ranking))
+        elif upgrade and not quality.is_best(t.model):
+            better = set(quality.better_models(t.model))
+            items.append(WorkItem((1, quality.rank(t.model), pos), vid, lambda m, b=better: m in b))
+    new = sum(1 for i in items if i.priority[0] == 0)
+    console.print(
+        f"{new} new and {len(items) - new} upgradable transcripts; drivers: {', '.join(drivers)}"
     )
-    queue = new + upgrades
-    if limit:
-        queue = queue[:limit]
-    console.print(f"{len(new)} new and {len(upgrades)} upgradable transcripts; {len(queue)} queued")
     gem = Gemini()
-    stop_new = False
 
-    def one(vid: str) -> str:
-        old = existing.get(vid)
-        if old is None and stop_new:
-            return f"{vid}: skipped (no quota)"
+    def work(item: WorkItem, model: str) -> str:
+        vid = item.key
         m = _meta(vid)
         if m is None:
             m = ytdlp.fetch_meta(vid)
             store.write_json(config.META_DIR / f"{vid}.json", m)
-        t = transcribe_video(gem, m, existing=old, keep_audio=keep_audio)
+        t = transcribe_video(
+            gem, m, existing=existing.get(vid), keep_audio=keep_audio, models=[model]
+        )
         if t is None:
-            return f"{vid}: unchanged"
+            return "unchanged"
         if enrich_after:
             e = store.maybe_model(config.ENRICH_DIR / f"{vid}.json", Enrichment)
             job = plan_job(m, [pl_titles[p.id] for p in stubs[vid].playlists], t, e)
-            if job and gem.available(job.models):
+            if job:
                 try:
-                    enrich_video(gem, job)
-                except QuotaExhausted:
-                    log.warning("%s: no quota to re-enrich; `catalog enrich` will catch up", vid)
-        return f"{vid}: {t.model} ({len(t.segments)} segments)"
+                    enrich_video(gem, job, wait=False)
+                except (QuotaExhausted, Overloaded):
+                    log.warning(
+                        "%s: no model free to re-enrich; `catalog enrich` will catch up", vid
+                    )
+        return f"{t.model} ({len(t.segments)} segments)"
 
-    with ThreadPoolExecutor(workers) as pool:
-        futs = {pool.submit(one, v): v for v in queue}
-        for f in as_completed(futs):
-            try:
-                log.info("done %s", f.result())
-            except QuotaExhausted as e:
-                stop_new = True
-                log.error("no model has quota for new transcripts; continuing upgrades only: %s", e)
-            except Exception:
-                log.exception("transcribe %s failed", futs[f])
-    console.print(f"usage: {gem.usage}")
+    done = run_drivers(gem, drivers, WorkQueue(items), work, limit=limit)
+    console.print(f"transcribed or upgraded: {dict(done) or 'nothing'}; usage: {gem.usage}")
 
 
 @app.command()
@@ -218,14 +215,14 @@ def enrich(
         plan_job,
         translate_playlists,
     )
-    from .gemini import Gemini, QuotaExhausted
+    from .gemini import Gemini, Overloaded, QuotaExhausted
 
     ch = _channel()
     gem = Gemini()
     try:
         translate_playlists(gem, ch)
-    except QuotaExhausted:
-        log.warning("no quota to translate playlists")
+    except (QuotaExhausted, Overloaded) as e:
+        log.warning("playlist titles skipped: %s", e)
     pl_titles = {p.id: p.title_ar for p in ch.playlists}
     jobs: list[EnrichJob] = []
     for v in ch.videos:
@@ -266,7 +263,7 @@ def enrich(
             if len(unit) == 1 and unit[0].transcript is not None and unit[0].transcript.segments:
                 return int(enrich_video(gem, unit[0]) is not None)
             return len(enrich_metadata_batch(gem, unit))
-        except QuotaExhausted:
+        except (QuotaExhausted, Overloaded):
             return 0
 
     done = 0
@@ -343,7 +340,7 @@ def run(
         ids=None,
         order=order,
         limit=transcribe_limit,
-        workers=workers,
+        models=None,
         max_hours=0,
         upgrade=True,
         keep_audio=False,

@@ -145,7 +145,7 @@ def plan_job(
     return None
 
 
-def enrich_video(gem: Gemini, job: EnrichJob) -> Enrichment | None:
+def enrich_video(gem: Gemini, job: EnrichJob, wait: bool = True) -> Enrichment | None:
     meta, transcript = job.meta, job.transcript
     has_t = transcript is not None and bool(transcript.segments)
     user = prompts.ENRICH_USER.format(
@@ -163,6 +163,7 @@ def enrich_video(gem: Gemini, job: EnrichJob) -> Enrichment | None:
         [user],
         _EnrichOut,
         system=prompts.ENRICH_SYSTEM.format(glossary=prompts.glossary_text()),
+        wait=wait,
     )
     e = _to_enrichment(
         out, meta.id, gem.last_model or job.models[0], "transcript" if has_t else "metadata"

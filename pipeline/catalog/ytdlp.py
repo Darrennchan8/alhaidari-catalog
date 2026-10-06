@@ -34,7 +34,8 @@ def _run(args: list[str], retries: int = 3, timeout: int = 1800) -> str:
             return proc.stdout
         err = proc.stderr.strip().splitlines()[-1:] or ["unknown error"]
         # Permanently unavailable videos should not be retried.
-        if any(s in err[0] for s in ("Private video", "Video unavailable", "removed")):
+        permanent = ("Private video", "Video unavailable", "removed", "does not have a")
+        if any(s in err[0] for s in permanent):
             raise YtDlpError(err[0])
         log.warning("yt-dlp failed (attempt %d/%d): %s", attempt, retries, err[0])
         time.sleep(10 * attempt)

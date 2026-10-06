@@ -71,9 +71,24 @@ Each stage works in priority order until no allowed model has quota:
    replace it. A transcript upgrade re-translates just the weaker chunks, at the original chunk boundaries, and
    splices them in place.
 
-Free-tier quota is per model (about 20 requests a day on this project's key), so lower-ranked models fill gaps while
-higher-ranked ones upgrade. Exhausted models are remembered in `data/raw/quota.json` until the quota resets, and a
-model that is overloaded (HTTP 503) or retired (404) is skipped for the rest of the call.
+Free-tier quota is per model (about 20 requests a day on this project's key), so `catalog transcribe` runs **one
+driver per model**, all pulling from a shared priority queue (new videos in `--order`, then upgrades from the lowest
+rank up). Each driver claims only work its own model would improve, so every model's quota is used in parallel and
+the best model always takes the most important work it can.
+
+Each model has its own state, shared by all drivers and stages:
+
+- **Daily quota:** a per-day 429 marks the model exhausted until midnight Pacific, remembered across runs in
+  `data/raw/quota.json`. Its driver stops.
+- **Overload backoff:** each consecutive 503 (or per-minute 429) puts the model in a cooldown that doubles from 30 s
+  up to 15 min (`CATALOG_COOLDOWN_BASE` / `CATALOG_COOLDOWN_MAX`). The model's driver hands its current video back to
+  the queue, so another driver can take it, and sleeps until the cooldown ends. The next request is the probe, and a
+  success resets the backoff. Chunks already translated stay cached, so whoever picks the video up reuses them.
+- **Pacing:** requests to the same model are spaced at least `CATALOG_GEMINI_MIN_INTERVAL` seconds apart.
+
+Stages that can use any model (enrichment, playlist titles, topic assignment) pick the best model that isn't cooling
+down. They wait for one only when all are cooling, and for at most `CATALOG_MAX_COOLDOWN_WAIT`. A retired model (404)
+is skipped for the rest of the run.
 
 An upgrade is accepted only if it passes the same checks as a first translation:
 
@@ -89,7 +104,7 @@ recorded in `chunk_info`, so any better model's clean result replaces it later.
 
 Videos without a transcript are catalogued from their title and description, in batches of 30 per request.
 `--order playlist|views|newest|oldest|shortest` and `--limit` decide which videos get transcribed first;
-`transcribe --no-upgrade` only adds new transcripts.
+`transcribe --no-upgrade` only adds new transcripts; `--model M` (repeatable) runs drivers for just those models.
 
 ### Attempt log and review queue
 
