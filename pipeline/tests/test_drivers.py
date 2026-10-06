@@ -42,7 +42,6 @@ def _daily_quota():
 @pytest.fixture
 def client(tmp_path, monkeypatch):
     """A Gemini client on a fake clock whose API answers from a per-model script."""
-    monkeypatch.setattr(gemini, "QUOTA_FILE", tmp_path / "quota.json")
     monkeypatch.setattr(gemini.config, "GEMINI_MIN_INTERVAL", 0)
     clock = FakeClock()
     gem = Gemini(api_key="test", clock=clock.now, sleep=clock.sleep)
@@ -66,22 +65,26 @@ def test_overloaded_model_cools_down_and_others_take_over(client) -> None:
     assert gem.generate(["best", "good"], [], Out).text == "hi"
     assert client.calls == ["best", "good"]
     assert gem.last_model == "good"
-    # "best" is cooling for 30 s, so the next call goes straight to "good".
+    # "best" is cooling for 5 min, so the next call goes straight to "good".
     assert gem.ready(["best", "good"]) == ["good"]
     gem.generate(["best", "good"], [], Out)
     assert client.calls[-1] == "good"
-    # After the cooldown, "best" is probed; a second 503 doubles its cooldown to 60 s.
-    client.clock.sleep(31)
+    # After the cooldown, "best" is probed; a second 503 doubles its cooldown to 10 min.
+    client.clock.sleep(301)
     gem.generate(["best", "good"], [], Out)
     assert client.calls[-2:] == ["best", "good"]
-    assert gem.ready_at(["best"]) == pytest.approx(client.clock.now() + 60)
+    assert gem.ready_at(["best"]) == pytest.approx(client.clock.now() + 600)
+    # It never backs off for more than 30 min.
+    gem._state("best").overloads = 10
+    gem._overloaded("best")
+    assert gem.ready_at(["best"]) == pytest.approx(client.clock.now() + 1800)
 
 
 def test_success_resets_backoff(client) -> None:
     client.script["best"] = [_overloaded()]
     gem = client.gem
     gem.generate(["best", "good"], [], Out)
-    client.clock.sleep(31)
+    client.clock.sleep(301)
     gem.generate(["best"], [], Out)
     assert gem._state("best").overloads == 0 and gem.ready(["best"]) == ["best"]
 
@@ -90,14 +93,14 @@ def test_pinned_call_raises_overloaded_instead_of_waiting(client) -> None:
     client.script["best"] = [_overloaded()]
     with pytest.raises(Overloaded) as exc:
         client.gem.generate(["best"], [], Out, wait=False)
-    assert exc.value.retry_at == pytest.approx(client.clock.now() + 30)
+    assert exc.value.retry_at == pytest.approx(client.clock.now() + 300)
 
 
 def test_pooled_call_waits_for_cooldown(client) -> None:
     client.script["best"] = [_overloaded()]
     start = client.clock.now()
     assert client.gem.generate(["best"], [], Out).text == "hi"
-    assert client.clock.now() - start == pytest.approx(30)
+    assert client.clock.now() - start == pytest.approx(300)
 
 
 def test_daily_quota_marks_model_until_midnight_pacific(client) -> None:
@@ -210,3 +213,18 @@ def test_drivers_respect_limit() -> None:
     q = WorkQueue([_item(f"v{i}", i) for i in range(10)])
     done = run_drivers(FakeModels(), ["best"], q, lambda i, m: m, limit=3)
     assert sum(done.values()) == 3 and q.remaining() == 7
+
+
+def test_every_request_outcome_is_logged(client) -> None:
+    client.script["best"] = [_overloaded(), _daily_quota()]
+    client.gem.generate(["best", "good"], [], Out)  # best: 503 → good: ok
+    client.clock.sleep(301)
+    client.gem.generate(["best", "good"], [], Out)  # best: quota → good: ok
+    rows = gemini.load_requests()
+    assert [(r["model"], r["outcome"]) for r in rows] == [
+        ("best", "http_503"),
+        ("good", "ok"),
+        ("best", "quota"),
+        ("good", "ok"),
+    ]
+    assert gemini.quota_day(rows[0]["at"]) == "2027-01-15"

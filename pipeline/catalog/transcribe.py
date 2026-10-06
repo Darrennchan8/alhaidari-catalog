@@ -356,7 +356,7 @@ def transcribe_video(
                 meta.id,
                 ch.index + 1,
                 len(chunks),
-                "upgraded" if old_info else "translated",
+                ("reused from cache," if not fresh else "upgraded" if old_info else "translated"),
                 model,
                 len(segs),
             )

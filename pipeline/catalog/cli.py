@@ -486,6 +486,39 @@ def status() -> None:
                 *[str(sum(a.check == c for a in rows) or "") for c in checks],
             )
         console.print(f)
+    from .gemini import load_requests, quota_day
+
+    requests = load_requests()
+    if requests:
+        days = sorted({quota_day(r["at"]) for r in requests})[-7:]
+        rq = Table(title="API requests per model and quota day (Pacific), last 7 days")
+        for col in (
+            "day",
+            "model",
+            "requests",
+            "ok",
+            "503",
+            "other errors",
+            "daily quota hit after",
+        ):
+            rq.add_column(col, justify="left" if col in ("day", "model") else "right")
+        for day in days:
+            todays = [r for r in requests if quota_day(r["at"]) == day]
+            for m in sorted({r["model"] for r in todays}, key=lambda m: -quality.rank(m)):
+                rows = [r for r in todays if r["model"] == m]
+                hit = next((i for i, r in enumerate(rows, 1) if r["outcome"] == "quota"), None)
+                ok = sum(r["outcome"] == "ok" for r in rows)
+                busy = sum(r["outcome"] == "http_503" for r in rows)
+                rq.add_row(
+                    day,
+                    m,
+                    str(len(rows)),
+                    str(ok),
+                    str(busy or ""),
+                    str(len(rows) - ok - busy - (hit is not None) or ""),
+                    f"{hit - 1} requests" if hit else "",
+                )
+        console.print(rq)
     open_flags = rv.flags(transcripts, history=log_entries)
     console.print(f"chunks awaiting review: {len(open_flags)} (see `catalog review`)")
 

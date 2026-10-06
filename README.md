@@ -80,11 +80,16 @@ Each model has its own state, shared by all drivers and stages:
 
 - **Daily quota:** a per-day 429 marks the model exhausted until midnight Pacific, remembered across runs in
   `data/raw/quota.json`. Its driver stops.
-- **Overload backoff:** each consecutive 503 (or per-minute 429) puts the model in a cooldown that doubles from 30 s
-  up to 15 min (`CATALOG_COOLDOWN_BASE` / `CATALOG_COOLDOWN_MAX`). The model's driver hands its current video back to
-  the queue, so another driver can take it, and sleeps until the cooldown ends. The next request is the probe, and a
-  success resets the backoff. Chunks already translated stay cached, so whoever picks the video up reuses them.
+- **Overload backoff:** each consecutive 503 (or per-minute 429) puts the model in a cooldown that doubles from 5 min
+  up to 30 min (`CATALOG_COOLDOWN_BASE` / `CATALOG_COOLDOWN_MAX`). It's deliberately slow because 503s appear to count
+  against the free tier's ~20 requests a day: on 2026-10-06, Gemini 3.5 Flash hit its daily quota after about 19
+  requests, 16 of which got 503. The model's driver hands its current video back to the queue, so another driver can
+  take it, and sleeps until the cooldown ends. The next request is the probe, and a success resets the backoff.
+  Chunks already translated stay cached, so whoever picks the video up reuses them.
 - **Pacing:** requests to the same model are spaced at least `CATALOG_GEMINI_MIN_INTERVAL` seconds apart.
+- **Request log:** every request's outcome (ok, 503, quota, …) goes to `data/raw/requests.jsonl`. `catalog status`
+  summarises it per model and Pacific quota day, including how many requests a model made before hitting its daily
+  quota. That's the number to watch to confirm whether 503s count against quota.
 
 Stages that can use any model (enrichment, playlist titles, topic assignment) pick the best model that isn't cooling
 down. They wait for one only when all are cooling, and for at most `CATALOG_MAX_COOLDOWN_WAIT`. A retired model (404)

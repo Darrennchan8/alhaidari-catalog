@@ -5,10 +5,14 @@ Each model has its own state, shared by every thread using the client:
 - daily quota: a model that returns a per-day 429 is skipped until the quota resets
   (midnight Pacific), and that is persisted in data/raw/quota.json across runs;
 - overload backoff: each consecutive 503 puts the model in a cooldown that doubles
-  (30 s, 1 min, 2 min … up to 15 min). Every caller skips a cooling model; the first request
-  after the cooldown is the probe, and a success resets it;
+  (5, 10, 20 min, then every 30 min). Every caller skips a cooling model; the first request
+  after the cooldown is the probe, and a success resets it. The backoff is deliberately slow:
+  503s appear to count against the free tier's daily request quota;
 - pacing: requests to the same model are spaced at least CATALOG_GEMINI_MIN_INTERVAL apart
   (free-tier per-minute limits are per model).
+
+Every request's outcome is appended to data/raw/requests.jsonl; `catalog status` summarises
+it per model and (Pacific) quota day.
 """
 
 from __future__ import annotations
@@ -34,11 +38,11 @@ from . import config
 log = logging.getLogger(__name__)
 M = TypeVar("M", bound=BaseModel)
 
-COOLDOWN_BASE = float(os.getenv("CATALOG_COOLDOWN_BASE", "30"))
-COOLDOWN_MAX = float(os.getenv("CATALOG_COOLDOWN_MAX", "900"))
+COOLDOWN_BASE = float(os.getenv("CATALOG_COOLDOWN_BASE", "300"))
+COOLDOWN_MAX = float(os.getenv("CATALOG_COOLDOWN_MAX", "1800"))
 # A pooled call (one that may use several models) waits at most this long for a cooling
 # model before giving up with Overloaded.
-MAX_COOLDOWN_WAIT = float(os.getenv("CATALOG_MAX_COOLDOWN_WAIT", "1800"))
+MAX_COOLDOWN_WAIT = float(os.getenv("CATALOG_MAX_COOLDOWN_WAIT", "3600"))
 
 
 class QuotaExhausted(RuntimeError):
@@ -219,10 +223,15 @@ class Gemini:
                     reason = resp.candidates[0].finish_reason if resp.candidates else "none"
                     raise ValueError(f"empty response (finish_reason={reason})")
                 result = schema.model_validate_json(resp.text)
+                self._log_request(current, "ok")
                 self._succeeded(current)
                 self._local.model = current
                 return result
             except errors.ClientError as e:
+                self._log_request(
+                    current,
+                    "quota" if e.code == 429 and _is_daily_quota(e) else f"http_{e.code}",
+                )
                 if e.code == 429 and _is_daily_quota(e):
                     self._mark_exhausted(current)
                     continue
@@ -242,17 +251,26 @@ class Gemini:
                     raise
                 log.warning("%s client error %s: %s", current, e.code, e)
             except errors.ServerError as e:
+                self._log_request(current, f"http_{e.code}")
                 if e.code == 503:
                     self._overloaded(current)
                     continue
                 log.warning("%s server error %s: %s", current, e.code, e)
             except (ValidationError, ValueError) as e:
+                self._log_request(current, "bad_response")
                 log.warning("%s bad response: %s", current, str(e)[:300])
             failures += 1
             if failures >= max_attempts:
                 raise RuntimeError(f"Gemini call failed {failures} times")
             self._sleep(delay)
             delay = min(delay * 2, 600)
+
+    def _log_request(self, model: str, outcome: str) -> None:
+        line = json.dumps({"at": self._now(), "model": model, "outcome": outcome})
+        with self._lock:
+            REQUESTS_FILE.parent.mkdir(parents=True, exist_ok=True)
+            with REQUESTS_FILE.open("a", encoding="utf-8") as f:
+                f.write(line + "\n")
 
     @property
     def last_model(self) -> str | None:
@@ -271,6 +289,7 @@ class Gemini:
 
 
 QUOTA_FILE = config.RAW / "quota.json"
+REQUESTS_FILE = config.RAW / "requests.jsonl"
 QUOTA_TZ = ZoneInfo("America/Los_Angeles")
 
 
@@ -302,3 +321,15 @@ def _save_quota(exhausted: dict[str, float]) -> None:
     QUOTA_FILE.write_text(
         json.dumps({m: t for m, t in exhausted.items() if t != float("inf") and t > now})
     )
+
+
+def quota_day(ts: float) -> str:
+    """The Pacific calendar day a request counts against (YYYY-MM-DD)."""
+    return datetime.fromtimestamp(ts, QUOTA_TZ).date().isoformat()
+
+
+def load_requests() -> list[dict]:
+    if not REQUESTS_FILE.exists():
+        return []
+    with REQUESTS_FILE.open(encoding="utf-8") as f:
+        return [json.loads(line) for line in f if line.strip()]
